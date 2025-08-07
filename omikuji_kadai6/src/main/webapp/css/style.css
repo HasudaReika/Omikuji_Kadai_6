@@ -1,0 +1,33 @@
+body{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+h1{
+	font-family:'Hannotate SC';
+	-webkit-text-stroke:7px white;
+	paint-order:stroke;
+}
+p{
+	font-family:'ヒラギノ丸ゴ Pro';
+}
+.container {
+	background-color: rgb(253, 248, 218);;
+	display: inline-block;
+	margin: 0 auto 2em;
+	padding: 2em;
+	box-shadow: 0 0 6px 1px rgb(216, 216, 187), 0 0 6px 1px rgb(206, 204, 171) inset;
+	border-radius: 30px;
+}
+.error {
+	color: red;
+	font-size:smaller;
+}
+.box{
+	margin:0 auto 2em;
+	padding: 2em;
+	border-radius:30px;
+	background-color: white;
+	font-size:larger;
+}
