@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>omikuji6</groupId>
+	<groupId>omikuji_kadai6</groupId>
 	<artifactId>omikuji_kadai6</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
@@ -28,8 +28,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -54,21 +54,10 @@
 						<wtpversion>1.5</wtpversion>
 					</configuration>
 				</plugin>
-
-				<plugin>
-					<groupId>org.seasar.dbflute</groupId>
-					<artifactId>dbflute-maven-plugin</artifactId>
-					<!-- DBFlute Maven Plugin のバージョン -->
-					<version>1.2.9</version>
-					<configuration>
-						<dbfluteVersion>1.2.9</dbfluteVersion>
-						<dbPackage>dbflute</dbPackage>
-						<clientProject>DBFlute</clientProject>
-					</configuration>
-				</plugin>
-
+				
 			</plugins>
 		</pluginManagement>
+
 	</build>
 	<pluginRepositories>
 		<pluginRepository>
@@ -91,22 +80,22 @@
 	</repositories>
 	<dependencies>
 
+
+
 		<dependency>
 			<groupId>org.dbflute</groupId>
 			<artifactId>dbflute-runtime</artifactId>
 			<version>1.2.9</version>
 		</dependency>
-		<dependency>
-			<groupId>org.seasar.dbflute</groupId>
-			<artifactId>dbflute-runtime</artifactId>
-			<version>1.2.9</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>${postgresql.jdbc.version}</version>
-			<scope>runtime</scope>
+			<version>42.7.7</version>
 		</dependency>
+		
+		
+		
 
 		<dependency>
 			<groupId>cglib</groupId>
