@@ -549,23 +549,53 @@ pre.spolicyviodisp {
 	<tbody id="table-list-body">
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="namecell" data-name="test"><a href="#test" title="type=TABLE, primaryKey={id}, nameLength=4, columnCount=2">test</a></td>
+		<td class="namecell" data-name="fortune_master"><a href="#fortune_master" title="type=TABLE, primaryKey={fortune_code}, nameLength=14, columnCount=6">fortune_master</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#omikuji" title="omikuji_fortune_code_fkey">omikuji</a></td>
+		<td class="commentcell fortune_master_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">FortuneMaster</td>
+		<td class="subcell">2025/08/12</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="namecell" data-name="omikuji"><a href="#omikuji" title="type=TABLE, primaryKey={omikuji_code}, nameLength=7, columnCount=9">omikuji</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#fortune_master" title="omikuji_fortune_code_fkey">fortune_master</a></td>
+		<td class="relcell"><a href="#result" title="result_omikuji_code_fkey">result</a></td>
+		<td class="commentcell omikuji_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">Omikuji</td>
+		<td class="subcell">2025/08/12</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="namecell" data-name="omikuji_csv"><a href="#omikuji_csv" title="type=TABLE, primaryKey={}, nameLength=11, columnCount=5">omikuji_csv</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell test_comment"><pre>&nbsp;</pre></td>
-		<td class="subcell">Test</td>
-		<td class="subcell">2025/08/08</td>
+		<td class="commentcell omikuji_csv_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">OmikujiCsv</td>
+		<td class="subcell">2025/08/12</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="namecell" data-name="result"><a href="#result" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=7">result</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#omikuji" title="result_omikuji_code_fkey">omikuji</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell result_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">Result</td>
+		<td class="subcell">2025/08/12</td>
 	</tr>
 	</tbody>
 </table>
 
-<h2 id="test" title="type=TABLE, primaryKey={id}, nameLength=4, columnCount=2">
-test
-&nbsp;<span class="tablefirstdatetitle">since 2025/08/08</span>
+<h2 id="fortune_master" title="type=TABLE, primaryKey={fortune_code}, nameLength=14, columnCount=6">
+fortune_master
+&nbsp;<span class="tablefirstdatetitle">since 2025/08/12</span>
 </h2>
-<div class="tablecomment test_comment" data-name="test"><pre></pre></div>
-<input type="hidden" value="test">
+<div class="tablecomment fortune_master_comment" data-name="fortune_master"><pre></pre></div>
+<input type="hidden" value="fortune_master">
 <table class="tablecontent">
 	<thead>
 	<tr>
@@ -587,22 +617,22 @@ test
 		<th>Since</th>
 	</tr>
 	</thead>
-	<tbody id="test-body">
+	<tbody id="fortune_master-body">
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="test_pkey">o</td>
+		<td class="flgcell" title="fortune_master_pkey">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="test_id">id</td>
+		<td class=" columnnamecell" id="fortune_master_fortune_code">fortune_code</td>
 		<td class="typecell">int4</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#omikuji" title="omikuji_fortune_code_fkey">omikuji</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">id</td>
+		<td class="subcell">fortuneCode</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -613,15 +643,564 @@ test
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class=" columnnamecell" id="test_name">name</td>
+		<td class=" columnnamecell" id="fortune_master_fortune_name">fortune_name</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">fortuneName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="fortune_master_updated_by">updated_by</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updatedBy</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="fortune_master_updated_date">updated_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updatedDate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="fortune_master_created_by">created_by</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">createdBy</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="fortune_master_created_date">created_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">createdDate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="omikuji" title="type=TABLE, primaryKey={omikuji_code}, nameLength=7, columnCount=9">
+omikuji
+&nbsp;<span class="tablefirstdatetitle">since 2025/08/12</span>
+</h2>
+<div class="tablecomment omikuji_comment" data-name="omikuji"><pre></pre></div>
+<input type="hidden" value="omikuji">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="omikuji-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="omikuji_pkey">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="omikuji_omikuji_code">omikuji_code</td>
+		<td class="typecell">int4</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#result" title="result_omikuji_code_fkey">result</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">omikujiCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_fortune_code">fortune_code</td>
+		<td class="typecell">int4</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#fortune_master" title="omikuji_fortune_code_fkey">fortune_master</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">fortuneCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_negaigoto">negaigoto</td>
 		<td class="typecell">varchar</td>
 		<td class="sizecell"> 30 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">name</td>
+		<td class="subcell">negaigoto</td>
 		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_akinai">akinai</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 30 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">akinai</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_gakumon">gakumon</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 30 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">gakumon</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="omikuji_updated_by">updated_by</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updatedBy</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_updated_date">updated_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updatedDate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="omikuji_created_by">created_by</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">createdBy</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_created_date">created_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">createdDate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="omikuji_csv" title="type=TABLE, primaryKey={}, nameLength=11, columnCount=5">
+omikuji_csv
+&nbsp;<span class="tablefirstdatetitle">since 2025/08/12</span>
+</h2>
+<div class="tablecomment omikuji_csv_comment" data-name="omikuji_csv"><pre></pre></div>
+<input type="hidden" value="omikuji_csv">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>Default</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="omikuji_csv-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="omikuji_csv_number">number</td>
+		<td class="typecell">serial</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> nextval('omikuji_csv_number_seq'::regclass)</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">number</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_csv_unsei">unsei</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 10 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">unsei</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_csv_negaigoto">negaigoto</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 30 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">negaigoto</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_csv_akinai">akinai</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 30 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">akinai</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="omikuji_csv_gakumon">gakumon</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 30 </td>
+		<td class="defvalcell"> &nbsp;</td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">gakumon</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="result" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=7">
+result
+&nbsp;<span class="tablefirstdatetitle">since 2025/08/12</span>
+</h2>
+<div class="tablecomment result_comment" data-name="result"><pre></pre></div>
+<input type="hidden" value="result">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="result-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="result_fortune_telling_date">fortune_telling_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">fortuneTellingDate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="result_birthday">birthday</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">birthday</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="result_omikuji_code">omikuji_code</td>
+		<td class="typecell">int4</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#omikuji" title="result_omikuji_code_fkey">omikuji</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">omikujiCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="result_updated_by">updated_by</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updatedBy</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="result_updated_date">updated_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updatedDate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="result_created_by">created_by</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">createdBy</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="result_created_date">created_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">createdDate</td>
+		<td class="subcell">LocalDate</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -1179,13 +1758,103 @@ function StoreClient() {
 	// to determine database comment conflict.
 	// _/_/_/_/_/_/_/_/
 	this.pickupStore = {
-		'test': {
+		'fortune_master': {
 			'databaseComment': ''
 			, 'columns': {
-				'id': {
+				'fortune_code': {
 					'databaseComment': ''
 				}
-				, 'name': {
+				, 'fortune_name': {
+					'databaseComment': ''
+				}
+				, 'updated_by': {
+					'databaseComment': ''
+				}
+				, 'updated_date': {
+					'databaseComment': ''
+				}
+				, 'created_by': {
+					'databaseComment': ''
+				}
+				, 'created_date': {
+					'databaseComment': ''
+				}
+			}
+		}
+		, 'omikuji': {
+			'databaseComment': ''
+			, 'columns': {
+				'omikuji_code': {
+					'databaseComment': ''
+				}
+				, 'fortune_code': {
+					'databaseComment': ''
+				}
+				, 'negaigoto': {
+					'databaseComment': ''
+				}
+				, 'akinai': {
+					'databaseComment': ''
+				}
+				, 'gakumon': {
+					'databaseComment': ''
+				}
+				, 'updated_by': {
+					'databaseComment': ''
+				}
+				, 'updated_date': {
+					'databaseComment': ''
+				}
+				, 'created_by': {
+					'databaseComment': ''
+				}
+				, 'created_date': {
+					'databaseComment': ''
+				}
+			}
+		}
+		, 'omikuji_csv': {
+			'databaseComment': ''
+			, 'columns': {
+				'number': {
+					'databaseComment': ''
+				}
+				, 'unsei': {
+					'databaseComment': ''
+				}
+				, 'negaigoto': {
+					'databaseComment': ''
+				}
+				, 'akinai': {
+					'databaseComment': ''
+				}
+				, 'gakumon': {
+					'databaseComment': ''
+				}
+			}
+		}
+		, 'result': {
+			'databaseComment': ''
+			, 'columns': {
+				'fortune_telling_date': {
+					'databaseComment': ''
+				}
+				, 'birthday': {
+					'databaseComment': ''
+				}
+				, 'omikuji_code': {
+					'databaseComment': ''
+				}
+				, 'updated_by': {
+					'databaseComment': ''
+				}
+				, 'updated_date': {
+					'databaseComment': ''
+				}
+				, 'created_by': {
+					'databaseComment': ''
+				}
+				, 'created_date': {
 					'databaseComment': ''
 				}
 			}

@@ -1,0 +1,17 @@
+map:{
+    ; 2025/08/11 18:55:25.067 = map:{
+        ; diffDate = 2025/08/11 18:55:25.067
+        ; tableCount = map:{
+            ; next = 1
+            ; previous = 0
+        }
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; test = map:{
+                ; tableName = test
+                ; diffType = ADD
+            }
+        }
+    }
+}

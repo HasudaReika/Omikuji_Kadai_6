@@ -1,0 +1,146 @@
+/nnnnnnnnnnnnnnnnnnnnnnn
+...Calling the JDBC task
+nnnnnnnnnn/
+Buildfile: ../mydbflute/dbflute-1.2.9/build-torque.xml
+
+jdbc:
+  [df-jdbc] 2025-08-11 20:07:47,984 INFO  - +------------------------------------------+
+  [df-jdbc] 2025-08-11 20:07:47,990 INFO  - |                                          |
+  [df-jdbc] 2025-08-11 20:07:47,991 INFO  - |                   JDBC                   |
+  [df-jdbc] 2025-08-11 20:07:47,991 INFO  - |                                          |
+  [df-jdbc] 2025-08-11 20:07:47,991 INFO  - +------------------------------------------+
+  [df-jdbc] 2025-08-11 20:07:48,009 INFO  - ...Preparing data source:
+  [df-jdbc] 2025-08-11 20:07:48,010 INFO  -   driver = org.postgresql.Driver
+  [df-jdbc] 2025-08-11 20:07:48,011 INFO  -   url    = jdbc:postgresql://localhost/test?currentSchema=test
+  [df-jdbc] 2025-08-11 20:07:48,012 INFO  -   user   = test
+  [df-jdbc] 2025-08-11 20:07:48,040 INFO  - 
+  [df-jdbc] 2025-08-11 20:07:48,041 INFO  - ...Starting to process JDBC to SchemaXML
+  [df-jdbc] 2025-08-11 20:07:48,041 INFO  - ...Loading previous schema (schema diff process)
+  [df-jdbc] 2025-08-11 20:07:48,051 INFO  - ...Resolving XML by database.dtd in same package
+  [df-jdbc] 2025-08-11 20:07:48,115 INFO  - ...Getting DB connection
+  [df-jdbc] 2025-08-11 20:07:48,132 INFO  - ...Connecting to database by data source:
+  [df-jdbc] 2025-08-11 20:07:48,324 INFO  -   product = PostgreSQL 17.0 (Homebrew)
+  [df-jdbc] 2025-08-11 20:07:48,324 INFO  -   driver  = PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2
+  [df-jdbc] 2025-08-11 20:07:48,329 INFO  - ...Connecting to the schema
+  [df-jdbc] 2025-08-11 20:07:48,329 INFO  - set search_path to test
+  [df-jdbc] 2025-08-11 20:07:48,331 INFO  - ...Getting DB meta data
+  [df-jdbc] 2025-08-11 20:07:48,334 INFO  - ...Getting tables:
+  [df-jdbc] 2025-08-11 20:07:48,335 INFO  -   schema = {test.test as main}
+  [df-jdbc] 2025-08-11 20:07:48,335 INFO  -   types  = [TABLE, VIEW]
+  [df-jdbc] 2025-08-11 20:07:48,408 INFO  - 
+  [df-jdbc] 2025-08-11 20:07:48,408 INFO  - $ /= = = = = = = = = = = = = = = = = = = = = = = = = =
+  [df-jdbc] 2025-08-11 20:07:48,408 INFO  - $ [Table List]
+  [df-jdbc] 2025-08-11 20:07:48,408 INFO  - $ test.test.test(TABLE)
+  [df-jdbc] 2025-08-11 20:07:48,527 INFO  - $ 
+  [df-jdbc] 2025-08-11 20:07:48,531 INFO  - $ [Table Count]
+  [df-jdbc] 2025-08-11 20:07:48,531 INFO  - $ 1
+  [df-jdbc] 2025-08-11 20:07:48,531 INFO  - $ = = = = = = = = = =/
+  [df-jdbc] 2025-08-11 20:07:48,531 INFO  - 
+  [df-jdbc] 2025-08-11 20:07:48,532 INFO  - ...Getting sequences
+  [df-jdbc] 2025-08-11 20:07:48,535 INFO  - ...Loading sequence informations
+  [df-jdbc] 2025-08-11 20:07:48,537 INFO  - select * from information_schema.sequences where sequence_schema in ('test')
+  [df-jdbc] 2025-08-11 20:07:48,545 INFO  - 
+  [df-jdbc] [SEQUENCE]
+  [df-jdbc] 2025-08-11 20:07:48,545 INFO  - ...Processing sequences: 0
+  [df-jdbc] 2025-08-11 20:07:48,549 INFO  - ...Serializing XML:
+  [df-jdbc] 2025-08-11 20:07:48,549 INFO  -   filePath = ./schema/project-schema-test.xml
+  [df-jdbc] 2025-08-11 20:07:48,550 INFO  -   encoding = UTF-8
+  [df-jdbc] 2025-08-11 20:07:48,563 INFO  - ...Loading next schema (schema diff process)
+  [df-jdbc] 2025-08-11 20:07:48,570 INFO  - ...Resolving XML by database.dtd in same package
+  [df-jdbc] 2025-08-11 20:07:48,703 INFO  -  -> same as previous (schema diff)
+  [df-jdbc] 2025-08-11 20:07:48,703 INFO  - ...closeReally()
+  [df-jdbc] 2025-08-11 20:07:48,710 INFO  - 
+  [df-jdbc] _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+  [df-jdbc] [Final Message]: 00m00s739ms
+  [df-jdbc] 
+  [df-jdbc]   DBFLUTE_CLIENT: {test}
+  [df-jdbc]     database  = postgresql (PostgreSQL 17.0 (Homebrew))
+  [df-jdbc]     language  = java
+  [df-jdbc]     container = seasar
+  [df-jdbc]     package   = org.docksidestage.dbflute
+  [df-jdbc] 
+  [df-jdbc]   DBFLUTE_ENVIRONMENT_TYPE: {}
+  [df-jdbc]     driver = org.postgresql.Driver (PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2)
+  [df-jdbc]     url    = jdbc:postgresql://localhost/test?currentSchema=test
+  [df-jdbc]     schema = {test.test as main}
+  [df-jdbc]     user   = test
+  [df-jdbc]     props  = {}
+  [df-jdbc]     additionalSchema = 
+  [df-jdbc]     repsEnvType      = ut
+  [df-jdbc]     refreshProject   = $$AutoDetect$$
+  [df-jdbc] _/_/_/_/_/_/_/_/_/_/ {JDBC}
+
+BUILD SUCCESSFUL
+Total time: 1 second
+/nnnnnnnnnnnnnnnnnnnnnn
+...Calling the Doc task
+nnnnnnnnnn/
+Buildfile: ../mydbflute/dbflute-1.2.9/build-torque.xml
+
+doc:
+   [df-doc] templates
+   [df-doc] 2025-08-11 20:07:50,355 INFO  - +------------------------------------------+
+   [df-doc] 2025-08-11 20:07:50,357 INFO  - |                                          |
+   [df-doc] 2025-08-11 20:07:50,357 INFO  - |                   Doc                    |
+   [df-doc] 2025-08-11 20:07:50,358 INFO  - |                                          |
+   [df-doc] 2025-08-11 20:07:50,358 INFO  - +------------------------------------------+
+   [df-doc] 2025-08-11 20:07:50,375 INFO  - ...Preparing data source:
+   [df-doc] 2025-08-11 20:07:50,375 INFO  -   driver = org.postgresql.Driver
+   [df-doc] 2025-08-11 20:07:50,375 INFO  -   url    = jdbc:postgresql://localhost/test?currentSchema=test
+   [df-doc] 2025-08-11 20:07:50,375 INFO  -   user   = test
+   [df-doc] 2025-08-11 20:07:50,377 INFO  - 
+   [df-doc] 2025-08-11 20:07:50,378 INFO  - * * * * * * * * * * *
+   [df-doc] 2025-08-11 20:07:50,378 INFO  - *                   *
+   [df-doc] 2025-08-11 20:07:50,378 INFO  - *    Schema HTML    *
+   [df-doc] 2025-08-11 20:07:50,378 INFO  - *                   *
+   [df-doc] 2025-08-11 20:07:50,378 INFO  - * * * * * * * * * * *
+   [df-doc] 2025-08-11 20:07:50,528 INFO  - ...Resolving XML by database.dtd in same package
+   [df-doc] 2025-08-11 20:07:50,560 INFO  - /=======================================
+   [df-doc] 2025-08-11 20:07:50,563 INFO  - ...Initializing additional primary keys.
+   [df-doc] 2025-08-11 20:07:50,565 INFO  - ==========/
+   [df-doc] 2025-08-11 20:07:50,565 INFO  - /=======================================
+   [df-doc] 2025-08-11 20:07:50,565 INFO  - ...Initializing additional unique keys.
+   [df-doc] 2025-08-11 20:07:50,566 INFO  - ==========/
+   [df-doc] 2025-08-11 20:07:50,566 INFO  - /=======================================
+   [df-doc] 2025-08-11 20:07:50,567 INFO  - ...Initializing additional foreign keys.
+   [df-doc] 2025-08-11 20:07:50,569 INFO  - ==========/
+   [df-doc] 2025-08-11 20:07:50,582 INFO  - ...Initializing ClassificationDeployment: project=test
+   [df-doc] 2025-08-11 20:07:50,629 INFO  - generator.parse("doc/ControlDocument.vm", ctx);
+   [df-doc] 2025-08-11 20:07:50,641 INFO  - ...Suppressing velocity.log, which is unneeded for also debug
+   [df-doc] 2025-08-11 20:07:50,728 INFO  - ...Setting up documentOutputDirectory: ./output/doc
+   [df-doc] 2025-08-11 20:07:50,737 INFO  - ...Loading schema history
+   [df-doc] 2025-08-11 20:07:50,751 INFO  -  -> found history: count=1
+   [df-doc] 2025-08-11 20:07:50,876 INFO  -  
+   [df-doc] 2025-08-11 20:07:50,877 INFO  - ...Setting up arrange queries for documents (ArrangeQueryDoc)
+   [df-doc] 2025-08-11 20:07:50,902 INFO  -  -> no arrange query
+   [df-doc] 2025-08-11 20:07:50,908 INFO  - Not found sql directory on resources: ../src/main/resources
+   [df-doc] 2025-08-11 20:07:51,034 INFO  - *Cannot auto-detect your refresh Eclipse proejct.
+   [df-doc] 2025-08-11 20:07:51,037 INFO  - /===========================================================================
+   [df-doc] 2025-08-11 20:07:51,038 INFO  - ...Refreshing [$$AutoDetect$$] by http://localhost:8386/
+   [df-doc] 2025-08-11 20:07:51,073 INFO  - *Empty result so treat it as default not found: $$AutoDetect$$
+   [df-doc] 2025-08-11 20:07:51,074 INFO  - ...Retrying refreshing by default secondary URL http://localhost:8387/
+   [df-doc] 2025-08-11 20:07:51,077 INFO  - *Not found the projects in the Eclipse: $$AutoDetect$$
+   [df-doc] 2025-08-11 20:07:51,077 INFO  - ==========/
+   [df-doc] 2025-08-11 20:07:51,081 INFO  - 
+   [df-doc] _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+   [df-doc] [Final Message]: 00m00s737ms
+   [df-doc] 
+   [df-doc]   DBFLUTE_CLIENT: {test}
+   [df-doc]     database  = postgresql
+   [df-doc]     language  = java
+   [df-doc]     container = seasar
+   [df-doc]     package   = org.docksidestage.dbflute
+   [df-doc] 
+   [df-doc]   DBFLUTE_ENVIRONMENT_TYPE: {}
+   [df-doc]     driver = org.postgresql.Driver
+   [df-doc]     url    = jdbc:postgresql://localhost/test?currentSchema=test
+   [df-doc]     schema = {test.test as main}
+   [df-doc]     user   = test
+   [df-doc]     props  = {}
+   [df-doc]     additionalSchema = 
+   [df-doc]     repsEnvType      = ut
+   [df-doc]     refreshProject   = $$AutoDetect$$
+   [df-doc] _/_/_/_/_/_/_/_/_/_/ {Doc}
+
+BUILD SUCCESSFUL
+Total time: 1 second

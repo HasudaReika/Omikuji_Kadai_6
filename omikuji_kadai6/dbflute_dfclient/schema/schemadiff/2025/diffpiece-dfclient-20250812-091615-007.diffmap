@@ -1,0 +1,35 @@
+map:{
+    ; 2025/08/12 09:16:15.007 = map:{
+        ; diffDate = 2025/08/12 09:16:15.007
+        ; tableCount = map:{
+            ; next = 2
+            ; previous = 1
+        }
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; dept = map:{
+                ; tableName = dept
+                ; diffType = ADD
+            }
+            ; emp = map:{
+                ; tableName = emp
+                ; diffType = ADD
+            }
+            ; test = map:{
+                ; tableName = test
+                ; diffType = DELETE
+            }
+        }
+        ; sequenceDiff = map:{
+            ; test.test.emp_id_seq = map:{
+                ; sequenceName = test.test.emp_id_seq
+                ; diffType = ADD
+            }
+            ; test.test.dept_id_seq = map:{
+                ; sequenceName = test.test.dept_id_seq
+                ; diffType = ADD
+            }
+        }
+    }
+}

@@ -12,5 +12,8 @@
     <component name="behaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
 
     <!-- The components of Behavior. -->
-    <component name="testBhv" class="omikuji6.dbflute.exbhv.TestBhv"/>
+    <component name="fortuneMasterBhv" class="omikuji6.dbflute.exbhv.FortuneMasterBhv"/>
+    <component name="omikujiBhv" class="omikuji6.dbflute.exbhv.OmikujiBhv"/>
+    <component name="omikujiCsvBhv" class="omikuji6.dbflute.exbhv.OmikujiCsvBhv"/>
+    <component name="resultBhv" class="omikuji6.dbflute.exbhv.ResultBhv"/>
 </components>

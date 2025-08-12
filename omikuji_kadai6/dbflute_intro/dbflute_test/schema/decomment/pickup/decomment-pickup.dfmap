@@ -1,0 +1,53 @@
+map:{
+    ; formatVersion = 1.1
+    ; pickupDatetime = 2025-08-11T20:07:50.493
+    ; decoMap = map:{
+        ; tableList = list:{
+            ; map:{
+                ; tableName = test
+                ; mappingList = list:{}
+                ; propertyList = list:{}
+                ; columnList = list:{
+                    ; map:{
+                        ; columnName = id
+                        ; mappingList = list:{}
+                        ; propertyList = list:{
+                            ; map:{
+                                ; decomment = テストコメント
+                                ; databaseComment = null
+                                ; commentVersion = 0
+                                ; authorList = list:{
+                                    ; r_hasuda
+                                }
+                                ; pieceCode = 4c3d2281
+                                ; pieceOwner = r_hasuda
+                                ; pieceGitBranch = main
+                                ; pieceDatetime = 2025-08-11T18:59:23.109
+                                ; previousPieceList = list:{}
+                            }
+                        }
+                    }
+                    ; map:{
+                        ; columnName = name
+                        ; mappingList = list:{}
+                        ; propertyList = list:{
+                            ; map:{
+                                ; decomment = テスト
+                                ; databaseComment = null
+                                ; commentVersion = 0
+                                ; authorList = list:{
+                                    ; r_hasuda
+                                }
+                                ; pieceCode = 38a8f07e
+                                ; pieceOwner = r_hasuda
+                                ; pieceGitBranch = main
+                                ; pieceDatetime = 2025-08-11T18:59:30.166
+                                ; previousPieceList = list:{}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

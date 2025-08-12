@@ -12,10 +12,6 @@ public class OmikujiAction {
 	@Resource
 	protected OmikujiForm omikujiForm;
 
-//	@Execute(validator = false)
-//	public String omikuji() {
-//		return null;
-//		
-//	}
+
 
 }

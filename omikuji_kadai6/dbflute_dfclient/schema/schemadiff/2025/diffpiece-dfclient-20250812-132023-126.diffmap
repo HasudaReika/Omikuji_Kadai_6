@@ -1,0 +1,59 @@
+map:{
+    ; 2025/08/12 13:20:23.126 = map:{
+        ; diffDate = 2025/08/12 13:20:23.126
+        ; tableCount = map:{
+            ; next = 4
+            ; previous = 2
+        }
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; fortune_master = map:{
+                ; tableName = fortune_master
+                ; diffType = ADD
+            }
+            ; omikuji = map:{
+                ; tableName = omikuji
+                ; diffType = ADD
+            }
+            ; omikuji_csv = map:{
+                ; tableName = omikuji_csv
+                ; diffType = ADD
+            }
+            ; result = map:{
+                ; tableName = result
+                ; diffType = ADD
+            }
+            ; dept = map:{
+                ; tableName = dept
+                ; diffType = DELETE
+            }
+            ; emp = map:{
+                ; tableName = emp
+                ; diffType = DELETE
+            }
+        }
+        ; sequenceDiff = map:{
+            ; test.test.seq_fortune_code = map:{
+                ; sequenceName = test.test.seq_fortune_code
+                ; diffType = ADD
+            }
+            ; test.test.seq_omikuji_code = map:{
+                ; sequenceName = test.test.seq_omikuji_code
+                ; diffType = ADD
+            }
+            ; test.test.omikuji_csv_number_seq = map:{
+                ; sequenceName = test.test.omikuji_csv_number_seq
+                ; diffType = ADD
+            }
+            ; test.test.emp_id_seq = map:{
+                ; sequenceName = test.test.emp_id_seq
+                ; diffType = DELETE
+            }
+            ; test.test.dept_id_seq = map:{
+                ; sequenceName = test.test.dept_id_seq
+                ; diffType = DELETE
+            }
+        }
+    }
+}

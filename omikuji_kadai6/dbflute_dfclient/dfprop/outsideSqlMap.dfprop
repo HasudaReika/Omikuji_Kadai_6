@@ -27,7 +27,7 @@ map:{
     #     The parameter beans for procedure are auto-generated.
     #     If you call the procedure from DBFlute, you should specify 'true'!
     #
-    isGenerateProcedureParameterBean = false
+    ; isGenerateProcedureParameterBean = false
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -40,7 +40,7 @@ map:{
     #     (because of getting from execution meta data (result set meta data))
     #     This property is valid only when isGenerateProcedureParameterBean is true.
     #
-    isGenerateProcedureCustomizeEntity = false
+    ; isGenerateProcedureCustomizeEntity = false
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -98,7 +98,7 @@ map:{
     #     You should always write the title of outsideSql.
     #     If it doesn't exist, the OutsideSqlTest task fails.
     #
-    isRequiredSqlTitle = false
+    ; isRequiredSqlTitle = false
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -107,7 +107,7 @@ map:{
     #     You should always write the description of outsideSql.
     #     If it doesn't exist, the OutsideSqlTest task fails.
     #
-    isRequiredSqlDescription = false
+    ; isRequiredSqlDescription = false
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
