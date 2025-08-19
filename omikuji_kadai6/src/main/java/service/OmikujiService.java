@@ -7,9 +7,10 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -24,8 +25,11 @@ import omikuji6.dbflute.cbean.ResultCB;
 import omikuji6.dbflute.exbhv.FortuneMasterBhv;
 import omikuji6.dbflute.exbhv.OmikujiBhv;
 import omikuji6.dbflute.exbhv.ResultBhv;
+import omikuji6.dbflute.exbhv.pmbean.UnseiPastSixMonthsPmb;
 import omikuji6.dbflute.exentity.Omikuji;
 import omikuji6.dbflute.exentity.Result;
+import omikuji6.dbflute.exentity.customize.UnseiToday;
+import omikuji6.dto.OmikujiResult;
 
 public class OmikujiService {
 
@@ -184,16 +188,14 @@ public class OmikujiService {
 
 	//過去半年の運勢の割合を抽出
 	public Map<String, Integer> getUnseiPastSixMonths() {
-		Map<String, Integer> resultPastSixMonths = new HashMap<String, Integer>();
-		//ConditionBean
-		ResultCB cb = new ResultCB();
-		//ResultとテーブルOmikujiテーブル、さらにFortuneMasterテーブルを結合
-		cb.setupSelect_Omikuji().withFortuneMaster();
-		
-		cb.specify().columnOmikujiCode();
-		
-		
-		
+//		Map<String, Integer> resultPastSixMonths = new HashMap<String, Integer>();
+//		//ConditionBean
+//		ResultCB cb = new ResultCB();
+//		//ResultとテーブルOmikujiテーブル、さらにFortuneMasterテーブルを結合
+//		cb.setupSelect_Omikuji().withFortuneMaster();
+//
+//		cb.specify().columnOmikujiCode();
+//
 		//６ヶ月前の日付を入れる変数
 		Calendar sixMonthsAgo = null;
 		//今日の日付
@@ -202,20 +204,60 @@ public class OmikujiService {
 		today.add(Calendar.MONTH, -6);
 		//sixMonthAgoに計算後の日付を代入
 		sixMonthsAgo = today;
-
+		
+		UnseiPastSixMonthsPmb pmb = new UnseiPastSixMonthsPmb();
+		pmb.setSetSixMonthsAgo(sixMonthsAgo);
+		
+//		List<UnseiPastSixMonths> list = resultBhv.outsideSql().selectList(pmb);
+		
+		
+		
+		
 		return null;
 
 	}
 	
+
 	//本日の運勢の割合を抽出
-	public Map<String, Integer> getUnseiToday(){
-		return null;
+	@SuppressWarnings("unchecked")
+	public Map<String, Integer> getUnseiToday() {
+		List<UnseiToday> list = resultBhv.outsideSql().selectList(null);
 		
+
+		return (Map<String, Integer>) list;
+
+	}
+
+	//過去半年のおみくじの結果を抽出
+	public List<OmikujiResult> getResultPastSixMonths(LocalDate birthday) {
+		List<OmikujiResult> results = new ArrayList<OmikujiResult>();
+
+		//６ヶ月前の日付を入れる変数
+		Calendar sixMonthsAgo = null;
+		//今日の日付
+		Calendar today = Calendar.getInstance();
+		//今日の日付から６ヶ月引いた日付
+		today.add(Calendar.MONTH, -6);
+		//sixMonthAgoに計算後の日付を代入
+		sixMonthsAgo = today;
+		//Calender型からsqlDate型に変換
+		Date sixMonths = new Date(sixMonthsAgo.getTime().getTime());
+		//LocalDate型に変換
+		LocalDate sixMonthsDate = sixMonths.toLocalDate(); 
+		
+		//ConditionBean
+		ResultCB cb = new ResultCB();
+		//OmikujiテーブルにFortuneMasterテーブルを結合
+		cb.setupSelect_Omikuji().withFortuneMaster();
+		//検索条件
+		cb.query().setBirthday_Equal(birthday);
+		cb.query().setFortuneTellingDate_GreaterEqual(sixMonthsDate);
+
+
+		
+		return null;
+
 	}
 	
-	//過去半年のおみくじの結果を抽出
-	public List<OmikujiResult> getResultPastSixMonths(LocalDate birthday){
-		
-	}
 
 }

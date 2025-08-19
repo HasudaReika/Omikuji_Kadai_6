@@ -3,6 +3,7 @@ package omikuji6.action;
 import javax.annotation.Resource;
 
 import org.seasar.struts.annotation.ActionForm;
+import org.seasar.struts.annotation.Execute;
 
 import omikuji6.form.OmikujiForm;
 
@@ -12,6 +13,10 @@ public class OmikujiAction {
 	@Resource
 	protected OmikujiForm omikujiForm;
 
-
+	@Execute(validator = false)
+	public String inputBirthday() {
+		return "birthdayInput.jsp";
+		
+	}
 
 }
