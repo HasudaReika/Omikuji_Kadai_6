@@ -81,7 +81,6 @@
 	<dependencies>
 
 
-
 		<dependency>
 			<groupId>org.dbflute</groupId>
 			<artifactId>dbflute-runtime</artifactId>
@@ -93,9 +92,7 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.7.7</version>
 		</dependency>
-		
-		
-		
+
 
 		<dependency>
 			<groupId>cglib</groupId>

@@ -244,14 +244,14 @@ public class OmikujiService {
 		Date sixMonths = new Date(sixMonthsAgo.getTime().getTime());
 		//LocalDate型に変換
 		LocalDate sixMonthsDate = sixMonths.toLocalDate(); 
-		
-		//ConditionBean
-		ResultCB cb = new ResultCB();
-		//OmikujiテーブルにFortuneMasterテーブルを結合
-		cb.setupSelect_Omikuji().withFortuneMaster();
-		//検索条件
-		cb.query().setBirthday_Equal(birthday);
-		cb.query().setFortuneTellingDate_GreaterEqual(sixMonthsDate);
+//		
+//		//ConditionBean
+//		ResultCB cb = new ResultCB();
+//		//OmikujiテーブルにFortuneMasterテーブルを結合
+//		cb.setupSelect_Omikuji().withFortuneMaster();
+//		//検索条件
+//		cb.query().setBirthday_Equal(birthday);
+//		cb.query().setFortuneTellingDate_GreaterEqual(sixMonthsDate);
 
 
 		
