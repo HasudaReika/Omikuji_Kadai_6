@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@page isELIgnored="false" %>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@taglib prefix="f" uri="http://sastruts.seasar.org/functions" %>
 
 <!DOCTYPE html>
 <html>

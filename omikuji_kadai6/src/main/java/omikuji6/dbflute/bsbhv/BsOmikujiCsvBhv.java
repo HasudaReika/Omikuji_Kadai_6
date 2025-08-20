@@ -309,6 +309,25 @@ public abstract class BsOmikujiCsvBhv extends AbstractBehaviorReadable<OmikujiCs
     //                                                                      ==============
 
     // ===================================================================================
+    //                                                                       Entity Update
+    //                                                                       =============
+    /**
+     * Insert the entity for a table not defined primary key. <br>
+     * The auto-setup for common columns is unsupported.
+     * <pre>
+     * OmikujiCsv omikujiCsv = new OmikujiCsv();
+     * omikujiCsv.setFoo...(value);
+     * omikujiCsv.setBar...(value);
+     * <span style="color: #0000C0">omikujiCsvBhv</span>.<span style="color: #CC4747">insert</span>(omikujiCsv);
+     * </pre>
+     * @param omikujiCsv The entity for insert. (NotNull)
+     */
+    public void insert(OmikujiCsv omikujiCsv) {
+        assertObjectNotNull("omikujiCsv", omikujiCsv);
+        delegateInsertNoPK(omikujiCsv, null);
+    }
+
+    // ===================================================================================
     //                                                                          OutsideSql
     //                                                                          ==========
     /**

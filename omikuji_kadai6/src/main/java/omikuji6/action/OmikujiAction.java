@@ -13,9 +13,19 @@ public class OmikujiAction {
 	@Resource
 	protected OmikujiForm omikujiForm;
 
+	//誕生日入力フォームの表示
 	@Execute(validator = false)
 	public String inputBirthday() {
 		return "birthdayInput.jsp";
+		
+	}
+	
+	//結果画面に遷移　入力チェックがエラーの場合は誕生日入力フォームに戻る
+	@Execute(validator = true, input = "birthdayInput.jsp")
+	public String showResult() {
+		
+		
+		return "result.jsp";
 		
 	}
 

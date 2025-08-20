@@ -141,10 +141,11 @@ version="2.4">
     </session-config>
 	-->
 
-	<!--
-    <welcome-file-list>
-    </welcome-file-list>
-	-->
+	
+<!--     <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list> -->
+	
     
     <jsp-config>
     	<jsp-property-group>

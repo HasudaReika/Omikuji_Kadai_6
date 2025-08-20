@@ -317,6 +317,25 @@ public abstract class BsResultBhv extends AbstractBehaviorReadable<Result, Resul
     //                                                                      ==============
 
     // ===================================================================================
+    //                                                                       Entity Update
+    //                                                                       =============
+    /**
+     * Insert the entity for a table not defined primary key. <br>
+     * The auto-setup for common columns is unsupported.
+     * <pre>
+     * Result result = new Result();
+     * result.setFoo...(value);
+     * result.setBar...(value);
+     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">insert</span>(result);
+     * </pre>
+     * @param result The entity for insert. (NotNull)
+     */
+    public void insert(Result result) {
+        assertObjectNotNull("result", result);
+        delegateInsertNoPK(result, null);
+    }
+
+    // ===================================================================================
     //                                                                          OutsideSql
     //                                                                          ==========
     /**
