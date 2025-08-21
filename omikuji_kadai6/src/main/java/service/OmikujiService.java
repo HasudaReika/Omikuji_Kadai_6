@@ -152,11 +152,10 @@ public class OmikujiService {
 			Result result = optEntity.get();
 			return result.getOmikuji();
 		} else {
-			return OptionalEntity.empty();
+			return null;
 		}
 	}
 
-	
 	/**
 	 * DBからおみくじをランダムに取得
 	 * @return　ランダムに取得したおみくじを返す
@@ -194,17 +193,19 @@ public class OmikujiService {
 	/**
 	 * 結果をDBに登録
 	 */
-	public void setResult() {
+	public void setResult(LocalDate fortuneTellingDate, LocalDate birthday, OptionalEntity<Omikuji> newOmikuji) {
 		Result result = new Result();
-		//アクションクラス書き終わってから書く
-//		result.setFortuneTellingDate(fortuneTellingDate);
-//		result.setBirthday(birthday);
-//		result.setOmikujiCode(omikujiCode);
-//		result.setUpdatedBy("蓮田");
-//		result.setUpdatedDate(currentDay);
-//		result.setCreatedBy("蓮田");
-//		result.setCreatedDate(currentDay);
 
+		//アクションクラス書き終わってから書く
+		result.setFortuneTellingDate(fortuneTellingDate);
+		result.setBirthday(birthday);
+		result.setOmikujiCode(newOmikuji.get().getOmikujiCode());
+		result.setUpdatedBy("蓮田");
+		result.setUpdatedDate(newOmikuji.get().getCreatedDate());
+		result.setCreatedBy("蓮田");
+		result.setCreatedDate(newOmikuji.get().getCreatedDate());
+
+		//resultテーブルに登録
 		resultBhv.insert(result);
 
 	}
@@ -214,14 +215,7 @@ public class OmikujiService {
 	 * @return
 	 */
 	public List<UnseiPastSixMonths> getUnseiPastSixMonths() {
-		//		Map<String, Integer> resultPastSixMonths = new HashMap<String, Integer>();
-		//		//ConditionBean
-		//		ResultCB cb = new ResultCB();
-		//		//ResultとテーブルOmikujiテーブル、さらにFortuneMasterテーブルを結合
-		//		cb.setupSelect_Omikuji().withFortuneMaster();
-		//
-		//		cb.specify().columnOmikujiCode();
-		//
+
 		//６ヶ月前の日付を入れる変数
 		Calendar sixMonthsAgo = null;
 		//今日の日付

@@ -146,6 +146,9 @@ version="2.4">
     <welcome-file>index.jsp</welcome-file>
     </welcome-file-list> -->
 	
+	  <listener>
+        <listener-class>omikuji6.listener.StartupListener</listener-class>
+    </listener>
     
     <jsp-config>
     	<jsp-property-group>

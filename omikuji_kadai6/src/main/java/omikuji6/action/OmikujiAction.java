@@ -1,32 +1,84 @@
 package omikuji6.action;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.annotation.Resource;
 
+import org.dbflute.optional.OptionalEntity;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
 
+import omikuji6.dbflute.exentity.Omikuji;
 import omikuji6.form.OmikujiForm;
+import service.OmikujiService;
 
 public class OmikujiAction {
+	//jspに渡すおみくじオブジェクト
+	public OptionalEntity<Omikuji> omikujiEntity;
 
 	@ActionForm
 	@Resource
 	protected OmikujiForm omikujiForm;
-
-	//誕生日入力フォームの表示
-	@Execute(validator = false)
-	public String inputBirthday() {
-		return "birthdayInput.jsp";
-		
-	}
 	
-	//結果画面に遷移　入力チェックがエラーの場合は誕生日入力フォームに戻る
+	@Resource 
+	protected OmikujiService service;
+
+
+	
+	/**
+	 * 誕生日入力フォームの表示
+	 * @return　birthdayInput.jspに遷移
+	 */
+	@Execute(validator = false)
+	public String index() {
+		return "index.jsp";
+
+	}
+
+	/**
+	 * 入力された誕生日からおみくじを取得　入力チェックがエラーの場合は誕生日入力フォームに戻る
+	 * @return 結果画面に遷移
+	 */
+	
 	@Execute(validator = true, input = "birthdayInput.jsp")
 	public String showResult() {
+//		OmikujiService service = new OmikujiService();
 		
-		
-		return "result.jsp";
-		
+		//フォームに入力された誕生日文字列をセット
+		String birthdaysString = omikujiForm.birthday;
+
+		//birthdayをLocalDate型に変換
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		LocalDate birthday = LocalDate.parse(birthdaysString, formatter);
+
+		//今日の日付を取得
+		LocalDate today = LocalDate.now();
+
+		//resultテーブルから取得するおみくじ変数
+		OptionalEntity<Omikuji> omikuji = null;
+		//ランダムに新しいおみくじを取得する変数
+		OptionalEntity<Omikuji> newOmikuji = null;
+		//今日の日付とと誕生日が一致する結果がテーブルに存在するかチェック
+		omikuji = service.getOmikujiFromResult(today, birthday);
+
+		//あった場合はresult.jspに遷移
+		if (omikuji.isPresent()) {
+			//おみくじオブジェクトに値を代入
+			omikujiEntity = omikuji;
+			return "result.jsp";
+		} else {
+			//なかった場合はランダムにおみくじを一件取得
+			newOmikuji = service.getRandomOmikuji();
+			//結果をDBに登録
+			service.setResult(today, birthday, newOmikuji);
+			//おみくじオブジェクトに値を代入
+			omikujiEntity = newOmikuji;
+
+			return "result.jsp";
+
+		}
+
 	}
 
 }

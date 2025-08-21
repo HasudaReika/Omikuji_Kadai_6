@@ -9,5 +9,6 @@ public class OmikujiForm {
 	@DateType(datePatternStrict = "yyyyMMdd")
 	public String birthday;
 
+//	String birthdayString = Normalizer.normalize(birthday, Form.NFKC);
 }
 

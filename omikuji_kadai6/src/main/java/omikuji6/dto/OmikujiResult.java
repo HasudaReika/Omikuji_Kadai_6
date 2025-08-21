@@ -3,13 +3,22 @@ package omikuji6.dto;
 import java.time.LocalDate;
 
 public class OmikujiResult {
-
+	
+	private String omikujiCode;
 	private LocalDate birthday;
 	private LocalDate fortuneTellingDate;
 	private String fortuneName;
 	private String negaigoto;
 	private String akinai;
 	private String gakumon;
+
+	public String getOmikujiCode() {
+		return omikujiCode;
+	}
+
+	public void setOmikujiCode(String omikujiCode) {
+		this.omikujiCode = omikujiCode;
+	}
 
 	public LocalDate getBirthday() {
 		return birthday;
