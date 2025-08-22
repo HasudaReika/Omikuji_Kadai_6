@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import javax.annotation.Resource;
@@ -19,8 +20,6 @@ import javax.annotation.Resource;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.optional.OptionalEntity;
 
-import omikuji6.dbflute.cbean.OmikujiCB;
-import omikuji6.dbflute.cbean.ResultCB;
 import omikuji6.dbflute.exbhv.FortuneMasterBhv;
 import omikuji6.dbflute.exbhv.OmikujiBhv;
 import omikuji6.dbflute.exbhv.ResultBhv;
@@ -131,28 +130,32 @@ public class OmikujiService {
 	 * @param birthday　誕生日
 	 * @return　結果テーブルにある場合はそのおみくじを取得
 	 */
-	public OptionalEntity<Omikuji> getOmikujiFromResult(LocalDate fortuneTellingDate, LocalDate birthday) {
-		//ConditionBean
-		ResultCB cb = new ResultCB();
-
-		//ResultとテーブルOmikujiテーブル、さらにFortuneMasterテーブルを結合
-		cb.setupSelect_Omikuji().withFortuneMaster();
-
-		//結合先のテーブルでカラムを占い日と誕生日に絞り込み
-		cb.specify().columnFortuneTellingDate();
-		cb.specify().columnBirthday();
+	public Optional<OmikujiResult> getOmikujiFromResult(LocalDate fortuneTellingDate, LocalDate birthday) {
 
 		//一件検索
-		OptionalEntity<Result> optEntity = resultBhv.selectEntity(cb2 -> {
-			cb2.query().setFortuneTellingDate_Equal(fortuneTellingDate);
-			cb2.query().setBirthday_Equal(birthday);
+		OptionalEntity<Result> optEntity = resultBhv.selectEntity(cb -> {
+			//ResultとテーブルOmikujiテーブル、さらにFortuneMasterテーブルを結合
+			cb.setupSelect_Omikuji().withFortuneMaster();
+			//条件を絞り込み
+			cb.query().setFortuneTellingDate_Equal(fortuneTellingDate);
+			cb.query().setBirthday_Equal(birthday);
 		});
 
+		//テーブルにあった場合
 		if (optEntity.isPresent()) {
 			Result result = optEntity.get();
-			return result.getOmikuji();
+			Omikuji omikuji = result.getOmikuji().get();
+			//fortuneNameをfortuneMasterテーブルから取得
+			String fortuneName = omikuji.getFortuneMaster().get().getFortuneName();
+			//dtoに値を代入
+			OmikujiResult omikujiDto = new OmikujiResult(result.getFortuneTellingDate(), fortuneName,
+					omikuji.getNegaigoto(),
+					omikuji.getAkinai(),
+					omikuji.getGakumon());
+
+			return Optional.ofNullable(omikujiDto);
 		} else {
-			return null;
+			return Optional.empty();
 		}
 	}
 
@@ -160,25 +163,24 @@ public class OmikujiService {
 	 * DBからおみくじをランダムに取得
 	 * @return　ランダムに取得したおみくじを返す
 	 */
-	public OptionalEntity<Omikuji> getRandomOmikuji() {
+	public Optional<OmikujiResult> getRandomOmikuji() {
 		//おみくじオブジェクトを作成
 		OptionalEntity<Omikuji> randomOmikuji = OptionalEntity.empty();
-		//ConditionBean
-		OmikujiCB cb = new OmikujiCB();
+
 		//omikujiテーブルのレコード数を表す変数
 		int omikujiCount = 0;
 
-		//OmikujiテーブルにFortuneMasterテーブルを結合
-		cb.setupSelect_FortuneMaster();
-		//取得するカラムを指定
-		cb.specify().columnOmikujiCode();
-		cb.specify().specifyFortuneMaster().columnFortuneName();
-		cb.specify().columnNegaigoto();
-		cb.specify().columnAkinai();
-		cb.specify().columnGakumon();
-
 		//Omikujiテーブルのレコード数を検索　select count(*)
-		omikujiCount = omikujiBhv.selectCount(cb2 -> {
+		omikujiCount = omikujiBhv.selectCount(cb -> {
+			//OmikujiテーブルにFortuneMasterテーブルを結合
+			cb.setupSelect_FortuneMaster();
+			//取得するカラムを指定
+			cb.specify().columnOmikujiCode();
+			cb.specify().specifyFortuneMaster().columnFortuneName();
+			cb.specify().columnNegaigoto();
+			cb.specify().columnAkinai();
+			cb.specify().columnGakumon();
+
 		});
 
 		//omikujiCountからランダムに数字を取得し、おみくじコードとする
@@ -187,21 +189,30 @@ public class OmikujiService {
 
 		//主キーによる一件検索をし、randomOmikujiに代入
 		randomOmikuji = omikujiBhv.selectByPK(omikujiCode);
-		return randomOmikuji;
+
+		Omikuji omikuji = randomOmikuji.get();
+		//fortuneNameを取得
+		String fortuneName = omikuji.getFortuneMaster().get().getFortuneName();
+		//dtoに値を代入
+		OmikujiResult randomOmikujiDto = new OmikujiResult(LocalDate.now(), fortuneName,
+				omikuji.getNegaigoto(), omikuji.getAkinai(), omikuji.getGakumon());
+
+		return Optional.ofNullable(randomOmikujiDto);
+
 	}
 
 	/**
 	 * 結果をDBに登録
 	 */
-	public void setResult(LocalDate fortuneTellingDate, LocalDate birthday, OptionalEntity<Omikuji> newOmikuji) {
+	public void setResult(LocalDate fortuneTellingDate, LocalDate birthday, Optional<OmikujiResult> newOmikuji) {
 		Result result = new Result();
 
 		//アクションクラス書き終わってから書く
 		result.setFortuneTellingDate(fortuneTellingDate);
 		result.setBirthday(birthday);
-		result.setOmikujiCode(newOmikuji.get().getOmikujiCode());
+		result.setOmikujiCode((Integer.valueOf(newOmikuji.get().getOmikujiCode())));
 		result.setUpdatedBy("蓮田");
-		result.setUpdatedDate(newOmikuji.get().getCreatedDate());
+		result.setUpdatedDate(newOmikuji.get().getUpdatedDate());
 		result.setCreatedBy("蓮田");
 		result.setCreatedDate(newOmikuji.get().getCreatedDate());
 

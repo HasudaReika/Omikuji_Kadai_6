@@ -2,27 +2,27 @@ package omikuji6.action;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import javax.annotation.Resource;
 
-import org.dbflute.optional.OptionalEntity;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
 
-import omikuji6.dbflute.exentity.Omikuji;
+import omikuji6.dto.OmikujiResult;
 import omikuji6.form.OmikujiForm;
 import service.OmikujiService;
 
 public class OmikujiAction {
 	//jspに渡すおみくじオブジェクト
-	public OptionalEntity<Omikuji> omikujiEntity;
+	public OmikujiResult omikujiEntity;
 
 	@ActionForm
 	@Resource
 	protected OmikujiForm omikujiForm;
 	
 	@Resource 
-	protected OmikujiService service;
+	protected OmikujiService omikujiService;
 
 
 	
@@ -43,8 +43,6 @@ public class OmikujiAction {
 	
 	@Execute(validator = true, input = "birthdayInput.jsp")
 	public String showResult() {
-//		OmikujiService service = new OmikujiService();
-		
 		//フォームに入力された誕生日文字列をセット
 		String birthdaysString = omikujiForm.birthday;
 
@@ -56,24 +54,25 @@ public class OmikujiAction {
 		LocalDate today = LocalDate.now();
 
 		//resultテーブルから取得するおみくじ変数
-		OptionalEntity<Omikuji> omikuji = null;
+		Optional<OmikujiResult> omikuji = null;
 		//ランダムに新しいおみくじを取得する変数
-		OptionalEntity<Omikuji> newOmikuji = null;
+		Optional<OmikujiResult> newOmikuji = null;
 		//今日の日付とと誕生日が一致する結果がテーブルに存在するかチェック
-		omikuji = service.getOmikujiFromResult(today, birthday);
+		omikuji = omikujiService.getOmikujiFromResult(today, birthday);
 
 		//あった場合はresult.jspに遷移
 		if (omikuji.isPresent()) {
 			//おみくじオブジェクトに値を代入
-			omikujiEntity = omikuji;
+			omikujiEntity = omikuji.get();
+			
 			return "result.jsp";
 		} else {
 			//なかった場合はランダムにおみくじを一件取得
-			newOmikuji = service.getRandomOmikuji();
+			newOmikuji = omikujiService.getRandomOmikuji();
 			//結果をDBに登録
-			service.setResult(today, birthday, newOmikuji);
+			omikujiService.setResult(today, birthday, newOmikuji);
 			//おみくじオブジェクトに値を代入
-			omikujiEntity = newOmikuji;
+			omikujiEntity = newOmikuji.get();
 
 			return "result.jsp";
 

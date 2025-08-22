@@ -10,5 +10,7 @@ public class OmikujiForm {
 	public String birthday;
 
 //	String birthdayString = Normalizer.normalize(birthday, Form.NFKC);
+	
+	
 }
 

@@ -11,6 +11,8 @@ public class OmikujiResult {
 	private String negaigoto;
 	private String akinai;
 	private String gakumon;
+	private LocalDate updatedDate;
+	private LocalDate createdDate;
 
 	public String getOmikujiCode() {
 		return omikujiCode;
@@ -66,6 +68,22 @@ public class OmikujiResult {
 
 	public void setGakumon(String gakumon) {
 		this.gakumon = gakumon;
+	}
+
+	public LocalDate getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDate updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	//コンストラクタで値を取得

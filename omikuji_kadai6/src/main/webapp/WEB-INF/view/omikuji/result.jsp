@@ -1,9 +1,10 @@
-<%@page import="omikuji6.Omikuji"%>
+<%@page import="omikuji6.dbflute.exentity.Omikuji"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%-- <%@page isELIgnored="false" %> --%>
 <%-- <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%> --%>
 <%@taglib prefix="f" uri="http://sastruts.seasar.org/functions" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -17,19 +18,20 @@
 	<div class="container">
 		<div class="box">
 			<p>
-				今日の運勢は ${f:h(omikujiEntity.get().fortuneName)} です<br> 
-				願い事：${f:h(omikujiEntity.get().negaigoto)}<br> 
-				商い： ${f:h(omikujiEntity.get().akinai)}<br>
-				学問： ${f:h(omikujiEntity.get().gakumon)}
+				今日の運勢は ${f:h(omikujiEntity.fortuneName)} です<br>
+				願い事：${f:h(omikujiEntity.negaigoto)}<br> 
+				商い： ${f:h(omikujiEntity.akinai)}<br>
+				学問： ${f:h(omikujiEntity.gakumon)}
 			</p>
 
 		</div>
 		<p>おみくじを続けますか？</p>
 		<input type="button"
-			onclick="location.href='http://localhost:8080/omikuji_kadai6/birthdayInput.jsp'"
+			onclick="location.href='http://localhost:8080/omikuji_kadai6/omikuji/'"
 			value="続ける" /><br>
-<%-- 		<s:link page="">過去半年の統計を見る</s:link>
-		<s:link page="" paramId="birthday" paramName="OmikujiForm" paramProperty="birthday">
+			
+		<%-- <s:link page="/result/resultRatio.jsp">過去半年の統計を見る</s:link>
+		<s:link page="/list/listPerBirthday.jsp" paramId="birthday" paramName="OmikujiForm" paramProperty="birthday">
 		誕生日の過去半年の結果を見る</s:link> --%>
 	</div>
 </body>

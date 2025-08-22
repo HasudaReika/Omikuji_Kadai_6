@@ -2,10 +2,16 @@
 <!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN" 
 	"http://www.seasar.org/dtd/components24.dtd">
 <components>
-  <include path="convention.dicon"/>
-  <include path="aop.dicon"/>
-  <include path="dao.dicon"/>
-  <include path="dxo.dicon"/>
-  <include path="j2ee.dicon"/>
-  <component name="actionMessagesThrowsInterceptor" class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor"/>
+	<include path="convention.dicon" />
+	<include path="aop.dicon" />
+	<include path="dao.dicon" />
+	<include path="dxo.dicon" />
+	<include path="j2ee.dicon" />
+	<include path="dbflute.dicon"></include>
+	<component name="actionMessagesThrowsInterceptor"
+		class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor" />
+	<component name="omikujiService" class="service.OmikujiService" />
+	<component class="omikuji6.action.OmikujiAction" />
+	
+
 </components>
