@@ -1,8 +1,8 @@
-<%@page import="omikuji5.OmikujiResult"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
@@ -22,9 +22,9 @@
 	<th>商い</th>
 	<th>学問</th>
 </tr>
-<c:forEach var="v" items="${results}">
+<c:forEach var="v" items="${list}">
 <tr>
-	<td>${v.fortuneTellingDate}</td>
+	<td><fmt:formatDate value = "${v.fortuneTellingDate}" pattern="yyyy/MM/dd"/></td>
 	<td>${v.fortuneName}</td>
 	<td>${v.negaigoto}</td>
 	<td>${v.akinai}</td>
@@ -33,6 +33,6 @@
 </c:forEach>
 </table>
 <s:link href="javascript:history.back()">前のページへ</s:link>
-<s:link href="http://localhost:8080/omikuji_kadai5/birthdayInput.jsp">誕生日入力画面に戻る</s:link>
+<s:link href="http://localhost:8080/omikuji_kadai6/omikuji/">誕生日入力画面に戻る</s:link>
 </body>
 </html>

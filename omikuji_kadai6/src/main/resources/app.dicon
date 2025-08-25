@@ -12,6 +12,7 @@
 		class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor" />
 	<component name="omikujiService" class="service.OmikujiService" />
 	<component class="omikuji6.action.OmikujiAction" />
-	
+	<component name="omikuji6_list_indexAction" class="omikuji6.action.ListAction"/>
+	<component name="omikuji6_stats_indexAction" class="omikuji6.action.StatsAction"/>
 
 </components>

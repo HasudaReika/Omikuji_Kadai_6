@@ -137,7 +137,9 @@
 	<!-- <session-config> <session-timeout>1</session-timeout> </session-config> -->
 
 
-	<!-- <welcome-file-list> <welcome-file>index.jsp</welcome-file> </welcome-file-list> -->
+	<welcome-file-list>
+		<welcome-file>omikuji6/action/omikuji/</welcome-file>
+	</welcome-file-list>
 	<!-- <listener> <listener-class>omikuji6.listener.StartupListener</listener-class> 
 		</listener> -->
 

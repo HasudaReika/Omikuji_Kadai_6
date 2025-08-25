@@ -12,8 +12,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
@@ -151,7 +153,7 @@ public class OmikujiService {
 			OmikujiResult omikujiDto = new OmikujiResult(result.getFortuneTellingDate(), fortuneName,
 					omikuji.getNegaigoto(),
 					omikuji.getAkinai(),
-					omikuji.getGakumon());
+					omikuji.getGakumon(), omikuji.getOmikujiCode().toString());
 
 			return Optional.ofNullable(omikujiDto);
 		} else {
@@ -164,14 +166,19 @@ public class OmikujiService {
 	 * @return　ランダムに取得したおみくじを返す
 	 */
 	public Optional<OmikujiResult> getRandomOmikuji() {
-		//おみくじオブジェクトを作成
-		OptionalEntity<Omikuji> randomOmikuji = OptionalEntity.empty();
 
 		//omikujiテーブルのレコード数を表す変数
 		int omikujiCount = 0;
 
 		//Omikujiテーブルのレコード数を検索　select count(*)
 		omikujiCount = omikujiBhv.selectCount(cb -> {
+		});
+
+		//omikujiCountからランダムに数字を取得し、おみくじコードとする
+		Random random = new Random();
+		int omikujiCode = random.nextInt(omikujiCount) + 1;
+
+		List<Omikuji> randomOmikuji = omikujiBhv.selectList(cb -> {
 			//OmikujiテーブルにFortuneMasterテーブルを結合
 			cb.setupSelect_FortuneMaster();
 			//取得するカラムを指定
@@ -180,22 +187,17 @@ public class OmikujiService {
 			cb.specify().columnNegaigoto();
 			cb.specify().columnAkinai();
 			cb.specify().columnGakumon();
-
+			cb.query().queryFortuneMaster().addOrderBy_FortuneName_Asc();
+			cb.query().setOmikujiCode_Equal(omikujiCode);
 		});
 
-		//omikujiCountからランダムに数字を取得し、おみくじコードとする
-		Random random = new Random();
-		int omikujiCode = random.nextInt(omikujiCount) + 1;
-
-		//主キーによる一件検索をし、randomOmikujiに代入
-		randomOmikuji = omikujiBhv.selectByPK(omikujiCode);
-
-		Omikuji omikuji = randomOmikuji.get();
+		//omikujiに代入
+		Omikuji omikuji = randomOmikuji.get(0);
 		//fortuneNameを取得
 		String fortuneName = omikuji.getFortuneMaster().get().getFortuneName();
 		//dtoに値を代入
 		OmikujiResult randomOmikujiDto = new OmikujiResult(LocalDate.now(), fortuneName,
-				omikuji.getNegaigoto(), omikuji.getAkinai(), omikuji.getGakumon());
+				omikuji.getNegaigoto(), omikuji.getAkinai(), omikuji.getGakumon(), omikuji.getOmikujiCode().toString());
 
 		return Optional.ofNullable(randomOmikujiDto);
 
@@ -212,9 +214,9 @@ public class OmikujiService {
 		result.setBirthday(birthday);
 		result.setOmikujiCode((Integer.valueOf(newOmikuji.get().getOmikujiCode())));
 		result.setUpdatedBy("蓮田");
-		result.setUpdatedDate(newOmikuji.get().getUpdatedDate());
+		result.setUpdatedDate(fortuneTellingDate);
 		result.setCreatedBy("蓮田");
-		result.setCreatedDate(newOmikuji.get().getCreatedDate());
+		result.setCreatedDate(fortuneTellingDate);
 
 		//resultテーブルに登録
 		resultBhv.insert(result);
@@ -225,7 +227,7 @@ public class OmikujiService {
 	 * 過去半年の運勢の割合を抽出
 	 * @return
 	 */
-	public List<UnseiPastSixMonths> getUnseiPastSixMonths() {
+	public Map<String, Long> getUnseiPastSixMonths() {
 
 		//６ヶ月前の日付を入れる変数
 		Calendar sixMonthsAgo = null;
@@ -244,7 +246,11 @@ public class OmikujiService {
 		List<UnseiPastSixMonths> list = resultBhv.outsideSql().traditionalStyle()
 				.selectList("sql/omikuji/getUnseiPastSixMonths.sql", pmb, UnseiPastSixMonths.class);
 
-		return list;
+		//listからmapに変換
+		Map<String, Long> resultPastSixMonths = list.stream()
+				.collect(Collectors.toMap(UnseiPastSixMonths::getFortuneName, UnseiPastSixMonths::getCount));
+
+		return resultPastSixMonths;
 
 	}
 
@@ -252,14 +258,18 @@ public class OmikujiService {
 	 * 本日の運勢の割合を抽出
 	 * @return
 	 */
-	public List<UnseiToday> getUnseiToday() {
+	public Map<String, Long> getUnseiToday() {
 		UnseiTodayPmb pmb = new UnseiTodayPmb();
 
 		//外だしSQLを実行
 		List<UnseiToday> list = resultBhv.outsideSql().traditionalStyle().selectList("sql/omikuji/getUnseiToday.sql",
 				pmb, UnseiToday.class);
 
-		return list;
+		//listからmapに変換
+		Map<String, Long> resultToday = list.stream()
+				.collect(Collectors.toMap(UnseiToday::getFortuneName, UnseiToday::getCount));
+
+		return resultToday;
 
 	}
 

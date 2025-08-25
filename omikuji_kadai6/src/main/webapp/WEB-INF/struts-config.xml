@@ -24,6 +24,27 @@
 <!-- =================================== Action Mapping Definitions -->
 
     <action-mappings>
+    <action
+                path="/list/index"
+                type="omikuji6.action.ListAction"
+                name="omikujiForm"
+                scope="request"
+                validate="false"
+                input="/list/listPerBirthday.jsp">
+                <forward name="success" path="/list/listPerBirthday.jsp"/>
+                </action>
+    
+    
+    <action
+                path="/stats/index"
+                type="omikuji6.action.StatsAction"
+                name="omikujiForm"
+                scope="request"
+                validate="false"
+                input="/stats/resultRatio.jsp">
+                <forward name="success" path="/stats/resultRatio.jsp"/>
+                </action>
+                
     </action-mappings>
     
 

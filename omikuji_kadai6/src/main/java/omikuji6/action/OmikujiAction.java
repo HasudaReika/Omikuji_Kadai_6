@@ -41,7 +41,7 @@ public class OmikujiAction {
 	 * @return 結果画面に遷移
 	 */
 	
-	@Execute(validator = true, input = "birthdayInput.jsp")
+	@Execute(validator = true, input = "index.jsp")
 	public String showResult() {
 		//フォームに入力された誕生日文字列をセット
 		String birthdaysString = omikujiForm.birthday;

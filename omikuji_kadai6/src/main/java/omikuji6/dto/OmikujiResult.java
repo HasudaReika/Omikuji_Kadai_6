@@ -88,12 +88,13 @@ public class OmikujiResult {
 
 	//コンストラクタで値を取得
 	public OmikujiResult(LocalDate fortuneTellingDate, String fortuneName, String negaigoto, String akinai,
-			String gakumon) {
+			String gakumon, String omikujiCode) {
 		this.fortuneTellingDate = fortuneTellingDate;
 		this.fortuneName = fortuneName;
 		this.negaigoto = negaigoto;
 		this.akinai = akinai;
 		this.gakumon = gakumon;
+		this.omikujiCode = omikujiCode;
 
 	}
 }
