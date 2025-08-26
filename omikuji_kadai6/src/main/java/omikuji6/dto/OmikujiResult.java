@@ -86,6 +86,8 @@ public class OmikujiResult {
 		this.createdDate = createdDate;
 	}
 
+
+	
 	//コンストラクタで値を取得
 	public OmikujiResult(LocalDate fortuneTellingDate, String fortuneName, String negaigoto, String akinai,
 			String gakumon, String omikujiCode) {

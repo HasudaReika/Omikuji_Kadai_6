@@ -140,9 +140,9 @@
 	<welcome-file-list>
 		<welcome-file>omikuji6/action/omikuji/</welcome-file>
 	</welcome-file-list>
-	<!-- <listener> <listener-class>omikuji6.listener.StartupListener</listener-class> 
-		</listener> -->
-
+<!-- 	<listener> <listener-class>omikuji6.listener.StartupListener</listener-class> 
+		</listener> 
+ -->
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>

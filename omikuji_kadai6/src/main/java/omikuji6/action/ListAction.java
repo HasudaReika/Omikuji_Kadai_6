@@ -4,6 +4,7 @@ package omikuji6.action;
  */
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,17 +27,30 @@ public class ListAction {
 	@Resource
 	protected OmikujiService omikujiService;
 	
-	public LocalDate birthday;
+	public String birthday;
 
 	@Execute(validator = false)
-	public String index(LocalDate birthday) {
+	public String index() {
 		//誕生日をセット
-		this.birthday = birthday;
+		birthday = omikujiForm.birthday;
+		//LocalDateに変換
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		LocalDate birthdayLocalDate = LocalDate.parse(birthday, formatter);
+		
 		List<OmikujiResult> list = new ArrayList<OmikujiResult>();
 		//過去半年の結果を取得しリストに格納
-		list = omikujiService.getResultPastSixMonths(birthday);
+		list = omikujiService.getResultPastSixMonths(birthdayLocalDate);
 		//結果を降順にソート
-		Collections.sort(list, Comparator.comparing(OmikujiResult::getFortuneTellingDate).reversed());
+//		Collections.sort(list, Comparator.comparing(OmikujiResult::getFortuneTellingDate).reversed());
+
+		//
+		Collections.sort(list, new Comparator<OmikujiResult>() {
+			@Override
+			public int compare(OmikujiResult o1, OmikujiResult o2) {
+				return o2.getFortuneTellingDate().compareTo(o1.getFortuneTellingDate());
+			}
+		});
+
 		return "listPerBirthday.jsp";
 	}
 }

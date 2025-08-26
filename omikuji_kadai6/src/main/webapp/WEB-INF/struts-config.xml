@@ -23,7 +23,7 @@
 
 <!-- =================================== Action Mapping Definitions -->
 
-    <action-mappings>
+    <!-- <action-mappings>
     <action
                 path="/list/index"
                 type="omikuji6.action.ListAction"
@@ -46,7 +46,7 @@
                 </action>
                 
     </action-mappings>
-    
+     -->
 
 <!-- ===================================== Controller Configuration -->
 

@@ -9,7 +9,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -53,9 +52,11 @@ public class OmikujiService {
 		});
 		//1以上であればfalse
 		if (count > 0) {
+			System.out.println("テーブルにおみくじが格納されています");
 			return false;
 		} else {
 			//なければtrue
+			System.out.println("テーブルにおみくじを格納します");
 			return true;
 		}
 
@@ -293,19 +294,18 @@ public class OmikujiService {
 		//LocalDate型に変換
 		LocalDate sixMonthsDate = sixMonths.toLocalDate();
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-		String birthdayString = birthday.format(formatter);
-		String sixMonthAgoString = sixMonthsDate.format(formatter);
-
 		//pmbに値を設定
 		ResultPastSixMonthsPmb pmb = new ResultPastSixMonthsPmb();
-		pmb.setBirthday(birthdayString);
-		pmb.setSixMonthsAgo(sixMonthAgoString);
+		pmb.setBirthday(birthday);
+		pmb.setSixMonthsAgo(sixMonthsDate);
 
 		//外だしSQLを実行
-		ListResultBean<OmikujiResult> list = resultBhv.outsideSql().traditionalStyle()
+		ListResultBean<OmikujiResult> list = 
+				resultBhv.outsideSql()
+				.traditionalStyle()
 				.selectList("sql/omikuji/getResultPastSixMonths.sql", pmb, OmikujiResult.class);
 
+		
 		return list;
 
 	}

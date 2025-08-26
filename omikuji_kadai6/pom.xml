@@ -240,11 +240,18 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>jboss</groupId>
 			<artifactId>javassist</artifactId>
 			<version>3.4.ga</version>
-		</dependency>
+		</dependency> -->
+		
+		<dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.30.2-GA</version>
+        </dependency>
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -284,6 +291,14 @@
 			<groupId>org.seasar.container</groupId>
 			<artifactId>s2-framework</artifactId>
 			<version>2.4.46</version>
+			
+			<!-- <exclusions>
+                <exclusion>
+                    <artifactId>javassist</artifactId>
+                    <groupId>jboss</groupId>
+                </exclusion>
+            </exclusions> -->
+			
 		</dependency>
 		<dependency>
 			<groupId>org.seasar.container</groupId>

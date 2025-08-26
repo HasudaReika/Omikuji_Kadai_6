@@ -30,8 +30,8 @@
 			onclick="location.href='http://localhost:8080/omikuji_kadai6/omikuji/'"
 			value="続ける" /><br>
 
-		<s:link action="/stats/index">過去半年の統計を見る</s:link>
-		<s:link action="/list/index">誕生日の過去半年の結果を見る</s:link>
+		<s:link action="/stats">過去半年の統計を見る</s:link>
+		<s:link action="/list" paramId="birthday" paramProperty="birthday">誕生日の過去半年の結果を見る</s:link>
 	</div>
 </body>
 </html>
