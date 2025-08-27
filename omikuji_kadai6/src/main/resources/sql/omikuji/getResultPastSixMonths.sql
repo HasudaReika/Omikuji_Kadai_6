@@ -10,4 +10,4 @@ on r.omikuji_code = o.omikuji_code
 inner join fortune_master f
 on o.fortune_code = f.fortune_code
 where r.fortune_telling_date >= /*pmb.sixMonthsAgo*/ 
-and birthday = /*pmb.birthday*/;
+and birthday = /*pmb.birthday*/

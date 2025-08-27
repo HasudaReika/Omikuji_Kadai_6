@@ -1,7 +1,5 @@
 package omikuji6.dbflute.exbhv.pmbean;
 
-import java.util.Calendar;
-
 import omikuji6.dbflute.bsbhv.pmbean.BsUnseiPastSixMonthsPmb;
 
 /**
@@ -16,13 +14,5 @@ import omikuji6.dbflute.bsbhv.pmbean.BsUnseiPastSixMonthsPmb;
  */
 public class UnseiPastSixMonthsPmb extends BsUnseiPastSixMonthsPmb {
 
-	protected Calendar setSixMonthsAgo;
 
-	public Calendar getSetSixMonthsAgo() {
-		return setSixMonthsAgo;
-	}
-
-	public void setSetSixMonthsAgo(Calendar setSixMonthsAgo) {
-		this.setSixMonthsAgo = setSixMonthsAgo;
-	}
 }

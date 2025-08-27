@@ -17,6 +17,9 @@ public class BsUnseiPastSixMonthsPmb implements ParameterBean, FetchBean {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    /** The parameter of sixMonthsAgo. */
+    protected java.time.LocalDate _sixMonthsAgo;
+
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
 
@@ -99,9 +102,28 @@ public class BsUnseiPastSixMonthsPmb implements ParameterBean, FetchBean {
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
+        sb.append(dm).append(_sixMonthsAgo);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
 
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    /**
+     * [get] sixMonthsAgo <br>
+     * @return The value of sixMonthsAgo. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public java.time.LocalDate getSixMonthsAgo() {
+        return _sixMonthsAgo;
+    }
+
+    /**
+     * [set] sixMonthsAgo <br>
+     * @param sixMonthsAgo The value of sixMonthsAgo. (NullAllowed)
+     */
+    public void setSixMonthsAgo(java.time.LocalDate sixMonthsAgo) {
+        _sixMonthsAgo = sixMonthsAgo;
+    }
 }

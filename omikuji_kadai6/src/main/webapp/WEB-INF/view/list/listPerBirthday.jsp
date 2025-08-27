@@ -14,6 +14,7 @@
 <body>
 <h1>${birthday}の過去半年の占い結果</h1>
 
+
 <table border="1">
 <tr>
 	<th>占い日</th>
@@ -24,7 +25,7 @@
 </tr>
 <c:forEach var="v" items="${list}">
 <tr>
-	<td><fmt:formatDate value = "${v.fortuneTellingDate}" pattern="yyyy/MM/dd"/></td>
+	<td>${v.fortuneTellingDate}</td>
 	<td>${v.fortuneName}</td>
 	<td>${v.negaigoto}</td>
 	<td>${v.akinai}</td>

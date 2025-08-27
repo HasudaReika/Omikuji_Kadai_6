@@ -85,7 +85,11 @@ public class OmikujiResult {
 	public void setCreatedDate(LocalDate createdDate) {
 		this.createdDate = createdDate;
 	}
-
+	
+	//引数なしのコンストラクタ
+	public OmikujiResult() {
+		
+	}
 
 	
 	//コンストラクタで値を取得

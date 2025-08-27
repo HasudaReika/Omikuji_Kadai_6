@@ -9,16 +9,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
-import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.optional.OptionalEntity;
 
 import omikuji6.dbflute.exbhv.FortuneMasterBhv;
@@ -238,19 +238,25 @@ public class OmikujiService {
 		today.add(Calendar.MONTH, -6);
 		//sixMonthAgoに計算後の日付を代入
 		sixMonthsAgo = today;
+		LocalDate smaDate = sixMonthsAgo.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
 		//pmbに値を設定
 		UnseiPastSixMonthsPmb pmb = new UnseiPastSixMonthsPmb();
-		pmb.setSetSixMonthsAgo(sixMonthsAgo);
+		pmb.setSixMonthsAgo(smaDate);
 
 		//外だしSQLを実行
 		List<UnseiPastSixMonths> list = resultBhv.outsideSql().traditionalStyle()
 				.selectList("sql/omikuji/getUnseiPastSixMonths.sql", pmb, UnseiPastSixMonths.class);
 
 		//listからmapに変換
-		Map<String, Long> resultPastSixMonths = list.stream()
-				.collect(Collectors.toMap(UnseiPastSixMonths::getFortuneName, UnseiPastSixMonths::getCount));
+//		Map<String, Long> resultPastSixMonths = list.stream()
+//				.collect(Collectors.toMap(UnseiPastSixMonths::getFortuneName, UnseiPastSixMonths::getCount));
 
+		Map<String, Long> resultPastSixMonths = new HashMap<String, Long>();
+		for (UnseiPastSixMonths unsei: list) {
+			resultPastSixMonths.put(unsei.getFortuneName(), unsei.getCount());
+		}
+		
 		return resultPastSixMonths;
 
 	}
@@ -267,9 +273,14 @@ public class OmikujiService {
 				pmb, UnseiToday.class);
 
 		//listからmapに変換
-		Map<String, Long> resultToday = list.stream()
-				.collect(Collectors.toMap(UnseiToday::getFortuneName, UnseiToday::getCount));
+//		Map<String, Long> resultToday = list.stream()
+//				.collect(Collectors.toMap(UnseiToday::getFortuneName, UnseiToday::getCount));
 
+		Map<String, Long> resultToday = new HashMap<String, Long>();
+		for (UnseiToday unsei: list) {
+			resultToday.put(unsei.getFortuneName(), unsei.getCount());
+		}
+		
 		return resultToday;
 
 	}
@@ -300,12 +311,11 @@ public class OmikujiService {
 		pmb.setSixMonthsAgo(sixMonthsDate);
 
 		//外だしSQLを実行
-		ListResultBean<OmikujiResult> list = 
+		List<OmikujiResult> list = 
 				resultBhv.outsideSql()
 				.traditionalStyle()
 				.selectList("sql/omikuji/getResultPastSixMonths.sql", pmb, OmikujiResult.class);
 
-		
 		return list;
 
 	}
