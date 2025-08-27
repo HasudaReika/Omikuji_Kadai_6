@@ -20,5 +20,6 @@ map:{
     #; MEMBER       = SEQ_MEMBER
     #; MEMBER_LOGIN = SEQ_MEMBER_LOGIN
     #; PRODUCT      = SEQ_PRODUCT
+    ; OMIKUJI = SEQ_OMIKUJI_CODE
 }
 # ----------------/

@@ -34,6 +34,6 @@
 </c:forEach>
 </table>
 <s:link href="javascript:history.back()">前のページへ</s:link>
-<s:link href="http://localhost:8080/omikuji_kadai6/omikuji/">誕生日入力画面に戻る</s:link>
+<s:link action="omikuji.do">誕生日入力画面に戻る</s:link>
 </body>
 </html>

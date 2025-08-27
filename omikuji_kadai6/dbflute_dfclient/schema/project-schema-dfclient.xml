@@ -69,15 +69,15 @@
             required="true" size="20" type="VARCHAR"/>
         <column dbType="date" javaType="java.time.LocalDate"
             name="created_date" size="13" type="DATE"/>
-        <foreign-key foreignSchema="test" foreignTable="omikuji" name="result_omikuji_code_fkey">
+        <foreign-key foreignSchema="test" foreignTable="omikuji" name="fk_result_omikuji">
             <reference foreign="omikuji_code" local="omikuji_code"/>
         </foreign-key>
     </table>
     <sequenceGroup>
         <sequence incrementSize="1" maximumValue="9223372036854775807"
-            minimumValue="1" name="seq_fortune_code" schema="test.test"/>
-        <sequence incrementSize="1" maximumValue="9223372036854775807"
             minimumValue="1" name="seq_omikuji_code" schema="test.test"/>
+        <sequence incrementSize="1" maximumValue="9223372036854775807"
+            minimumValue="1" name="seq_fortune_code" schema="test.test"/>
         <sequence incrementSize="1" maximumValue="2147483647"
             minimumValue="1" name="omikuji_csv_number_seq" schema="test.test"/>
     </sequenceGroup>

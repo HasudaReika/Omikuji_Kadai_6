@@ -5,8 +5,9 @@ package service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -70,9 +71,11 @@ public class OmikujiService {
 	public void importOmikujiFromCsv() throws FileNotFoundException, IOException {
 		LocalDate today = LocalDate.now();
 		//csvを読み込む
-		String csv = "omikuji.csv";
+//		String csv = "omikuji.csv";
 
-		try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+		try (	
+				InputStream is = getClass().getClassLoader().getResourceAsStream("omikuji.csv");
+				BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
 			String line;
 			//csvを1行ずつ読み込む
 			while ((line = br.readLine()) != null) {
@@ -113,7 +116,7 @@ public class OmikujiService {
 				omikuji.setNegaigoto(negaigoto);
 				omikuji.setAkinai(akinai);
 				omikuji.setGakumon(gakumon);
-				omikuji.setUpdatedBy("蓮田");
+				omikuji.setCreatedBy("蓮田");
 				omikuji.setCreatedDate(today);
 				omikuji.setUpdatedBy("蓮田");
 				omikuji.setUpdatedDate(today);
@@ -249,9 +252,6 @@ public class OmikujiService {
 				.selectList("sql/omikuji/getUnseiPastSixMonths.sql", pmb, UnseiPastSixMonths.class);
 
 		//listからmapに変換
-//		Map<String, Long> resultPastSixMonths = list.stream()
-//				.collect(Collectors.toMap(UnseiPastSixMonths::getFortuneName, UnseiPastSixMonths::getCount));
-
 		Map<String, Long> resultPastSixMonths = new HashMap<String, Long>();
 		for (UnseiPastSixMonths unsei: list) {
 			resultPastSixMonths.put(unsei.getFortuneName(), unsei.getCount());
@@ -273,9 +273,6 @@ public class OmikujiService {
 				pmb, UnseiToday.class);
 
 		//listからmapに変換
-//		Map<String, Long> resultToday = list.stream()
-//				.collect(Collectors.toMap(UnseiToday::getFortuneName, UnseiToday::getCount));
-
 		Map<String, Long> resultToday = new HashMap<String, Long>();
 		for (UnseiToday unsei: list) {
 			resultToday.put(unsei.getFortuneName(), unsei.getCount());

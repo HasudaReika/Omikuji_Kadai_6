@@ -252,10 +252,27 @@ public abstract class BsOmikujiBhv extends AbstractBehaviorWritable<Omikuji, Omi
     // ===================================================================================
     //                                                                            Sequence
     //                                                                            ========
+    /**
+     * Select the next value as sequence. <br>
+     * This method is called when insert() and set to primary-key automatically.
+     * So you don't need to call this as long as you need to get next value before insert().
+     * @return The next value. (NotNull)
+     */
+    public Integer selectNextVal() {
+        return facadeSelectNextVal();
+    }
+
+    protected Integer facadeSelectNextVal() {
+        return doSelectNextVal(Integer.class);
+    }
+
+    protected <RESULT> RESULT doSelectNextVal(Class<RESULT> tp) {
+        return delegateSelectNextVal(tp);
+    }
+
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + asTableDbName();
-        throw new UnsupportedOperationException(msg);
+        return facadeSelectNextVal();
     }
 
     // ===================================================================================

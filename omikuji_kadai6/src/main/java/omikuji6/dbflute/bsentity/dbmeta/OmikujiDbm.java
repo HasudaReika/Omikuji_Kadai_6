@@ -192,12 +192,16 @@ public class OmikujiDbm extends AbstractDBMeta {
      */
     public ReferrerInfo referrerResultList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnOmikujiCode(), ResultDbm.getInstance().columnOmikujiCode());
-        return cri("result_omikuji_code_fkey", "resultList", this, ResultDbm.getInstance(), mp, false, "omikuji");
+        return cri("fk_result_omikuji", "resultList", this, ResultDbm.getInstance(), mp, false, "omikuji");
     }
 
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
+    public boolean hasSequence() { return true; }
+    public String getSequenceName() { return "SEQ_OMIKUJI_CODE"; }
+    public Integer getSequenceIncrementSize() { return 1; }
+    public Integer getSequenceCacheSize() { return null; }
 
     // ===================================================================================
     //                                                                           Type Name

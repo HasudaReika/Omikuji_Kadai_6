@@ -1,0 +1,19 @@
+map:{
+    ; 2025/08/27 15:27:52.948 = map:{
+        ; diffDate = 2025/08/27 15:27:52.948
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; result = map:{
+                ; tableName = result
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; fk_result_omikuji = map:{
+                        ; constraintName = fk_result_omikuji
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

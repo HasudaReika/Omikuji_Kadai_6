@@ -166,7 +166,7 @@ public class ResultDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignOmikuji() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnOmikujiCode(), OmikujiDbm.getInstance().columnOmikujiCode());
-        return cfi("result_omikuji_code_fkey", "omikuji", this, OmikujiDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "resultList", false);
+        return cfi("fk_result_omikuji", "omikuji", this, OmikujiDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "resultList", false);
     }
 
     // -----------------------------------------------------
