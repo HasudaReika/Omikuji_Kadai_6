@@ -12,7 +12,9 @@ public class Init{
 	@Resource
 	OmikujiService omikujiService;
 
-	//起動時に一度だけ実行する処理
+	/**
+	 * 起動時にDBをチェック
+	 */
 	public void initialize() {
 		try {	// テーブルにおみくじが格納されているかチェック
 			if (omikujiService.checkDB()) {

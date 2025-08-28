@@ -46,7 +46,7 @@ public class OmikujiAction {
 		//フォームに入力された誕生日文字列をセット
 		String birthdaysString = omikujiForm.birthday;
 
-		//birthdayをLocalDate型に変換
+		//birthdayをStringからLocalDate型に変換
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		LocalDate birthday = LocalDate.parse(birthdaysString, formatter);
 

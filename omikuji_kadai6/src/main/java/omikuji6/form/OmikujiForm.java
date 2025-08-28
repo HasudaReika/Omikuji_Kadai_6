@@ -1,5 +1,7 @@
 package omikuji6.form;
-
+/**
+ * 入力された誕生日を受け取る
+ */
 import java.io.Serializable;
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
@@ -20,6 +22,7 @@ public class OmikujiForm implements Serializable{
 		return birthday;
 	}
 
+	//全角から半角文字に変換
 	public void setBirthday(String birthday) {
 		this.birthday = Normalizer.normalize(birthday, Form.NFKC);
 

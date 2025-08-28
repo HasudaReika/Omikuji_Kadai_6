@@ -24,6 +24,10 @@ public class StatsAction {
 
 	public HttpServletRequest request;
 
+	/**
+	 * 過去半年と本日の運勢の割合をそれぞれ計算しMapに格納
+	 * @return resultRatio.jspに遷移
+	 */
 	@Execute(validator = false)
 	public String index() {
 		Map<String, Long> resultPastSixMonths = null;
@@ -50,7 +54,7 @@ public class StatsAction {
 				return o2.getValue().compareTo(o1.getValue());
 			}
 		});
-		//割合を%に計算しMaoに格納
+		//割合を%に計算しMapに格納
 		Map<String, Double> ratioPSM = new LinkedHashMap<String, Double>();
 		for (Map.Entry<String, Long> entry : entryList) {
 			double ratio = Math.round((entry.getValue().doubleValue() / total) * 10000.0) / 100.0;
@@ -76,7 +80,7 @@ public class StatsAction {
 				return o2.getValue().compareTo(o1.getValue());
 			}
 		});
-		//割合を%に計算しMaoに格納
+		//割合を%に計算しMapに格納
 		Map<String, Double> ratioToday = new LinkedHashMap<String, Double>();
 		for (Map.Entry<String, Long> entry : entryList2) {
 			double ratio = Math.round((entry.getValue().doubleValue() / total2) * 10000.0) / 100.0;

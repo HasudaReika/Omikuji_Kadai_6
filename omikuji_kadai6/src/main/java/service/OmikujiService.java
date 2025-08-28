@@ -10,7 +10,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -71,8 +70,6 @@ public class OmikujiService {
 	public void importOmikujiFromCsv() throws FileNotFoundException, IOException {
 		LocalDate today = LocalDate.now();
 		//csvを読み込む
-//		String csv = "omikuji.csv";
-
 		try (	
 				InputStream is = getClass().getClassLoader().getResourceAsStream("omikuji.csv");
 				BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
@@ -229,7 +226,7 @@ public class OmikujiService {
 
 	/**
 	 * 過去半年の運勢の割合を抽出
-	 * @return
+	 * @return　Map<運勢, 数>
 	 */
 	public Map<String, Long> getUnseiPastSixMonths() {
 
@@ -241,11 +238,14 @@ public class OmikujiService {
 		today.add(Calendar.MONTH, -6);
 		//sixMonthAgoに計算後の日付を代入
 		sixMonthsAgo = today;
-		LocalDate smaDate = sixMonthsAgo.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		//Calender型からsqlDate型に変換
+		Date sixMonths = new Date(sixMonthsAgo.getTime().getTime());
+		//LocalDate型に変換
+		LocalDate sixMonthsDate = sixMonths.toLocalDate();
 
 		//pmbに値を設定
 		UnseiPastSixMonthsPmb pmb = new UnseiPastSixMonthsPmb();
-		pmb.setSixMonthsAgo(smaDate);
+		pmb.setSixMonthsAgo(sixMonthsDate);
 
 		//外だしSQLを実行
 		List<UnseiPastSixMonths> list = resultBhv.outsideSql().traditionalStyle()
@@ -263,7 +263,7 @@ public class OmikujiService {
 
 	/**
 	 * 本日の運勢の割合を抽出
-	 * @return
+	 * @return Map<運勢, 数>
 	 */
 	public Map<String, Long> getUnseiToday() {
 		UnseiTodayPmb pmb = new UnseiTodayPmb();
@@ -285,7 +285,7 @@ public class OmikujiService {
 	/**
 	 * 過去半年のおみくじの結果を抽出
 	 * @param birthday
-	 * @return
+	 * @return 過去半年の結果のリスト
 	 */
 	public List<OmikujiResult> getResultPastSixMonths(LocalDate birthday) {
 
