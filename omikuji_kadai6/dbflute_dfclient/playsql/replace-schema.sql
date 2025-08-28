@@ -44,6 +44,13 @@ created_by varchar(20) not null,
 created_date date
 );
 
+--送付先テーブル作成--
+create table shipping_address(
+post_code integer,
+address varchar(100),
+name varchar(20)
+);
+
 --csvファイルを読み込むテーブル作成--
 create table omikuji_csv(
 number serial,

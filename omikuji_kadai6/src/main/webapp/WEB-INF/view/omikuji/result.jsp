@@ -25,8 +25,12 @@
 		</div>
 		<p>おみくじを続けますか？</p>
 		<s:link action="omikuji.do">
-		<input type="button" value="続ける" /><br>
+		<input type="button" value="続ける"/><br>
 		</s:link>
+ 		<div align="right">
+		<s:link action="post.do">
+		<input type="button" value="郵送"/></s:link>
+		</div> 
 
 		<s:link action="/stats">過去半年の統計を見る</s:link>
 		<s:link action="/list" paramId="birthday" paramProperty="birthday">誕生日の過去半年の結果を見る</s:link>

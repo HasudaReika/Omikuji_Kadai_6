@@ -14,6 +14,7 @@
 	<component class="omikuji6.action.OmikujiAction" />
 	<component class="omikuji6.action.ListAction"/>
 	<component class="omikuji6.action.StatsAction"/>
+	<component class="omikuji6.action.PostAction"/>
 	<component class="omikuji6.action.Init">
 	<initMethod name="initialize"/></component>
 	
