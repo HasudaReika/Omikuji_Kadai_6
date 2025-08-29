@@ -35,6 +35,7 @@ created_date date
 
 --結果テーブルの作成--
 create table result(
+result_code serial primary key,
 fortune_telling_date date,
 birthday date,
 omikuji_code integer references omikuji(omikuji_code),
@@ -45,7 +46,7 @@ created_date date
 );
 
 --送付先テーブル作成--
-create table shipping_address(
+create table shipping(
 post_code integer,
 address varchar(100),
 name varchar(20)
@@ -122,3 +123,24 @@ set negaigoto = t2.negaigoto,
     gakumon = t2.gakumon
 from omikuji_csv as t2
 where t1.omikuji_code = t2.number;
+
+--郵便番号テーブルを作成--
+create table post_code_data(
+id serial primary key,
+post_code varchar(7),
+prefecture varchar(20),
+city varchar(20),
+town varchar(50)
+);
+
+--送付先テーブル--
+create table shipping(
+id serial primary key,
+result_code integer references result(result_code),
+post_code varchar(7),
+address varchar(200),
+name varchar(30),
+phone varchar(11),
+mail varchar(200)
+);
+

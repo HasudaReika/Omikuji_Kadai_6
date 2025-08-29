@@ -4,10 +4,12 @@ package omikuji6.action;
  */
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -30,6 +32,7 @@ public class ListAction {
 
 	public LocalDate birthday;
 	public HttpServletRequest request;
+	public Date birthdayDate;
 
 	/**
 	 * 入力された誕生日の過去半年の結果をListに格納
@@ -40,6 +43,8 @@ public class ListAction {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		//誕生日をセット
 		birthday = LocalDate.parse(omikujiForm.birthday, formatter);
+		//date型に変換
+		birthdayDate = Date.from(birthday.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
 		List<OmikujiResult> list = new ArrayList<OmikujiResult>();
 		//過去半年の結果を取得しリストに格納

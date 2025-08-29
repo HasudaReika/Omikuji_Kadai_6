@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style2.css">
 </head>
 <body>
-<h1>${birthday}の過去半年の占い結果</h1>
+<h1><fmt:formatDate value="${birthdayDate}" pattern="yyyy年MM日dd日"/>の過去半年の占い結果</h1>
 
 
 <table border="1">
