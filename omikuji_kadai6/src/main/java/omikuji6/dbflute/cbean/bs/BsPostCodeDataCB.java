@@ -18,23 +18,22 @@ import omikuji6.dbflute.allcommon.ImplementedInvokerAssistant;
 import omikuji6.dbflute.allcommon.ImplementedSqlClauseCreator;
 import omikuji6.dbflute.cbean.*;
 import omikuji6.dbflute.cbean.cq.*;
-import omikuji6.dbflute.cbean.nss.*;
 
 /**
- * The base condition-bean of result.
+ * The base condition-bean of post_code_data.
  * @author DBFlute(AutoGenerator)
  */
-public class BsResultCB extends AbstractConditionBean {
+public class BsPostCodeDataCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected ResultCQ _conditionQuery;
+    protected PostCodeDataCQ _conditionQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsResultCB() {
+    public BsPostCodeDataCB() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -77,7 +76,7 @@ public class BsResultCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "result";
+        return "post_code_data";
     }
 
     // ===================================================================================
@@ -85,23 +84,23 @@ public class BsResultCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param resultCode : PK, ID, NotNull, serial(10). (NotNull)
+     * @param id : PK, ID, NotNull, serial(10). (NotNull)
      * @return this. (NotNull)
      */
-    public ResultCB acceptPK(Integer resultCode) {
-        assertObjectNotNull("resultCode", resultCode);
-        BsResultCB cb = this;
-        cb.query().setResultCode_Equal(resultCode);
-        return (ResultCB)this;
+    public PostCodeDataCB acceptPK(Integer id) {
+        assertObjectNotNull("id", id);
+        BsPostCodeDataCB cb = this;
+        cb.query().setId_Equal(id);
+        return (PostCodeDataCB)this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
-        query().addOrderBy_ResultCode_Asc();
+        query().addOrderBy_Id_Asc();
         return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        query().addOrderBy_ResultCode_Desc();
+        query().addOrderBy_Id_Desc();
         return this;
     }
 
@@ -165,34 +164,34 @@ public class BsResultCB extends AbstractConditionBean {
      * </pre>
      * @return The instance of condition-query for base-point table to set up query. (NotNull)
      */
-    public ResultCQ query() {
+    public PostCodeDataCQ query() {
         assertQueryPurpose(); // assert only when user-public query
         return doGetConditionQuery();
     }
 
-    public ResultCQ xdfgetConditionQuery() { // public for parameter comment and internal
+    public PostCodeDataCQ xdfgetConditionQuery() { // public for parameter comment and internal
         return doGetConditionQuery();
     }
 
-    protected ResultCQ doGetConditionQuery() {
+    protected PostCodeDataCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
         return _conditionQuery;
     }
 
-    protected ResultCQ createLocalCQ() {
+    protected PostCodeDataCQ createLocalCQ() {
         return xcreateCQ(null, getSqlClause(), getSqlClause().getBasePointAliasName(), 0);
     }
 
-    protected ResultCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        ResultCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected PostCodeDataCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        PostCodeDataCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
         cq.xsetBaseCB(this);
         return cq;
     }
 
-    protected ResultCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        return new ResultCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected PostCodeDataCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        return new PostCodeDataCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
     /**
@@ -216,10 +215,10 @@ public class BsResultCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<ResultCB> unionCBLambda) {
-        final ResultCB cb = new ResultCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void union(UnionQuery<PostCodeDataCB> unionCBLambda) {
+        final PostCodeDataCB cb = new PostCodeDataCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final ResultCQ cq = cb.query(); query().xsetUnionQuery(cq);
+        final PostCodeDataCQ cq = cb.query(); query().xsetUnionQuery(cq);
     }
 
     /**
@@ -233,44 +232,15 @@ public class BsResultCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<ResultCB> unionCBLambda) {
-        final ResultCB cb = new ResultCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void unionAll(UnionQuery<PostCodeDataCB> unionCBLambda) {
+        final PostCodeDataCB cb = new PostCodeDataCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final ResultCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
+        final PostCodeDataCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
 
     // ===================================================================================
     //                                                                         SetupSelect
     //                                                                         ===========
-    protected OmikujiNss _nssOmikuji;
-    public OmikujiNss xdfgetNssOmikuji() {
-        if (_nssOmikuji == null) { _nssOmikuji = new OmikujiNss(null); }
-        return _nssOmikuji;
-    }
-    /**
-     * Set up relation columns to select clause. <br>
-     * omikuji by my omikuji_code, named 'omikuji'.
-     * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Omikuji()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     *     <span style="color: #553000">cb</span>.query().set...
-     * }).alwaysPresent(<span style="color: #553000">result</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">result</span>.<span style="color: #CC4747">getOmikuji()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
-     * });
-     * </pre>
-     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
-     */
-    public OmikujiNss setupSelect_Omikuji() {
-        assertSetupSelectPurpose("omikuji");
-        if (hasSpecifiedLocalColumn()) {
-            specify().columnOmikujiCode();
-        }
-        doSetupSelect(() -> query().queryOmikuji());
-        if (_nssOmikuji == null || !_nssOmikuji.hasConditionQuery())
-        { _nssOmikuji = new OmikujiNss(query().queryOmikuji()); }
-        return _nssOmikuji;
-    }
-
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -311,108 +281,51 @@ public class BsResultCB extends AbstractConditionBean {
         return _specification != null && _specification.hasSpecifiedColumn();
     }
 
-    public static class HpSpecification extends HpAbstractSpecification<ResultCQ> {
-        protected OmikujiCB.HpSpecification _omikuji;
-        public HpSpecification(ConditionBean baseCB, HpSpQyCall<ResultCQ> qyCall
+    public static class HpSpecification extends HpAbstractSpecification<PostCodeDataCQ> {
+        public HpSpecification(ConditionBean baseCB, HpSpQyCall<PostCodeDataCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * fortune_telling_date: {date(13)}
+         * id: {PK, ID, NotNull, serial(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnFortuneTellingDate() { return doColumn("fortune_telling_date"); }
+        public SpecifiedColumn columnId() { return doColumn("id"); }
         /**
-         * birthday: {date(13)}
+         * post_code: {varchar(7)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnBirthday() { return doColumn("birthday"); }
+        public SpecifiedColumn columnPostCode() { return doColumn("post_code"); }
         /**
-         * omikuji_code: {int4(10), FK to omikuji}
+         * prefecture: {varchar(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnOmikujiCode() { return doColumn("omikuji_code"); }
+        public SpecifiedColumn columnPrefecture() { return doColumn("prefecture"); }
         /**
-         * updated_by: {NotNull, varchar(20)}
+         * city: {varchar(20)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdatedBy() { return doColumn("updated_by"); }
+        public SpecifiedColumn columnCity() { return doColumn("city"); }
         /**
-         * updated_date: {date(13)}
+         * town: {varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdatedDate() { return doColumn("updated_date"); }
-        /**
-         * created_by: {NotNull, varchar(20)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnCreatedBy() { return doColumn("created_by"); }
-        /**
-         * created_date: {date(13)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnCreatedDate() { return doColumn("created_date"); }
-        /**
-         * result_code: {PK, ID, NotNull, serial(10)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnResultCode() { return doColumn("result_code"); }
+        public SpecifiedColumn columnTown() { return doColumn("town"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
-            columnResultCode(); // PK
-            if (qyCall().qy().hasConditionQueryOmikuji()
-                    || qyCall().qy().xgetReferrerQuery() instanceof OmikujiCQ) {
-                columnOmikujiCode(); // FK or one-to-one referrer
-            }
+            columnId(); // PK
         }
         @Override
-        protected String getTableDbName() { return "result"; }
-        /**
-         * Prepare to specify functions about relation table. <br>
-         * omikuji by my omikuji_code, named 'omikuji'.
-         * @return The instance for specification for relation table to specify. (NotNull)
-         */
-        public OmikujiCB.HpSpecification specifyOmikuji() {
-            assertRelation("omikuji");
-            if (_omikuji == null) {
-                _omikuji = new OmikujiCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryOmikuji()
-                                    , () -> _qyCall.qy().queryOmikuji())
-                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
-                if (xhasSyncQyCall()) { // inherits it
-                    _omikuji.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryOmikuji()
-                      , () -> xsyncQyCall().qy().queryOmikuji()));
-                }
-            }
-            return _omikuji;
-        }
-        /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from shipping where ...) as FOO_MAX} <br>
-         * shipping by result_code, named 'shippingList'.
-         * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(shippingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-         *     shippingCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     shippingCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
-         * }, Shipping.<span style="color: #CC4747">ALIAS_foo...</span>);
-         * </pre>
-         * @return The object to set up a function for referrer table. (NotNull)
-         */
-        public HpSDRFunction<ShippingCB, ResultCQ> derivedShipping() {
-            assertDerived("shippingList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<ShippingCB> sq, ResultCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsderiveShippingList(fn, sq, al, op), _dbmetaProvider);
-        }
+        protected String getTableDbName() { return "post_code_data"; }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<ResultCB, ResultCQ> myselfDerived() {
+        public HpSDRFunction<PostCodeDataCB, PostCodeDataCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<ResultCB> sq, ResultCQ cq, String al, DerivedReferrerOption op)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<PostCodeDataCB> sq, PostCodeDataCQ cq, String al, DerivedReferrerOption op)
                     -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
@@ -425,9 +338,9 @@ public class BsResultCB extends AbstractConditionBean {
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
-    public ResultCB dreamCruiseCB() {
-        ResultCB cb = new ResultCB();
-        cb.xsetupForDreamCruise((ResultCB) this);
+    public PostCodeDataCB dreamCruiseCB() {
+        PostCodeDataCB cb = new PostCodeDataCB();
+        cb.xsetupForDreamCruise((PostCodeDataCB) this);
         return cb;
     }
 
@@ -452,15 +365,15 @@ public class BsResultCB extends AbstractConditionBean {
      * @param colCBLambda The callback for specify-query of left column. (NotNull)
      * @return The object for setting up operand and right column. (NotNull)
      */
-    public HpColQyOperand<ResultCB> columnQuery(final SpecifyQuery<ResultCB> colCBLambda) {
+    public HpColQyOperand<PostCodeDataCB> columnQuery(final SpecifyQuery<PostCodeDataCB> colCBLambda) {
         return xcreateColQyOperand((rightSp, operand) -> {
             return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
-    protected ResultCB xcreateColumnQueryCB() {
-        ResultCB cb = new ResultCB();
-        cb.xsetupForColumnQuery((ResultCB)this);
+    protected PostCodeDataCB xcreateColumnQueryCB() {
+        PostCodeDataCB cb = new PostCodeDataCB();
+        cb.xsetupForColumnQuery((PostCodeDataCB)this);
         return cb;
     }
 
@@ -480,8 +393,8 @@ public class BsResultCB extends AbstractConditionBean {
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
      */
-    public void orScopeQuery(OrQuery<ResultCB> orCBLambda) {
-        xorSQ((ResultCB)this, orCBLambda);
+    public void orScopeQuery(OrQuery<PostCodeDataCB> orCBLambda) {
+        xorSQ((PostCodeDataCB)this, orCBLambda);
     }
 
     /**
@@ -499,8 +412,8 @@ public class BsResultCB extends AbstractConditionBean {
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)
      */
-    public void orScopeQueryAndPart(AndQuery<ResultCB> andCBLambda) {
-        xorSQAP((ResultCB)this, andCBLambda);
+    public void orScopeQueryAndPart(AndQuery<PostCodeDataCB> andCBLambda) {
+        xorSQAP((PostCodeDataCB)this, andCBLambda);
     }
 
     // ===================================================================================
@@ -530,11 +443,11 @@ public class BsResultCB extends AbstractConditionBean {
     //                                                                        ============
     @Override
     protected void xprepareSyncQyCall(ConditionBean mainCB) {
-        final ResultCB cb;
+        final PostCodeDataCB cb;
         if (mainCB != null) {
-            cb = (ResultCB)mainCB;
+            cb = (PostCodeDataCB)mainCB;
         } else {
-            cb = new ResultCB();
+            cb = new PostCodeDataCB();
         }
         specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
@@ -543,8 +456,8 @@ public class BsResultCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xgetConditionBeanClassNameInternally() { return ResultCB.class.getName(); }
-    protected String xgetConditionQueryClassNameInternally() { return ResultCQ.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return PostCodeDataCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return PostCodeDataCQ.class.getName(); }
     protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
     protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

@@ -213,6 +213,40 @@ public class BsResultCQ extends AbstractBsResultCQ {
      */
     public BsResultCQ addOrderBy_CreatedDate_Desc() { regOBD("created_date"); return this; }
 
+    protected ConditionValue _resultCode;
+    public ConditionValue xdfgetResultCode()
+    { if (_resultCode == null) { _resultCode = nCV(); }
+      return _resultCode; }
+    protected ConditionValue xgetCValueResultCode() { return xdfgetResultCode(); }
+
+    public Map<String, ShippingCQ> xdfgetResultCode_ExistsReferrer_ShippingList() { return xgetSQueMap("resultCode_ExistsReferrer_ShippingList"); }
+    public String keepResultCode_ExistsReferrer_ShippingList(ShippingCQ sq) { return xkeepSQue("resultCode_ExistsReferrer_ShippingList", sq); }
+
+    public Map<String, ShippingCQ> xdfgetResultCode_NotExistsReferrer_ShippingList() { return xgetSQueMap("resultCode_NotExistsReferrer_ShippingList"); }
+    public String keepResultCode_NotExistsReferrer_ShippingList(ShippingCQ sq) { return xkeepSQue("resultCode_NotExistsReferrer_ShippingList", sq); }
+
+    public Map<String, ShippingCQ> xdfgetResultCode_SpecifyDerivedReferrer_ShippingList() { return xgetSQueMap("resultCode_SpecifyDerivedReferrer_ShippingList"); }
+    public String keepResultCode_SpecifyDerivedReferrer_ShippingList(ShippingCQ sq) { return xkeepSQue("resultCode_SpecifyDerivedReferrer_ShippingList", sq); }
+
+    public Map<String, ShippingCQ> xdfgetResultCode_QueryDerivedReferrer_ShippingList() { return xgetSQueMap("resultCode_QueryDerivedReferrer_ShippingList"); }
+    public String keepResultCode_QueryDerivedReferrer_ShippingList(ShippingCQ sq) { return xkeepSQue("resultCode_QueryDerivedReferrer_ShippingList", sq); }
+    public Map<String, Object> xdfgetResultCode_QueryDerivedReferrer_ShippingListParameter() { return xgetSQuePmMap("resultCode_QueryDerivedReferrer_ShippingList"); }
+    public String keepResultCode_QueryDerivedReferrer_ShippingListParameter(Object pm) { return xkeepSQuePm("resultCode_QueryDerivedReferrer_ShippingList", pm); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @return this. (NotNull)
+     */
+    public BsResultCQ addOrderBy_ResultCode_Asc() { regOBA("result_code"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @return this. (NotNull)
+     */
+    public BsResultCQ addOrderBy_ResultCode_Desc() { regOBD("result_code"); return this; }
+
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
     //                                                             =======================
@@ -291,6 +325,30 @@ public class BsResultCQ extends AbstractBsResultCQ {
     //                                                                     ===============
     public Map<String, ResultCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(ResultCQ sq) { return xkeepSQue("scalarCondition", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public Map<String, ResultCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public String keepSpecifyMyselfDerived(ResultCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
+
+    public Map<String, ResultCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerived(ResultCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    protected Map<String, ResultCQ> _myselfExistsMap;
+    public Map<String, ResultCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public String keepMyselfExists(ResultCQ sq) { return xkeepSQue("myselfExists", sq); }
+
+    // ===================================================================================
+    //                                                                       MyselfInScope
+    //                                                                       =============
+    public Map<String, ResultCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public String keepMyselfInScope(ResultCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
     //                                                                       Very Internal

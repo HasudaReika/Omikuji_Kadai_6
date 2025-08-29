@@ -34,7 +34,9 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("fortune_master", "omikuji6.dbflute.bsentity.dbmeta.FortuneMasterDbm");
         tmpMap.put("omikuji", "omikuji6.dbflute.bsentity.dbmeta.OmikujiDbm");
         tmpMap.put("omikuji_csv", "omikuji6.dbflute.bsentity.dbmeta.OmikujiCsvDbm");
+        tmpMap.put("post_code_data", "omikuji6.dbflute.bsentity.dbmeta.PostCodeDataDbm");
         tmpMap.put("result", "omikuji6.dbflute.bsentity.dbmeta.ResultDbm");
+        tmpMap.put("shipping", "omikuji6.dbflute.bsentity.dbmeta.ShippingDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }
 

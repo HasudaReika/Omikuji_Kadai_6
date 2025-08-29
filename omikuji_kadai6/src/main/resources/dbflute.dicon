@@ -15,5 +15,7 @@
     <component name="fortuneMasterBhv" class="omikuji6.dbflute.exbhv.FortuneMasterBhv"/>
     <component name="omikujiBhv" class="omikuji6.dbflute.exbhv.OmikujiBhv"/>
     <component name="omikujiCsvBhv" class="omikuji6.dbflute.exbhv.OmikujiCsvBhv"/>
+    <component name="postCodeDataBhv" class="omikuji6.dbflute.exbhv.PostCodeDataBhv"/>
     <component name="resultBhv" class="omikuji6.dbflute.exbhv.ResultBhv"/>
+    <component name="shippingBhv" class="omikuji6.dbflute.exbhv.ShippingBhv"/>
 </components>

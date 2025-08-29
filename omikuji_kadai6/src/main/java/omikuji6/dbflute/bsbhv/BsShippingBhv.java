@@ -20,10 +20,10 @@ import omikuji6.dbflute.bsentity.dbmeta.*;
 import omikuji6.dbflute.cbean.*;
 
 /**
- * The behavior of result as TABLE.
+ * The behavior of shipping as TABLE.
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, ResultCB> {
+public abstract class BsShippingBhv extends AbstractBehaviorWritable<Shipping, ShippingCB> {
 
     // ===================================================================================
     //                                                                          Definition
@@ -35,15 +35,15 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
     //                                                                             DB Meta
     //                                                                             =======
     /** {@inheritDoc} */
-    public ResultDbm asDBMeta() { return ResultDbm.getInstance(); }
+    public ShippingDbm asDBMeta() { return ShippingDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "result"; }
+    public String asTableDbName() { return "shipping"; }
 
     // ===================================================================================
     //                                                                        New Instance
     //                                                                        ============
     /** {@inheritDoc} */
-    public ResultCB newConditionBean() { return new ResultCB(); }
+    public ShippingCB newConditionBean() { return new ShippingCB(); }
 
     // ===================================================================================
     //                                                                        Count Select
@@ -52,14 +52,14 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
-    public int selectCount(CBCall<ResultCB> cbLambda) {
+    public int selectCount(CBCall<ShippingCB> cbLambda) {
         return facadeSelectCount(createCB(cbLambda));
     }
 
@@ -73,38 +73,38 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">result</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">shipping</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = <span style="color: #553000">result</span>.get...
+     *     ... = <span style="color: #553000">shipping</span>.get...
      * });
      *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">result</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">shipping</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = <span style="color: #553000">result</span>.get...
+     *     ... = <span style="color: #553000">shipping</span>.get...
      * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<Result> selectEntity(CBCall<ResultCB> cbLambda) {
+    public OptionalEntity<Shipping> selectEntity(CBCall<ShippingCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
-    protected OptionalEntity<Result> facadeSelectEntity(ResultCB cb) {
+    protected OptionalEntity<Shipping> facadeSelectEntity(ShippingCB cb) {
         return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends Result> OptionalEntity<ENTITY> doSelectOptionalEntity(ResultCB cb, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends Shipping> OptionalEntity<ENTITY> doSelectOptionalEntity(ShippingCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
@@ -114,46 +114,46 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * Result <span style="color: #553000">result</span> = <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
-     * ... = <span style="color: #553000">result</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * Shipping <span style="color: #553000">shipping</span> = <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">shipping</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Result selectEntityWithDeletedCheck(CBCall<ResultCB> cbLambda) {
+    public Shipping selectEntityWithDeletedCheck(CBCall<ShippingCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the primary-key value.
-     * @param resultCode : PK, ID, NotNull, serial(10). (NotNull)
+     * @param id : PK, ID, NotNull, serial(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<Result> selectByPK(Integer resultCode) {
-        return facadeSelectByPK(resultCode);
+    public OptionalEntity<Shipping> selectByPK(Integer id) {
+        return facadeSelectByPK(id);
     }
 
-    protected OptionalEntity<Result> facadeSelectByPK(Integer resultCode) {
-        return doSelectOptionalByPK(resultCode, typeOfSelectedEntity());
+    protected OptionalEntity<Shipping> facadeSelectByPK(Integer id) {
+        return doSelectOptionalByPK(id, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends Result> ENTITY doSelectByPK(Integer resultCode, Class<? extends ENTITY> tp) {
-        return doSelectEntity(xprepareCBAsPK(resultCode), tp);
+    protected <ENTITY extends Shipping> ENTITY doSelectByPK(Integer id, Class<? extends ENTITY> tp) {
+        return doSelectEntity(xprepareCBAsPK(id), tp);
     }
 
-    protected <ENTITY extends Result> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer resultCode, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectByPK(resultCode, tp), resultCode);
+    protected <ENTITY extends Shipping> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer id, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectByPK(id, tp), id);
     }
 
-    protected ResultCB xprepareCBAsPK(Integer resultCode) {
-        assertObjectNotNull("resultCode", resultCode);
-        return newConditionBean().acceptPK(resultCode);
+    protected ShippingCB xprepareCBAsPK(Integer id) {
+        assertObjectNotNull("id", id);
+        return newConditionBean().acceptPK(id);
     }
 
     // ===================================================================================
@@ -162,19 +162,19 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;Result&gt; <span style="color: #553000">resultList</span> = <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * ListResultBean&lt;Shipping&gt; <span style="color: #553000">shippingList</span> = <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * <span style="color: #70226C">for</span> (Result <span style="color: #553000">result</span> : <span style="color: #553000">resultList</span>) {
-     *     ... = <span style="color: #553000">result</span>.get...;
+     * <span style="color: #70226C">for</span> (Shipping <span style="color: #553000">shipping</span> : <span style="color: #553000">shippingList</span>) {
+     *     ... = <span style="color: #553000">shipping</span>.get...;
      * }
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
-    public ListResultBean<Result> selectList(CBCall<ResultCB> cbLambda) {
+    public ListResultBean<Shipping> selectList(CBCall<ShippingCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
     }
 
@@ -188,7 +188,7 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * PagingResultBean&lt;Result&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * PagingResultBean&lt;Shipping&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
@@ -198,15 +198,15 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
      * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * <span style="color: #70226C">for</span> (Result result : <span style="color: #553000">page</span>) {
-     *     ... = result.get...;
+     * <span style="color: #70226C">for</span> (Shipping shipping : <span style="color: #553000">page</span>) {
+     *     ... = shipping.get...;
      * }
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
      * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
-    public PagingResultBean<Result> selectPage(CBCall<ResultCB> cbLambda) {
+    public PagingResultBean<Shipping> selectPage(CBCall<ShippingCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
     }
 
@@ -216,16 +216,16 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
-     * @param entityLambda The handler of entity row of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
+     * @param entityLambda The handler of entity row of Shipping. (NotNull)
      */
-    public void selectCursor(CBCall<ResultCB> cbLambda, EntityRowHandler<Result> entityLambda) {
+    public void selectCursor(CBCall<ShippingCB> cbLambda, EntityRowHandler<Shipping> entityLambda) {
         facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
@@ -236,7 +236,7 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -245,7 +245,7 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<ResultCB, RESULT> selectScalar(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<ShippingCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -307,12 +307,12 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
-     * @param resultList The entity list of result. (NotNull)
+     * @param shippingList The entity list of shipping. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
      */
-    public void load(List<Result> resultList, ReferrerLoaderHandler<LoaderOfResult> loaderLambda) {
-        xassLRArg(resultList, loaderLambda);
-        loaderLambda.handle(new LoaderOfResult().ready(resultList, _behaviorSelector));
+    public void load(List<Shipping> shippingList, ReferrerLoaderHandler<LoaderOfShipping> loaderLambda) {
+        xassLRArg(shippingList, loaderLambda);
+        loaderLambda.handle(new LoaderOfShipping().ready(shippingList, _behaviorSelector));
     }
 
     /**
@@ -340,99 +340,35 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
-     * @param result The entity of result. (NotNull)
+     * @param shipping The entity of shipping. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
      */
-    public void load(Result result, ReferrerLoaderHandler<LoaderOfResult> loaderLambda) {
-        xassLRArg(result, loaderLambda);
-        loaderLambda.handle(new LoaderOfResult().ready(xnewLRAryLs(result), _behaviorSelector));
-    }
-
-    /**
-     * Load referrer of shippingList by the set-upper of referrer. <br>
-     * shipping by result_code, named 'shippingList'.
-     * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">loadShipping</span>(<span style="color: #553000">resultList</span>, <span style="color: #553000">shippingCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">shippingCB</span>.setupSelect...
-     *     <span style="color: #553000">shippingCB</span>.query().set...
-     *     <span style="color: #553000">shippingCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * <span style="color: #70226C">for</span> (Result result : <span style="color: #553000">resultList</span>) {
-     *     ... = result.<span style="color: #CC4747">getShippingList()</span>;
-     * }
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setResultCode_InScope(pkList);
-     * cb.query().addOrderBy_ResultCode_Asc();
-     * </pre>
-     * @param resultList The entity list of result. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<Shipping> loadShipping(List<Result> resultList, ReferrerConditionSetupper<ShippingCB> refCBLambda) {
-        xassLRArg(resultList, refCBLambda);
-        return doLoadShipping(resultList, new LoadReferrerOption<ShippingCB, Shipping>().xinit(refCBLambda));
-    }
-
-    /**
-     * Load referrer of shippingList by the set-upper of referrer. <br>
-     * shipping by result_code, named 'shippingList'.
-     * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">loadShipping</span>(<span style="color: #553000">result</span>, <span style="color: #553000">shippingCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">shippingCB</span>.setupSelect...
-     *     <span style="color: #553000">shippingCB</span>.query().set...
-     *     <span style="color: #553000">shippingCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * ... = <span style="color: #553000">result</span>.<span style="color: #CC4747">getShippingList()</span>;
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setResultCode_InScope(pkList);
-     * cb.query().addOrderBy_ResultCode_Asc();
-     * </pre>
-     * @param result The entity of result. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<Shipping> loadShipping(Result result, ReferrerConditionSetupper<ShippingCB> refCBLambda) {
-        xassLRArg(result, refCBLambda);
-        return doLoadShipping(xnewLRLs(result), new LoadReferrerOption<ShippingCB, Shipping>().xinit(refCBLambda));
-    }
-
-    protected NestedReferrerListGateway<Shipping> doLoadShipping(List<Result> resultList, LoadReferrerOption<ShippingCB, Shipping> option) {
-        return helpLoadReferrerInternally(resultList, option, "shippingList");
+    public void load(Shipping shipping, ReferrerLoaderHandler<LoaderOfShipping> loaderLambda) {
+        xassLRArg(shipping, loaderLambda);
+        loaderLambda.handle(new LoaderOfShipping().ready(xnewLRAryLs(shipping), _behaviorSelector));
     }
 
     // ===================================================================================
     //                                                                   Pull out Relation
     //                                                                   =================
     /**
-     * Pull out the list of foreign table 'Omikuji'.
-     * @param resultList The list of result. (NotNull, EmptyAllowed)
+     * Pull out the list of foreign table 'Result'.
+     * @param shippingList The list of shipping. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<Omikuji> pulloutOmikuji(List<Result> resultList)
-    { return helpPulloutInternally(resultList, "omikuji"); }
+    public List<Result> pulloutResult(List<Shipping> shippingList)
+    { return helpPulloutInternally(shippingList, "result"); }
 
     // ===================================================================================
     //                                                                      Extract Column
     //                                                                      ==============
     /**
-     * Extract the value list of (single) primary key resultCode.
-     * @param resultList The list of result. (NotNull, EmptyAllowed)
+     * Extract the value list of (single) primary key id.
+     * @param shippingList The list of shipping. (NotNull, EmptyAllowed)
      * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<Integer> extractResultCodeList(List<Result> resultList)
-    { return helpExtractListInternally(resultList, "resultCode"); }
+    public List<Integer> extractIdList(List<Shipping> shippingList)
+    { return helpExtractListInternally(shippingList, "id"); }
 
     // ===================================================================================
     //                                                                       Entity Update
@@ -440,80 +376,80 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * Result result = <span style="color: #70226C">new</span> Result();
+     * Shipping shipping = <span style="color: #70226C">new</span> Shipping();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
-     * result.setFoo...(value);
-     * result.setBar...(value);
+     * shipping.setFoo...(value);
+     * shipping.setBar...(value);
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//result.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//result.set...;</span>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">insert</span>(result);
-     * ... = result.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * <span style="color: #3F7E5E">//shipping.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//shipping.set...;</span>
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">insert</span>(shipping);
+     * ... = shipping.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
-     * @param result The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param shipping The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void insert(Result result) {
-        doInsert(result, null);
+    public void insert(Shipping shipping) {
+        doInsert(shipping, null);
     }
 
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
-     * Result result = <span style="color: #70226C">new</span> Result();
-     * result.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * result.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * Shipping shipping = <span style="color: #70226C">new</span> Shipping();
+     * shipping.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * shipping.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//result.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//result.set...;</span>
+     * <span style="color: #3F7E5E">//shipping.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//shipping.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * result.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">update</span>(result);
+     * shipping.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">update</span>(shipping);
      * </pre>
-     * @param result The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param shipping The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void update(Result result) {
-        doUpdate(result, null);
+    public void update(Shipping shipping) {
+        doUpdate(shipping, null);
     }
 
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
-     * @param result The entity of insert or update. (NotNull, ...depends on insert or update)
+     * @param shipping The entity of insert or update. (NotNull, ...depends on insert or update)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void insertOrUpdate(Result result) {
-        doInsertOrUpdate(result, null, null);
+    public void insertOrUpdate(Shipping shipping) {
+        doInsertOrUpdate(shipping, null, null);
     }
 
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
-     * Result result = <span style="color: #70226C">new</span> Result();
-     * result.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * Shipping shipping = <span style="color: #70226C">new</span> Shipping();
+     * shipping.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * result.<span style="color: #CC4747">setVersionNo</span>(value);
+     * shipping.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #70226C">try</span> {
-     *     <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">delete</span>(result);
+     *     <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">delete</span>(shipping);
      * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
-     * @param result The entity of delete. (NotNull, PrimaryKeyNotNull)
+     * @param shipping The entity of delete. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void delete(Result result) {
-        doDelete(result, null);
+    public void delete(Shipping shipping) {
+        doDelete(shipping, null);
     }
 
     // ===================================================================================
@@ -525,26 +461,26 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * <span style="color: #70226C">for</span> (... : ...) {
-     *     Result result = <span style="color: #70226C">new</span> Result();
-     *     result.setFooName("foo");
+     *     Shipping shipping = <span style="color: #70226C">new</span> Shipping();
+     *     shipping.setFooName("foo");
      *     <span style="color: #70226C">if</span> (...) {
-     *         result.setFooPrice(123);
+     *         shipping.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
      *     <span style="color: #3F7E5E">// FOO_PRICE not-called in any entities are registered as null without default value</span>
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
-     *     resultList.add(result);
+     *     shippingList.add(shipping);
      * }
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">batchInsert</span>(resultList);
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">batchInsert</span>(shippingList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
      * (When you use the (normal) insert(), you can get the incremented value from your entity)</p>
-     * @param resultList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
+     * @param shippingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
      * @return The array of inserted count. (NotNull, EmptyAllowed)
      */
-    public int[] batchInsert(List<Result> resultList) {
-        return doBatchInsert(resultList, null);
+    public int[] batchInsert(List<Shipping> shippingList) {
+        return doBatchInsert(shippingList, null);
     }
 
     /**
@@ -553,37 +489,37 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     Result result = <span style="color: #70226C">new</span> Result();
-     *     result.setFooName("foo");
+     *     Shipping shipping = <span style="color: #70226C">new</span> Shipping();
+     *     shipping.setFooName("foo");
      *     <span style="color: #70226C">if</span> (...) {
-     *         result.setFooPrice(123);
+     *         shipping.setFooPrice(123);
      *     } <span style="color: #70226C">else</span> {
-     *         result.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
-     *         <span style="color: #3F7E5E">//result.setFooDate(...); // *not allowed, fragmented</span>
+     *         shipping.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
+     *         <span style="color: #3F7E5E">//shipping.setFooDate(...); // *not allowed, fragmented</span>
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
-     *     resultList.add(result);
+     *     shippingList.add(shipping);
      * }
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">batchUpdate</span>(resultList);
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">batchUpdate</span>(shippingList);
      * </pre>
-     * @param resultList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param shippingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
-    public int[] batchUpdate(List<Result> resultList) {
-        return doBatchUpdate(resultList, null);
+    public int[] batchUpdate(List<Shipping> shippingList) {
+        return doBatchUpdate(shippingList, null);
     }
 
     /**
      * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
-     * @param resultList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param shippingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
-    public int[] batchDelete(List<Result> resultList) {
-        return doBatchDelete(resultList, null);
+    public int[] batchDelete(List<Shipping> shippingList) {
+        return doBatchDelete(shippingList, null);
     }
 
     // ===================================================================================
@@ -592,8 +528,8 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;Result, ResultCB&gt;() {
-     *     public ConditionBean setup(Result entity, ResultCB intoCB) {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;Shipping, ShippingCB&gt;() {
+     *     public ConditionBean setup(Shipping entity, ShippingCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
      *
@@ -615,48 +551,48 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * @param manyArgLambda The callback to set up query-insert. (NotNull)
      * @return The inserted count.
      */
-    public int queryInsert(QueryInsertSetupper<Result, ResultCB> manyArgLambda) {
+    public int queryInsert(QueryInsertSetupper<Shipping, ShippingCB> manyArgLambda) {
         return doQueryInsert(manyArgLambda, null);
     }
 
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * Result result = <span style="color: #70226C">new</span> Result();
+     * Shipping shipping = <span style="color: #70226C">new</span> Shipping();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//result.setPK...(value);</span>
-     * result.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">//shipping.setPK...(value);</span>
+     * shipping.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//result.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//result.set...;</span>
+     * <span style="color: #3F7E5E">//shipping.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//shipping.set...;</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//result.setVersionNo(value);</span>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">queryUpdate</span>(result, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">//shipping.setVersionNo(value);</span>
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">queryUpdate</span>(shipping, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>
-     * @param result The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param shipping The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @return The updated count.
      * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
-    public int queryUpdate(Result result, CBCall<ResultCB> cbLambda) {
-        return doQueryUpdate(result, createCB(cbLambda), null);
+    public int queryUpdate(Shipping shipping, CBCall<ShippingCB> cbLambda) {
+        return doQueryUpdate(shipping, createCB(cbLambda), null);
     }
 
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @return The deleted count.
      * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
-    public int queryDelete(CBCall<ResultCB> cbLambda) {
+    public int queryDelete(CBCall<ShippingCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
     }
 
@@ -671,22 +607,22 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * Result result = <span style="color: #70226C">new</span> Result();
+     * Shipping shipping = <span style="color: #70226C">new</span> Shipping();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
-     * result.setFoo...(value);
-     * result.setBar...(value);
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">varyingInsert</span>(result, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * shipping.setFoo...(value);
+     * shipping.setBar...(value);
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">varyingInsert</span>(shipping, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
      * });
-     * ... = result.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * ... = shipping.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
-     * @param result The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param shipping The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(Result result, WritableOptionCall<ResultCB, InsertOption<ResultCB>> opLambda) {
-        doInsert(result, createInsertOption(opLambda));
+    public void varyingInsert(Shipping shipping, WritableOptionCall<ShippingCB, InsertOption<ShippingCB>> opLambda) {
+        doInsert(shipping, createInsertOption(opLambda));
     }
 
     /**
@@ -694,53 +630,53 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * Result result = <span style="color: #70226C">new</span> Result();
-     * result.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * result.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * Shipping shipping = <span style="color: #70226C">new</span> Shipping();
+     * shipping.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * shipping.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * result.<span style="color: #CC4747">setVersionNo</span>(value);
+     * shipping.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(result, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(shipping, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      * });
      * </pre>
-     * @param result The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param shipping The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(Result result, WritableOptionCall<ResultCB, UpdateOption<ResultCB>> opLambda) {
-        doUpdate(result, createUpdateOption(opLambda));
+    public void varyingUpdate(Shipping shipping, WritableOptionCall<ShippingCB, UpdateOption<ShippingCB>> opLambda) {
+        doUpdate(shipping, createUpdateOption(opLambda));
     }
 
     /**
      * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
-     * @param result The entity of insert or update. (NotNull)
+     * @param shipping The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(Result result, WritableOptionCall<ResultCB, InsertOption<ResultCB>> insertOpLambda, WritableOptionCall<ResultCB, UpdateOption<ResultCB>> updateOpLambda) {
-        doInsertOrUpdate(result, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
+    public void varyingInsertOrUpdate(Shipping shipping, WritableOptionCall<ShippingCB, InsertOption<ShippingCB>> insertOpLambda, WritableOptionCall<ShippingCB, UpdateOption<ShippingCB>> updateOpLambda) {
+        doInsertOrUpdate(shipping, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
      * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
      * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
-     * @param result The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param shipping The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(Result result, WritableOptionCall<ResultCB, DeleteOption<ResultCB>> opLambda) {
-        doDelete(result, createDeleteOption(opLambda));
+    public void varyingDelete(Shipping shipping, WritableOptionCall<ShippingCB, DeleteOption<ShippingCB>> opLambda) {
+        doDelete(shipping, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -751,12 +687,12 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * For example, disableCommonColumnAutoSetup()
      * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br>
      * Other specifications are same as batchInsert(entityList).
-     * @param resultList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param shippingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<Result> resultList, WritableOptionCall<ResultCB, InsertOption<ResultCB>> opLambda) {
-        return doBatchInsert(resultList, createInsertOption(opLambda));
+    public int[] varyingBatchInsert(List<Shipping> shippingList, WritableOptionCall<ShippingCB, InsertOption<ShippingCB>> opLambda) {
+        return doBatchInsert(shippingList, createInsertOption(opLambda));
     }
 
     /**
@@ -764,24 +700,24 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
      * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
      * Other specifications are same as batchUpdate(entityList).
-     * @param resultList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param shippingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<Result> resultList, WritableOptionCall<ResultCB, UpdateOption<ResultCB>> opLambda) {
-        return doBatchUpdate(resultList, createUpdateOption(opLambda));
+    public int[] varyingBatchUpdate(List<Shipping> shippingList, WritableOptionCall<ShippingCB, UpdateOption<ShippingCB>> opLambda) {
+        return doBatchUpdate(shippingList, createUpdateOption(opLambda));
     }
 
     /**
      * Batch-delete the list with varying requests. <br>
      * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
-     * @param resultList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param shippingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<Result> resultList, WritableOptionCall<ResultCB, DeleteOption<ResultCB>> opLambda) {
-        return doBatchDelete(resultList, createDeleteOption(opLambda));
+    public int[] varyingBatchDelete(List<Shipping> shippingList, WritableOptionCall<ShippingCB, DeleteOption<ShippingCB>> opLambda) {
+        return doBatchDelete(shippingList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -795,7 +731,7 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<Result, ResultCB> manyArgLambda, WritableOptionCall<ResultCB, InsertOption<ResultCB>> opLambda) {
+    public int varyingQueryInsert(QueryInsertSetupper<Shipping, ShippingCB> manyArgLambda, WritableOptionCall<ShippingCB, InsertOption<ShippingCB>> opLambda) {
         return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
@@ -806,14 +742,14 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * Result result = <span style="color: #70226C">new</span> Result();
+     * Shipping shipping = <span style="color: #70226C">new</span> Shipping();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//result.setPK...(value);</span>
-     * result.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">//shipping.setPK...(value);</span>
+     * shipping.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//result.setVersionNo(value);</span>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(result, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">//shipping.setVersionNo(value);</span>
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(shipping, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -821,14 +757,14 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
      * });
      * </pre>
-     * @param result The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param shipping The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
      * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(Result result, CBCall<ResultCB> cbLambda, WritableOptionCall<ResultCB, UpdateOption<ResultCB>> opLambda) {
-        return doQueryUpdate(result, createCB(cbLambda), createUpdateOption(opLambda));
+    public int varyingQueryUpdate(Shipping shipping, CBCall<ShippingCB> cbLambda, WritableOptionCall<ShippingCB, UpdateOption<ShippingCB>> opLambda) {
+        return doQueryUpdate(shipping, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -836,18 +772,18 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as queryDelete(cb).
      * <pre>
-     * <span style="color: #0000C0">resultBhv</span>.<span style="color: #CC4747">queryDelete</span>(result, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">shippingBhv</span>.<span style="color: #CC4747">queryDelete</span>(shipping, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of Result. (NotNull)
+     * @param cbLambda The callback for condition-bean of Shipping. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
      * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<ResultCB> cbLambda, WritableOptionCall<ResultCB, DeleteOption<ResultCB>> opLambda) {
+    public int varyingQueryDelete(CBCall<ShippingCB> cbLambda, WritableOptionCall<ShippingCB, DeleteOption<ShippingCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
@@ -858,38 +794,38 @@ public abstract class BsResultBhv extends AbstractBehaviorWritable<Result, Resul
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
      * <span style="color: #3F7E5E">// main style</span>
-     * resultBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
-     * resultBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
-     * resultBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
-     * resultBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
-     * resultBhv.outideSql().selectCursor(pmb, handler); <span style="color: #3F7E5E">// (by handler)</span>
-     * resultBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
-     * resultBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
+     * shippingBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
+     * shippingBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * shippingBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
+     * shippingBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * shippingBhv.outideSql().selectCursor(pmb, handler); <span style="color: #3F7E5E">// (by handler)</span>
+     * shippingBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
+     * shippingBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
      * <span style="color: #3F7E5E">// traditional style</span>
-     * resultBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
-     * resultBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
-     * resultBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
-     * resultBhv.outideSql().traditionalStyle().selectPagedListOnly(path, pmb, entityType);
-     * resultBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
-     * resultBhv.outideSql().traditionalStyle().execute(path, pmb);
+     * shippingBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
+     * shippingBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
+     * shippingBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
+     * shippingBhv.outideSql().traditionalStyle().selectPagedListOnly(path, pmb, entityType);
+     * shippingBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
+     * shippingBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
      * <span style="color: #3F7E5E">// options</span>
-     * resultBhv.outideSql().removeBlockComment().selectList()
-     * resultBhv.outideSql().removeLineComment().selectList()
-     * resultBhv.outideSql().formatSql().selectList()
+     * shippingBhv.outideSql().removeBlockComment().selectList()
+     * shippingBhv.outideSql().removeLineComment().selectList()
+     * shippingBhv.outideSql().formatSql().selectList()
      * </pre>
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlAllFacadeExecutor<ResultBhv> outsideSql() {
+    public OutsideSqlAllFacadeExecutor<ShippingBhv> outsideSql() {
         return doOutsideSql();
     }
 
     // ===================================================================================
     //                                                                         Type Helper
     //                                                                         ===========
-    protected Class<? extends Result> typeOfSelectedEntity() { return Result.class; }
-    protected Class<Result> typeOfHandlingEntity() { return Result.class; }
-    protected Class<ResultCB> typeOfHandlingConditionBean() { return ResultCB.class; }
+    protected Class<? extends Shipping> typeOfSelectedEntity() { return Shipping.class; }
+    protected Class<Shipping> typeOfHandlingEntity() { return Shipping.class; }
+    protected Class<ShippingCB> typeOfHandlingConditionBean() { return ShippingCB.class; }
 }

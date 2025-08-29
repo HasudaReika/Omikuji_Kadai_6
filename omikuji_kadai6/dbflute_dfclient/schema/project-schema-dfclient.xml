@@ -54,6 +54,18 @@
         <column dbType="varchar" javaType="String" name="gakumon"
             size="30" type="VARCHAR"/>
     </table>
+    <table name="post_code_data" schema="test.test" type="TABLE">
+        <column autoIncrement="true" dbType="serial"
+            default="nextval('post_code_data_id_seq'::regclass)"
+            javaType="Integer" name="id" pkName="post_code_data_pkey"
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
+        <column dbType="varchar" javaType="String" name="post_code"
+            size="7" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="prefecture"
+            size="20" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="city" size="20" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="town" size="50" type="VARCHAR"/>
+    </table>
     <table name="result" schema="test.test" type="TABLE">
         <column dbType="date" javaType="java.time.LocalDate"
             name="fortune_telling_date" size="13" type="DATE"/>
@@ -69,16 +81,46 @@
             required="true" size="20" type="VARCHAR"/>
         <column dbType="date" javaType="java.time.LocalDate"
             name="created_date" size="13" type="DATE"/>
+        <column autoIncrement="true" dbType="serial"
+            default="nextval('result_result_code_seq'::regclass)"
+            javaType="Integer" name="result_code" pkName="result_pkey"
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <foreign-key foreignSchema="test" foreignTable="omikuji" name="fk_result_omikuji">
             <reference foreign="omikuji_code" local="omikuji_code"/>
+        </foreign-key>
+    </table>
+    <table name="shipping" schema="test.test" type="TABLE">
+        <column autoIncrement="true" dbType="serial"
+            default="nextval('shipping_id_seq'::regclass)"
+            javaType="Integer" name="id" pkName="shipping_pkey"
+            pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
+        <column dbType="int4" javaType="Integer" name="result_code"
+            size="10" type="INTEGER"/>
+        <column dbType="varchar" javaType="String" name="post_code"
+            size="7" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="address"
+            size="200" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="name" size="30" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="phone"
+            size="11" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="mail"
+            size="200" type="VARCHAR"/>
+        <foreign-key foreignSchema="test" foreignTable="result" name="fk_result_shipping">
+            <reference foreign="result_code" local="result_code"/>
         </foreign-key>
     </table>
     <sequenceGroup>
         <sequence incrementSize="1" maximumValue="9223372036854775807"
             minimumValue="1" name="seq_omikuji_code" schema="test.test"/>
+        <sequence incrementSize="1" maximumValue="2147483647"
+            minimumValue="1" name="shipping_id_seq" schema="test.test"/>
         <sequence incrementSize="1" maximumValue="9223372036854775807"
             minimumValue="1" name="seq_fortune_code" schema="test.test"/>
         <sequence incrementSize="1" maximumValue="2147483647"
             minimumValue="1" name="omikuji_csv_number_seq" schema="test.test"/>
+        <sequence incrementSize="1" maximumValue="2147483647"
+            minimumValue="1" name="post_code_data_id_seq" schema="test.test"/>
+        <sequence incrementSize="1" maximumValue="2147483647"
+            minimumValue="1" name="result_result_code_seq" schema="test.test"/>
     </sequenceGroup>
 </database>

@@ -1,0 +1,51 @@
+map:{
+    ; 2025/08/29 15:45:00.642 = map:{
+        ; diffDate = 2025/08/29 15:45:00.642
+        ; tableCount = map:{
+            ; next = 6
+            ; previous = 4
+        }
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; post_code_data = map:{
+                ; tableName = post_code_data
+                ; diffType = ADD
+            }
+            ; shipping = map:{
+                ; tableName = shipping
+                ; diffType = ADD
+            }
+            ; result = map:{
+                ; tableName = result
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; result_code = map:{
+                        ; columnName = result_code
+                        ; diffType = ADD
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; result_pkey = map:{
+                        ; constraintName = result_pkey
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+        ; sequenceDiff = map:{
+            ; test.test.shipping_id_seq = map:{
+                ; sequenceName = test.test.shipping_id_seq
+                ; diffType = ADD
+            }
+            ; test.test.post_code_data_id_seq = map:{
+                ; sequenceName = test.test.post_code_data_id_seq
+                ; diffType = ADD
+            }
+            ; test.test.result_result_code_seq = map:{
+                ; sequenceName = test.test.result_result_code_seq
+                ; diffType = ADD
+            }
+        }
+    }
+}

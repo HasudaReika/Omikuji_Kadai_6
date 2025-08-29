@@ -12,21 +12,21 @@ import omikuji6.dbflute.cbean.cq.bs.*;
 import omikuji6.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of result.
+ * The condition-query for in-line of shipping.
  * @author DBFlute(AutoGenerator)
  */
-public class ResultCIQ extends AbstractBsResultCQ {
+public class ShippingCIQ extends AbstractBsShippingCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsResultCQ _myCQ;
+    protected BsShippingCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public ResultCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsResultCQ myCQ) {
+    public ShippingCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsShippingCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -61,34 +61,23 @@ public class ResultCIQ extends AbstractBsResultCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue xgetCValueFortuneTellingDate() { return _myCQ.xdfgetFortuneTellingDate(); }
-    protected ConditionValue xgetCValueBirthday() { return _myCQ.xdfgetBirthday(); }
-    protected ConditionValue xgetCValueOmikujiCode() { return _myCQ.xdfgetOmikujiCode(); }
-    protected ConditionValue xgetCValueUpdatedBy() { return _myCQ.xdfgetUpdatedBy(); }
-    protected ConditionValue xgetCValueUpdatedDate() { return _myCQ.xdfgetUpdatedDate(); }
-    protected ConditionValue xgetCValueCreatedBy() { return _myCQ.xdfgetCreatedBy(); }
-    protected ConditionValue xgetCValueCreatedDate() { return _myCQ.xdfgetCreatedDate(); }
+    protected ConditionValue xgetCValueId() { return _myCQ.xdfgetId(); }
     protected ConditionValue xgetCValueResultCode() { return _myCQ.xdfgetResultCode(); }
-    public String keepResultCode_ExistsReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepResultCode_NotExistsReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepResultCode_SpecifyDerivedReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepResultCode_QueryDerivedReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepResultCode_QueryDerivedReferrer_ShippingListParameter(Object vl)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    protected ConditionValue xgetCValuePostCode() { return _myCQ.xdfgetPostCode(); }
+    protected ConditionValue xgetCValueAddress() { return _myCQ.xdfgetAddress(); }
+    protected ConditionValue xgetCValueName() { return _myCQ.xdfgetName(); }
+    protected ConditionValue xgetCValuePhone() { return _myCQ.xdfgetPhone(); }
+    protected ConditionValue xgetCValueMail() { return _myCQ.xdfgetMail(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(ResultCQ sq)
+    public String keepScalarCondition(ShippingCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
-    public String keepSpecifyMyselfDerived(ResultCQ sq)
+    public String keepSpecifyMyselfDerived(ShippingCQ sq)
     { throwIICBOE("(Specify)MyselfDerived"); return null;}
-    public String keepQueryMyselfDerived(ResultCQ sq)
+    public String keepQueryMyselfDerived(ShippingCQ sq)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
     public String keepQueryMyselfDerivedParameter(Object vl)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
-    public String keepMyselfExists(ResultCQ sq)
+    public String keepMyselfExists(ShippingCQ sq)
     { throwIICBOE("MyselfExists"); return null;}
 
     protected void throwIICBOE(String name)
@@ -98,6 +87,6 @@ public class ResultCIQ extends AbstractBsResultCQ {
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return ResultCB.class.getName(); }
-    protected String xinCQ() { return ResultCQ.class.getName(); }
+    protected String xinCB() { return ShippingCB.class.getName(); }
+    protected String xinCQ() { return ShippingCQ.class.getName(); }
 }

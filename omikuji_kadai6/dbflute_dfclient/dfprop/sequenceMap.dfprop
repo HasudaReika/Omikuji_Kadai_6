@@ -21,5 +21,7 @@ map:{
     #; MEMBER_LOGIN = SEQ_MEMBER_LOGIN
     #; PRODUCT      = SEQ_PRODUCT
     ; OMIKUJI = SEQ_OMIKUJI_CODE
+    ; POST_CODE_DATA = SEQ_ID
+    ; SHIPPING = SEQ_ID
 }
 # ----------------/

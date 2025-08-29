@@ -579,13 +579,33 @@ pre.spolicyviodisp {
 	</tr>
 	<tr>
 		<td class="rownumcell">4</td>
-		<td class="namecell" data-name="result"><a href="#result" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=7">result</a></td>
+		<td class="namecell" data-name="post_code_data"><a href="#post_code_data" title="type=TABLE, primaryKey={id}, nameLength=14, columnCount=5">post_code_data</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell post_code_data_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">PostCodeData</td>
+		<td class="subcell">2025/08/29</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="namecell" data-name="result"><a href="#result" title="type=TABLE, primaryKey={result_code}, nameLength=6, columnCount=8">result</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#omikuji" title="fk_result_omikuji">omikuji</a></td>
-		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#shipping" title="fk_result_shipping">shipping</a></td>
 		<td class="commentcell result_comment"><pre>&nbsp;</pre></td>
 		<td class="subcell">Result</td>
 		<td class="subcell">2025/08/12</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="namecell" data-name="shipping"><a href="#shipping" title="type=TABLE, primaryKey={id}, nameLength=8, columnCount=7">shipping</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#result" title="fk_result_shipping">result</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell shipping_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">Shipping</td>
+		<td class="subcell">2025/08/29</td>
 	</tr>
 	</tbody>
 </table>
@@ -1049,7 +1069,128 @@ omikuji_csv
 	</tbody>
 </table>
 
-<h2 id="result" title="type=TABLE, primaryKey={}, nameLength=6, columnCount=7">
+<h2 id="post_code_data" title="type=TABLE, primaryKey={id}, nameLength=14, columnCount=5">
+post_code_data
+&nbsp;<span class="tablefirstdatetitle">since 2025/08/29</span>
+</h2>
+<div class="tablecomment post_code_data_comment" data-name="post_code_data"><pre></pre></div>
+<input type="hidden" value="post_code_data">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="post_code_data-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="post_code_data_pkey :: sequence=post_code_data_id_seq:minimum(1),maximum(2147483647),increment(1)">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="post_code_data_id">id</td>
+		<td class="typecell">serial</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">id</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="post_code_data_post_code">post_code</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 7 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">postCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="post_code_data_prefecture">prefecture</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">prefecture</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="post_code_data_city">city</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 20 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">city</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="post_code_data_town">town</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">town</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="result" title="type=TABLE, primaryKey={result_code}, nameLength=6, columnCount=8">
 result
 &nbsp;<span class="tablefirstdatetitle">since 2025/08/12</span>
 </h2>
@@ -1201,6 +1342,181 @@ result
 		<td class="commentcell"><pre>&nbsp;</pre></td>
 		<td class="subcell">createdDate</td>
 		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell" title="result_pkey :: sequence=result_result_code_seq:minimum(1),maximum(2147483647),increment(1)">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="result_result_code">result_code</td>
+		<td class="typecell">serial</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#shipping" title="fk_result_shipping">shipping</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">resultCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">2025/08/29</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="shipping" title="type=TABLE, primaryKey={id}, nameLength=8, columnCount=7">
+shipping
+&nbsp;<span class="tablefirstdatetitle">since 2025/08/29</span>
+</h2>
+<div class="tablecomment shipping_comment" data-name="shipping"><pre></pre></div>
+<input type="hidden" value="shipping">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="shipping-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="shipping_pkey :: sequence=shipping_id_seq:minimum(1),maximum(2147483647),increment(1)">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class=" columnnamecell" id="shipping_id">id</td>
+		<td class="typecell">serial</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">id</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="shipping_result_code">result_code</td>
+		<td class="typecell">int4</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#result" title="fk_result_shipping">result</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">resultCode</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="shipping_post_code">post_code</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 7 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">postCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="shipping_address">address</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">address</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="shipping_name">name</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 30 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">name</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="shipping_phone">phone</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 11 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">phone</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="shipping_mail">mail</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">mail</td>
+		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -1833,6 +2149,26 @@ function StoreClient() {
 				}
 			}
 		}
+		, 'post_code_data': {
+			'databaseComment': ''
+			, 'columns': {
+				'id': {
+					'databaseComment': ''
+				}
+				, 'post_code': {
+					'databaseComment': ''
+				}
+				, 'prefecture': {
+					'databaseComment': ''
+				}
+				, 'city': {
+					'databaseComment': ''
+				}
+				, 'town': {
+					'databaseComment': ''
+				}
+			}
+		}
 		, 'result': {
 			'databaseComment': ''
 			, 'columns': {
@@ -1855,6 +2191,35 @@ function StoreClient() {
 					'databaseComment': ''
 				}
 				, 'created_date': {
+					'databaseComment': ''
+				}
+				, 'result_code': {
+					'databaseComment': ''
+				}
+			}
+		}
+		, 'shipping': {
+			'databaseComment': ''
+			, 'columns': {
+				'id': {
+					'databaseComment': ''
+				}
+				, 'result_code': {
+					'databaseComment': ''
+				}
+				, 'post_code': {
+					'databaseComment': ''
+				}
+				, 'address': {
+					'databaseComment': ''
+				}
+				, 'name': {
+					'databaseComment': ''
+				}
+				, 'phone': {
+					'databaseComment': ''
+				}
+				, 'mail': {
 					'databaseComment': ''
 				}
 			}

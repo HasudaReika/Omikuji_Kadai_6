@@ -14,17 +14,17 @@ import omikuji6.dbflute.allcommon.*;
 import omikuji6.dbflute.exentity.*;
 
 /**
- * The DB meta of result. (Singleton)
+ * The DB meta of shipping. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class ResultDbm extends AbstractDBMeta {
+public class ShippingDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final ResultDbm _instance = new ResultDbm();
-    private ResultDbm() {}
-    public static ResultDbm getInstance() { return _instance; }
+    private static final ShippingDbm _instance = new ShippingDbm();
+    private ShippingDbm() {}
+    public static ShippingDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -43,14 +43,13 @@ public class ResultDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((Result)et).getFortuneTellingDate(), (et, vl) -> ((Result)et).setFortuneTellingDate(ctld(vl)), "fortuneTellingDate");
-        setupEpg(_epgMap, et -> ((Result)et).getBirthday(), (et, vl) -> ((Result)et).setBirthday(ctld(vl)), "birthday");
-        setupEpg(_epgMap, et -> ((Result)et).getOmikujiCode(), (et, vl) -> ((Result)et).setOmikujiCode(cti(vl)), "omikujiCode");
-        setupEpg(_epgMap, et -> ((Result)et).getUpdatedBy(), (et, vl) -> ((Result)et).setUpdatedBy((String)vl), "updatedBy");
-        setupEpg(_epgMap, et -> ((Result)et).getUpdatedDate(), (et, vl) -> ((Result)et).setUpdatedDate(ctld(vl)), "updatedDate");
-        setupEpg(_epgMap, et -> ((Result)et).getCreatedBy(), (et, vl) -> ((Result)et).setCreatedBy((String)vl), "createdBy");
-        setupEpg(_epgMap, et -> ((Result)et).getCreatedDate(), (et, vl) -> ((Result)et).setCreatedDate(ctld(vl)), "createdDate");
-        setupEpg(_epgMap, et -> ((Result)et).getResultCode(), (et, vl) -> ((Result)et).setResultCode(cti(vl)), "resultCode");
+        setupEpg(_epgMap, et -> ((Shipping)et).getId(), (et, vl) -> ((Shipping)et).setId(cti(vl)), "id");
+        setupEpg(_epgMap, et -> ((Shipping)et).getResultCode(), (et, vl) -> ((Shipping)et).setResultCode(cti(vl)), "resultCode");
+        setupEpg(_epgMap, et -> ((Shipping)et).getPostCode(), (et, vl) -> ((Shipping)et).setPostCode((String)vl), "postCode");
+        setupEpg(_epgMap, et -> ((Shipping)et).getAddress(), (et, vl) -> ((Shipping)et).setAddress((String)vl), "address");
+        setupEpg(_epgMap, et -> ((Shipping)et).getName(), (et, vl) -> ((Shipping)et).setName((String)vl), "name");
+        setupEpg(_epgMap, et -> ((Shipping)et).getPhone(), (et, vl) -> ((Shipping)et).setPhone((String)vl), "phone");
+        setupEpg(_epgMap, et -> ((Shipping)et).getMail(), (et, vl) -> ((Shipping)et).setMail((String)vl), "mail");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -62,7 +61,7 @@ public class ResultDbm extends AbstractDBMeta {
     { xsetupEfpg(); }
     @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((Result)et).getOmikuji(), (et, vl) -> ((Result)et).setOmikuji((OptionalEntity<Omikuji>)vl), "omikuji");
+        setupEfpg(_efpgMap, et -> ((Shipping)et).getResult(), (et, vl) -> ((Shipping)et).setResult((OptionalEntity<Result>)vl), "result");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -70,10 +69,10 @@ public class ResultDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "result";
-    protected final String _tableDispName = "result";
-    protected final String _tablePropertyName = "result";
-    protected final TableSqlName _tableSqlName = new TableSqlName("result", _tableDbName);
+    protected final String _tableDbName = "shipping";
+    protected final String _tableDispName = "shipping";
+    protected final String _tablePropertyName = "shipping";
+    protected final TableSqlName _tableSqlName = new TableSqlName("shipping", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -83,66 +82,59 @@ public class ResultDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnFortuneTellingDate = cci("fortune_telling_date", "fortune_telling_date", null, null, java.time.LocalDate.class, "fortuneTellingDate", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBirthday = cci("birthday", "birthday", null, null, java.time.LocalDate.class, "birthday", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnOmikujiCode = cci("omikuji_code", "omikuji_code", null, null, Integer.class, "omikujiCode", null, false, false, false, "int4", 10, 0, null, null, false, null, null, "omikuji", null, null, false);
-    protected final ColumnInfo _columnUpdatedBy = cci("updated_by", "updated_by", null, null, String.class, "updatedBy", null, false, false, true, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnUpdatedDate = cci("updated_date", "updated_date", null, null, java.time.LocalDate.class, "updatedDate", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnCreatedBy = cci("created_by", "created_by", null, null, String.class, "createdBy", null, false, false, true, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnCreatedDate = cci("created_date", "created_date", null, null, java.time.LocalDate.class, "createdDate", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnResultCode = cci("result_code", "result_code", null, null, Integer.class, "resultCode", null, true, true, true, "serial", 10, 0, null, "nextval('result_result_code_seq'::regclass)", false, null, null, null, "shippingList", null, false);
+    protected final ColumnInfo _columnId = cci("id", "id", null, null, Integer.class, "id", null, true, true, true, "serial", 10, 0, null, "nextval('shipping_id_seq'::regclass)", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnResultCode = cci("result_code", "result_code", null, null, Integer.class, "resultCode", null, false, false, false, "int4", 10, 0, null, null, false, null, null, "result", null, null, false);
+    protected final ColumnInfo _columnPostCode = cci("post_code", "post_code", null, null, String.class, "postCode", null, false, false, false, "varchar", 7, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAddress = cci("address", "address", null, null, String.class, "address", null, false, false, false, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnName = cci("name", "name", null, null, String.class, "name", null, false, false, false, "varchar", 30, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPhone = cci("phone", "phone", null, null, String.class, "phone", null, false, false, false, "varchar", 11, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMail = cci("mail", "mail", null, null, String.class, "mail", null, false, false, false, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * fortune_telling_date: {date(13)}
+     * id: {PK, ID, NotNull, serial(10)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnFortuneTellingDate() { return _columnFortuneTellingDate; }
+    public ColumnInfo columnId() { return _columnId; }
     /**
-     * birthday: {date(13)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnBirthday() { return _columnBirthday; }
-    /**
-     * omikuji_code: {int4(10), FK to omikuji}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnOmikujiCode() { return _columnOmikujiCode; }
-    /**
-     * updated_by: {NotNull, varchar(20)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnUpdatedBy() { return _columnUpdatedBy; }
-    /**
-     * updated_date: {date(13)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnUpdatedDate() { return _columnUpdatedDate; }
-    /**
-     * created_by: {NotNull, varchar(20)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnCreatedBy() { return _columnCreatedBy; }
-    /**
-     * created_date: {date(13)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnCreatedDate() { return _columnCreatedDate; }
-    /**
-     * result_code: {PK, ID, NotNull, serial(10)}
+     * result_code: {int4(10), FK to result}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnResultCode() { return _columnResultCode; }
+    /**
+     * post_code: {varchar(7)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnPostCode() { return _columnPostCode; }
+    /**
+     * address: {varchar(200)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnAddress() { return _columnAddress; }
+    /**
+     * name: {varchar(30)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnName() { return _columnName; }
+    /**
+     * phone: {varchar(11)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnPhone() { return _columnPhone; }
+    /**
+     * mail: {varchar(200)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnMail() { return _columnMail; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnFortuneTellingDate());
-        ls.add(columnBirthday());
-        ls.add(columnOmikujiCode());
-        ls.add(columnUpdatedBy());
-        ls.add(columnUpdatedDate());
-        ls.add(columnCreatedBy());
-        ls.add(columnCreatedDate());
+        ls.add(columnId());
         ls.add(columnResultCode());
+        ls.add(columnPostCode());
+        ls.add(columnAddress());
+        ls.add(columnName());
+        ls.add(columnPhone());
+        ls.add(columnMail());
         return ls;
     }
 
@@ -154,7 +146,7 @@ public class ResultDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnResultCode()); }
+    protected UniqueInfo cpui() { return hpcpui(columnId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
@@ -167,58 +159,50 @@ public class ResultDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * omikuji by my omikuji_code, named 'omikuji'.
+     * result by my result_code, named 'result'.
      * @return The information object of foreign property. (NotNull)
      */
-    public ForeignInfo foreignOmikuji() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnOmikujiCode(), OmikujiDbm.getInstance().columnOmikujiCode());
-        return cfi("fk_result_omikuji", "omikuji", this, OmikujiDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "resultList", false);
+    public ForeignInfo foreignResult() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnResultCode(), ResultDbm.getInstance().columnResultCode());
+        return cfi("fk_result_shipping", "result", this, ResultDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "shippingList", false);
     }
 
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
-    /**
-     * shipping by result_code, named 'shippingList'.
-     * @return The information object of referrer property. (NotNull)
-     */
-    public ReferrerInfo referrerShippingList() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnResultCode(), ShippingDbm.getInstance().columnResultCode());
-        return cri("fk_result_shipping", "shippingList", this, ShippingDbm.getInstance(), mp, false, "result");
-    }
 
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
     public boolean hasSequence() { return true; }
-    public String getSequenceName() { return "result_result_code_seq"; }
+    public String getSequenceName() { return "shipping_id_seq"; }
     public Integer getSequenceIncrementSize() { return 1; }
     public Integer getSequenceCacheSize() { return null; }
 
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "omikuji6.dbflute.exentity.Result"; }
-    public String getConditionBeanTypeName() { return "omikuji6.dbflute.cbean.ResultCB"; }
-    public String getBehaviorTypeName() { return "omikuji6.dbflute.exbhv.ResultBhv"; }
+    public String getEntityTypeName() { return "omikuji6.dbflute.exentity.Shipping"; }
+    public String getConditionBeanTypeName() { return "omikuji6.dbflute.cbean.ShippingCB"; }
+    public String getBehaviorTypeName() { return "omikuji6.dbflute.exbhv.ShippingBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<Result> getEntityType() { return Result.class; }
+    public Class<Shipping> getEntityType() { return Shipping.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public Result newEntity() { return new Result(); }
+    public Shipping newEntity() { return new Shipping(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((Result)et, mp); }
+    { doAcceptPrimaryKeyMap((Shipping)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((Result)et, mp); }
+    { doAcceptAllColumnMap((Shipping)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

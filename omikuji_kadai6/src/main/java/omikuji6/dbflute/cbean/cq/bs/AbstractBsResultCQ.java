@@ -790,6 +790,208 @@ public abstract class AbstractBsResultCQ extends AbstractConditionQuery {
     protected void regCreatedDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCreatedDate(), "created_date"); }
     protected abstract ConditionValue xgetCValueCreatedDate();
 
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCode The value of resultCode as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setResultCode_Equal(Integer resultCode) {
+        doSetResultCode_Equal(resultCode);
+    }
+
+    protected void doSetResultCode_Equal(Integer resultCode) {
+        regResultCode(CK_EQ, resultCode);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCode The value of resultCode as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setResultCode_NotEqual(Integer resultCode) {
+        doSetResultCode_NotEqual(resultCode);
+    }
+
+    protected void doSetResultCode_NotEqual(Integer resultCode) {
+        regResultCode(CK_NES, resultCode);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCode The value of resultCode as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setResultCode_GreaterThan(Integer resultCode) {
+        regResultCode(CK_GT, resultCode);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCode The value of resultCode as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setResultCode_LessThan(Integer resultCode) {
+        regResultCode(CK_LT, resultCode);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCode The value of resultCode as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setResultCode_GreaterEqual(Integer resultCode) {
+        regResultCode(CK_GE, resultCode);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCode The value of resultCode as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setResultCode_LessEqual(Integer resultCode) {
+        regResultCode(CK_LE, resultCode);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param minNumber The min number of resultCode. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of resultCode. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setResultCode_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setResultCode_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param minNumber The min number of resultCode. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of resultCode. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    protected void setResultCode_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueResultCode(), "result_code", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCodeList The collection of resultCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setResultCode_InScope(Collection<Integer> resultCodeList) {
+        doSetResultCode_InScope(resultCodeList);
+    }
+
+    protected void doSetResultCode_InScope(Collection<Integer> resultCodeList) {
+        regINS(CK_INS, cTL(resultCodeList), xgetCValueResultCode(), "result_code");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     * @param resultCodeList The collection of resultCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setResultCode_NotInScope(Collection<Integer> resultCodeList) {
+        doSetResultCode_NotInScope(resultCodeList);
+    }
+
+    protected void doSetResultCode_NotInScope(Collection<Integer> resultCodeList) {
+        regINS(CK_NINS, cTL(resultCodeList), xgetCValueResultCode(), "result_code");
+    }
+
+    /**
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select result_code from shipping where ...)} <br>
+     * shipping by result_code, named 'shippingAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">existsShipping</span>(shippingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     shippingCB.query().set...
+     * });
+     * </pre>
+     * @param subCBLambda The callback for sub-query of ShippingList for 'exists'. (NotNull)
+     */
+    public void existsShipping(SubQuery<ShippingCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        ShippingCB cb = new ShippingCB(); cb.xsetupForExistsReferrer(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepResultCode_ExistsReferrer_ShippingList(cb.query());
+        registerExistsReferrer(cb.query(), "result_code", "result_code", pp, "shippingList");
+    }
+    public abstract String keepResultCode_ExistsReferrer_ShippingList(ShippingCQ sq);
+
+    /**
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select result_code from shipping where ...)} <br>
+     * shipping by result_code, named 'shippingAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">notExistsShipping</span>(shippingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     shippingCB.query().set...
+     * });
+     * </pre>
+     * @param subCBLambda The callback for sub-query of ResultCode_NotExistsReferrer_ShippingList for 'not exists'. (NotNull)
+     */
+    public void notExistsShipping(SubQuery<ShippingCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        ShippingCB cb = new ShippingCB(); cb.xsetupForExistsReferrer(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepResultCode_NotExistsReferrer_ShippingList(cb.query());
+        registerNotExistsReferrer(cb.query(), "result_code", "result_code", pp, "shippingList");
+    }
+    public abstract String keepResultCode_NotExistsReferrer_ShippingList(ShippingCQ sq);
+
+    public void xsderiveShippingList(String fn, SubQuery<ShippingCB> sq, String al, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        ShippingCB cb = new ShippingCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String pp = keepResultCode_SpecifyDerivedReferrer_ShippingList(cb.query());
+        registerSpecifyDerivedReferrer(fn, cb.query(), "result_code", "result_code", pp, "shippingList", al, op);
+    }
+    public abstract String keepResultCode_SpecifyDerivedReferrer_ShippingList(ShippingCQ sq);
+
+    /**
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from shipping where ...)} <br>
+     * shipping by result_code, named 'shippingAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">derivedShipping()</span>.<span style="color: #CC4747">max</span>(shippingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     shippingCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     shippingCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
+     * </pre>
+     * @return The object to set up a function for referrer table. (NotNull)
+     */
+    public HpQDRFunction<ShippingCB> derivedShipping() {
+        return xcreateQDRFunctionShippingList();
+    }
+    protected HpQDRFunction<ShippingCB> xcreateQDRFunctionShippingList() {
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveShippingList(fn, sq, rd, vl, op));
+    }
+    public void xqderiveShippingList(String fn, SubQuery<ShippingCB> sq, String rd, Object vl, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        ShippingCB cb = new ShippingCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String sqpp = keepResultCode_QueryDerivedReferrer_ShippingList(cb.query()); String prpp = keepResultCode_QueryDerivedReferrer_ShippingListParameter(vl);
+        registerQueryDerivedReferrer(fn, cb.query(), "result_code", "result_code", sqpp, "shippingList", rd, vl, prpp, op);
+    }
+    public abstract String keepResultCode_QueryDerivedReferrer_ShippingList(ShippingCQ sq);
+    public abstract String keepResultCode_QueryDerivedReferrer_ShippingListParameter(Object vl);
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     */
+    public void setResultCode_IsNull() { regResultCode(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * result_code: {PK, ID, NotNull, serial(10)}
+     */
+    public void setResultCode_IsNotNull() { regResultCode(CK_ISNN, DOBJ); }
+
+    protected void regResultCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueResultCode(), "result_code"); }
+    protected abstract ConditionValue xgetCValueResultCode();
+
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
@@ -902,6 +1104,51 @@ public abstract class AbstractBsResultCQ extends AbstractConditionQuery {
     protected ResultCB xcreateScalarConditionPartitionByCB() {
         ResultCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
     }
+
+    // ===================================================================================
+    //                                                                       MyselfDerived
+    //                                                                       =============
+    public void xsmyselfDerive(String fn, SubQuery<ResultCB> sq, String al, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        ResultCB cb = new ResultCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "result_code";
+        registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
+    }
+    public abstract String keepSpecifyMyselfDerived(ResultCQ sq);
+
+    /**
+     * Prepare for (Query)MyselfDerived (correlated sub-query).
+     * @return The object to set up a function for myself table. (NotNull)
+     */
+    public HpQDRFunction<ResultCB> myselfDerived() {
+        return xcreateQDRFunctionMyselfDerived(ResultCB.class);
+    }
+    @SuppressWarnings("unchecked")
+    protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        ResultCB cb = new ResultCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
+        String pk = "result_code";
+        String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
+        String prpp = keepQueryMyselfDerivedParameter(vl);
+        registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);
+    }
+    public abstract String keepQueryMyselfDerived(ResultCQ sq);
+    public abstract String keepQueryMyselfDerivedParameter(Object vl);
+
+    // ===================================================================================
+    //                                                                        MyselfExists
+    //                                                                        ============
+    /**
+     * Prepare for MyselfExists (correlated sub-query).
+     * @param subCBLambda The implementation of sub-query. (NotNull)
+     */
+    public void myselfExists(SubQuery<ResultCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        ResultCB cb = new ResultCB(); cb.xsetupForMyselfExists(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
+        registerMyselfExists(cb.query(), pp);
+    }
+    public abstract String keepMyselfExists(ResultCQ sq);
 
     // ===================================================================================
     //                                                                        Manual Order

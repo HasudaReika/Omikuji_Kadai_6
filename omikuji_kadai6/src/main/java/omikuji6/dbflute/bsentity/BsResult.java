@@ -47,6 +47,9 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
     /** created_date: {date(13)} */
     protected java.time.LocalDate _createdDate;
 
+    /** result_code: {PK, ID, NotNull, serial(10)} */
+    protected Integer _resultCode;
+
     // ===================================================================================
     //                                                                             DB Meta
     //                                                                             =======
@@ -65,7 +68,8 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
     //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        return false;
+        if (_resultCode == null) { return false; }
+        return true;
     }
 
     // ===================================================================================
@@ -95,6 +99,26 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
+    /** shipping by result_code, named 'shippingList'. */
+    protected List<Shipping> _shippingList;
+
+    /**
+     * [get] shipping by result_code, named 'shippingList'.
+     * @return The entity list of referrer property 'shippingList'. (NotNull: even if no loading, returns empty list)
+     */
+    public List<Shipping> getShippingList() {
+        if (_shippingList == null) { _shippingList = newReferrerList(); }
+        return _shippingList;
+    }
+
+    /**
+     * [set] shipping by result_code, named 'shippingList'.
+     * @param shippingList The entity list of referrer property 'shippingList'. (NullAllowed)
+     */
+    public void setShippingList(List<Shipping> shippingList) {
+        _shippingList = shippingList;
+    }
+
     protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
@@ -106,13 +130,7 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
     protected boolean doEquals(Object obj) {
         if (obj instanceof BsResult) {
             BsResult other = (BsResult)obj;
-            if (!xSV(_fortuneTellingDate, other._fortuneTellingDate)) { return false; }
-            if (!xSV(_birthday, other._birthday)) { return false; }
-            if (!xSV(_omikujiCode, other._omikujiCode)) { return false; }
-            if (!xSV(_updatedBy, other._updatedBy)) { return false; }
-            if (!xSV(_updatedDate, other._updatedDate)) { return false; }
-            if (!xSV(_createdBy, other._createdBy)) { return false; }
-            if (!xSV(_createdDate, other._createdDate)) { return false; }
+            if (!xSV(_resultCode, other._resultCode)) { return false; }
             return true;
         } else {
             return false;
@@ -123,13 +141,7 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
     protected int doHashCode(int initial) {
         int hs = initial;
         hs = xCH(hs, asTableDbName());
-        hs = xCH(hs, _fortuneTellingDate);
-        hs = xCH(hs, _birthday);
-        hs = xCH(hs, _omikujiCode);
-        hs = xCH(hs, _updatedBy);
-        hs = xCH(hs, _updatedDate);
-        hs = xCH(hs, _createdBy);
-        hs = xCH(hs, _createdDate);
+        hs = xCH(hs, _resultCode);
         return hs;
     }
 
@@ -138,6 +150,8 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
         StringBuilder sb = new StringBuilder();
         if (_omikuji != null && _omikuji.isPresent())
         { sb.append(li).append(xbRDS(_omikuji, "omikuji")); }
+        if (_shippingList != null) { for (Shipping et : _shippingList)
+        { if (et != null) { sb.append(li).append(xbRDS(et, "shippingList")); } } }
         return sb.toString();
     }
     protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
@@ -154,6 +168,7 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
         sb.append(dm).append(xfND(_updatedDate));
         sb.append(dm).append(xfND(_createdBy));
         sb.append(dm).append(xfND(_createdDate));
+        sb.append(dm).append(xfND(_resultCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -166,6 +181,8 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
         StringBuilder sb = new StringBuilder();
         if (_omikuji != null && _omikuji.isPresent())
         { sb.append(dm).append("omikuji"); }
+        if (_shippingList != null && !_shippingList.isEmpty())
+        { sb.append(dm).append("shippingList"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
@@ -304,5 +321,23 @@ public abstract class BsResult extends AbstractEntity implements DomainEntity {
     public void setCreatedDate(java.time.LocalDate createdDate) {
         registerModifiedProperty("createdDate");
         _createdDate = createdDate;
+    }
+
+    /**
+     * [get] result_code: {PK, ID, NotNull, serial(10)} <br>
+     * @return The value of the column 'result_code'. (basically NotNull if selected: for the constraint)
+     */
+    public Integer getResultCode() {
+        checkSpecifiedProperty("resultCode");
+        return _resultCode;
+    }
+
+    /**
+     * [set] result_code: {PK, ID, NotNull, serial(10)} <br>
+     * @param resultCode The value of the column 'result_code'. (basically NotNull if update: for the constraint)
+     */
+    public void setResultCode(Integer resultCode) {
+        registerModifiedProperty("resultCode");
+        _resultCode = resultCode;
     }
 }

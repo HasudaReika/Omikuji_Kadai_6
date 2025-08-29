@@ -12,21 +12,21 @@ import omikuji6.dbflute.cbean.cq.bs.*;
 import omikuji6.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of result.
+ * The condition-query for in-line of post_code_data.
  * @author DBFlute(AutoGenerator)
  */
-public class ResultCIQ extends AbstractBsResultCQ {
+public class PostCodeDataCIQ extends AbstractBsPostCodeDataCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsResultCQ _myCQ;
+    protected BsPostCodeDataCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public ResultCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsResultCQ myCQ) {
+    public PostCodeDataCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsPostCodeDataCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -61,34 +61,21 @@ public class ResultCIQ extends AbstractBsResultCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue xgetCValueFortuneTellingDate() { return _myCQ.xdfgetFortuneTellingDate(); }
-    protected ConditionValue xgetCValueBirthday() { return _myCQ.xdfgetBirthday(); }
-    protected ConditionValue xgetCValueOmikujiCode() { return _myCQ.xdfgetOmikujiCode(); }
-    protected ConditionValue xgetCValueUpdatedBy() { return _myCQ.xdfgetUpdatedBy(); }
-    protected ConditionValue xgetCValueUpdatedDate() { return _myCQ.xdfgetUpdatedDate(); }
-    protected ConditionValue xgetCValueCreatedBy() { return _myCQ.xdfgetCreatedBy(); }
-    protected ConditionValue xgetCValueCreatedDate() { return _myCQ.xdfgetCreatedDate(); }
-    protected ConditionValue xgetCValueResultCode() { return _myCQ.xdfgetResultCode(); }
-    public String keepResultCode_ExistsReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepResultCode_NotExistsReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepResultCode_SpecifyDerivedReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepResultCode_QueryDerivedReferrer_ShippingList(ShippingCQ sq)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepResultCode_QueryDerivedReferrer_ShippingListParameter(Object vl)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    protected ConditionValue xgetCValueId() { return _myCQ.xdfgetId(); }
+    protected ConditionValue xgetCValuePostCode() { return _myCQ.xdfgetPostCode(); }
+    protected ConditionValue xgetCValuePrefecture() { return _myCQ.xdfgetPrefecture(); }
+    protected ConditionValue xgetCValueCity() { return _myCQ.xdfgetCity(); }
+    protected ConditionValue xgetCValueTown() { return _myCQ.xdfgetTown(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(ResultCQ sq)
+    public String keepScalarCondition(PostCodeDataCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
-    public String keepSpecifyMyselfDerived(ResultCQ sq)
+    public String keepSpecifyMyselfDerived(PostCodeDataCQ sq)
     { throwIICBOE("(Specify)MyselfDerived"); return null;}
-    public String keepQueryMyselfDerived(ResultCQ sq)
+    public String keepQueryMyselfDerived(PostCodeDataCQ sq)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
     public String keepQueryMyselfDerivedParameter(Object vl)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
-    public String keepMyselfExists(ResultCQ sq)
+    public String keepMyselfExists(PostCodeDataCQ sq)
     { throwIICBOE("MyselfExists"); return null;}
 
     protected void throwIICBOE(String name)
@@ -98,6 +85,6 @@ public class ResultCIQ extends AbstractBsResultCQ {
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return ResultCB.class.getName(); }
-    protected String xinCQ() { return ResultCQ.class.getName(); }
+    protected String xinCB() { return PostCodeDataCB.class.getName(); }
+    protected String xinCQ() { return PostCodeDataCQ.class.getName(); }
 }
