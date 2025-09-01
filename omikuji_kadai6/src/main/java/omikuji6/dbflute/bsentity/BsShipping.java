@@ -47,6 +47,9 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     /** mail: {varchar(200)} */
     protected String _mail;
 
+    /** updated_date: {date(13)} */
+    protected java.time.LocalDate _updatedDate;
+
     // ===================================================================================
     //                                                                             DB Meta
     //                                                                             =======
@@ -143,6 +146,7 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
         sb.append(dm).append(xfND(_name));
         sb.append(dm).append(xfND(_phone));
         sb.append(dm).append(xfND(_mail));
+        sb.append(dm).append(xfND(_updatedDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -293,5 +297,23 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     public void setMail(String mail) {
         registerModifiedProperty("mail");
         _mail = mail;
+    }
+
+    /**
+     * [get] updated_date: {date(13)} <br>
+     * @return The value of the column 'updated_date'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDate getUpdatedDate() {
+        checkSpecifiedProperty("updatedDate");
+        return _updatedDate;
+    }
+
+    /**
+     * [set] updated_date: {date(13)} <br>
+     * @param updatedDate The value of the column 'updated_date'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setUpdatedDate(java.time.LocalDate updatedDate) {
+        registerModifiedProperty("updatedDate");
+        _updatedDate = updatedDate;
     }
 }

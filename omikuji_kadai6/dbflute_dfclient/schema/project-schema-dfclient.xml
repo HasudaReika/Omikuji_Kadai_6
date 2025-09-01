@@ -105,6 +105,8 @@
             size="11" type="VARCHAR"/>
         <column dbType="varchar" javaType="String" name="mail"
             size="200" type="VARCHAR"/>
+        <column dbType="date" javaType="java.time.LocalDate"
+            name="updated_date" size="13" type="DATE"/>
         <foreign-key foreignSchema="test" foreignTable="result" name="fk_result_shipping">
             <reference foreign="result_code" local="result_code"/>
         </foreign-key>

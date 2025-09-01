@@ -191,7 +191,7 @@ public class ResultDbm extends AbstractDBMeta {
     //                                                                        Various Info
     //                                                                        ============
     public boolean hasSequence() { return true; }
-    public String getSequenceName() { return "result_result_code_seq"; }
+    public String getSequenceName() { return "SEQ_RESULT_CODE"; }
     public Integer getSequenceIncrementSize() { return 1; }
     public Integer getSequenceCacheSize() { return null; }
 

@@ -1,0 +1,19 @@
+map:{
+    ; 2025/09/01 09:43:42.493 = map:{
+        ; diffDate = 2025/09/01 09:43:42.493
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; shipping = map:{
+                ; tableName = shipping
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; updated_date = map:{
+                        ; columnName = updated_date
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1066,6 +1066,93 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     protected void regMail(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMail(), "mail"); }
     protected abstract ConditionValue xgetCValueMail();
 
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     * @param updatedDate The value of updatedDate as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdatedDate_Equal(java.time.LocalDate updatedDate) {
+        regUpdatedDate(CK_EQ,  updatedDate);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     * @param updatedDate The value of updatedDate as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdatedDate_GreaterThan(java.time.LocalDate updatedDate) {
+        regUpdatedDate(CK_GT,  updatedDate);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     * @param updatedDate The value of updatedDate as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdatedDate_LessThan(java.time.LocalDate updatedDate) {
+        regUpdatedDate(CK_LT,  updatedDate);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     * @param updatedDate The value of updatedDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdatedDate_GreaterEqual(java.time.LocalDate updatedDate) {
+        regUpdatedDate(CK_GE,  updatedDate);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     * @param updatedDate The value of updatedDate as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdatedDate_LessEqual(java.time.LocalDate updatedDate) {
+        regUpdatedDate(CK_LE, updatedDate);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     * <pre>e.g. setUpdatedDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setUpdatedDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setUpdatedDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     * <pre>e.g. setUpdatedDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setUpdatedDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "updated_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueUpdatedDate(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     */
+    public void setUpdatedDate_IsNull() { regUpdatedDate(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * updated_date: {date(13)}
+     */
+    public void setUpdatedDate_IsNotNull() { regUpdatedDate(CK_ISNN, DOBJ); }
+
+    protected void regUpdatedDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdatedDate(), "updated_date"); }
+    protected abstract ConditionValue xgetCValueUpdatedDate();
+
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============

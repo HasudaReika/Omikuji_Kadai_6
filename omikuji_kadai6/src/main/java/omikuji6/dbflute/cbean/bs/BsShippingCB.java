@@ -352,6 +352,11 @@ public class BsShippingCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMail() { return doColumn("mail"); }
+        /**
+         * updated_date: {date(13)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnUpdatedDate() { return doColumn("updated_date"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override

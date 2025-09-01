@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
@@ -24,11 +25,11 @@ public class OmikujiAction {
 	@Resource 
 	protected OmikujiService omikujiService;
 
-
+	public HttpSession session;
 	
 	/**
 	 * 誕生日入力フォームの表示
-	 * @return　birthdayInput.jspに遷移
+	 * @return　index.jspに遷移
 	 */
 	@Execute(validator = false)
 	public String index() {
@@ -70,7 +71,13 @@ public class OmikujiAction {
 			//なかった場合はランダムにおみくじを一件取得
 			newOmikuji = omikujiService.getRandomOmikuji();
 			//結果をDBに登録
-			omikujiService.setResult(today, birthday, newOmikuji);
+//			omikujiService.setResult(today, birthday, newOmikuji);
+			
+			//おみくじ結果コードを取得
+			Integer result_code = omikujiService.setResult(today, birthday, newOmikuji);
+			//セッションに保存
+			session.setAttribute("resultCode", result_code);
+			
 			//おみくじオブジェクトに値を代入
 			omikujiEntity = newOmikuji.get();
 

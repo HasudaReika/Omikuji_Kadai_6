@@ -213,6 +213,26 @@ public class BsShippingCQ extends AbstractBsShippingCQ {
      */
     public BsShippingCQ addOrderBy_Mail_Desc() { regOBD("mail"); return this; }
 
+    protected ConditionValue _updatedDate;
+    public ConditionValue xdfgetUpdatedDate()
+    { if (_updatedDate == null) { _updatedDate = nCV(); }
+      return _updatedDate; }
+    protected ConditionValue xgetCValueUpdatedDate() { return xdfgetUpdatedDate(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * updated_date: {date(13)}
+     * @return this. (NotNull)
+     */
+    public BsShippingCQ addOrderBy_UpdatedDate_Asc() { regOBA("updated_date"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * updated_date: {date(13)}
+     * @return this. (NotNull)
+     */
+    public BsShippingCQ addOrderBy_UpdatedDate_Desc() { regOBD("updated_date"); return this; }
+
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
     //                                                             =======================

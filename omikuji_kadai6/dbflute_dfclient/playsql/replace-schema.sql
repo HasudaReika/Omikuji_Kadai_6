@@ -45,12 +45,7 @@ created_by varchar(20) not null,
 created_date date
 );
 
---送付先テーブル作成--
-create table shipping(
-post_code integer,
-address varchar(100),
-name varchar(20)
-);
+
 
 --csvファイルを読み込むテーブル作成--
 create table omikuji_csv(
@@ -134,13 +129,14 @@ town varchar(50)
 );
 
 --送付先テーブル--
-create table shipping(
+create table test.shipping(
 id serial primary key,
-result_code integer references result(result_code),
+result_code integer references test.result(result_code),
 post_code varchar(7),
 address varchar(200),
 name varchar(30),
 phone varchar(11),
-mail varchar(200)
+mail varchar(200),
+updated_date date
 );
 

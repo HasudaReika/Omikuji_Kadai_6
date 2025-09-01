@@ -23,12 +23,17 @@ import org.dbflute.optional.OptionalEntity;
 
 import omikuji6.dbflute.exbhv.FortuneMasterBhv;
 import omikuji6.dbflute.exbhv.OmikujiBhv;
+import omikuji6.dbflute.exbhv.PostCodeDataBhv;
 import omikuji6.dbflute.exbhv.ResultBhv;
+import omikuji6.dbflute.exbhv.ShippingBhv;
+import omikuji6.dbflute.exbhv.pmbean.ByAddressPmb;
 import omikuji6.dbflute.exbhv.pmbean.ResultPastSixMonthsPmb;
 import omikuji6.dbflute.exbhv.pmbean.UnseiPastSixMonthsPmb;
 import omikuji6.dbflute.exbhv.pmbean.UnseiTodayPmb;
 import omikuji6.dbflute.exentity.Omikuji;
+import omikuji6.dbflute.exentity.PostCodeData;
 import omikuji6.dbflute.exentity.Result;
+import omikuji6.dbflute.exentity.Shipping;
 import omikuji6.dbflute.exentity.customize.UnseiPastSixMonths;
 import omikuji6.dbflute.exentity.customize.UnseiToday;
 import omikuji6.dto.OmikujiResult;
@@ -41,6 +46,10 @@ public class OmikujiService {
 	protected ResultBhv resultBhv;
 	@Resource
 	protected FortuneMasterBhv fortuneMasterBhv;
+	@Resource
+	protected PostCodeDataBhv postCodeDataBhv;
+	@Resource
+	protected ShippingBhv shippingBhv;
 
 	/**
 	 * DBにおみくじが格納されているかチェック
@@ -70,7 +79,7 @@ public class OmikujiService {
 	public void importOmikujiFromCsv() throws FileNotFoundException, IOException {
 		LocalDate today = LocalDate.now();
 		//csvを読み込む
-		try (	
+		try (
 				InputStream is = getClass().getClassLoader().getResourceAsStream("omikuji.csv");
 				BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
 			String line;
@@ -206,11 +215,12 @@ public class OmikujiService {
 
 	/**
 	 * 結果をDBに登録
+	 * @return resultCodeを返す
 	 */
-	public void setResult(LocalDate fortuneTellingDate, LocalDate birthday, Optional<OmikujiResult> newOmikuji) {
+	public Integer setResult(LocalDate fortuneTellingDate, LocalDate birthday, Optional<OmikujiResult> newOmikuji) {
 		Result result = new Result();
 
-		//アクションクラス書き終わってから書く
+		//値をセット
 		result.setFortuneTellingDate(fortuneTellingDate);
 		result.setBirthday(birthday);
 		result.setOmikujiCode((Integer.valueOf(newOmikuji.get().getOmikujiCode())));
@@ -221,7 +231,9 @@ public class OmikujiService {
 
 		//resultテーブルに登録
 		resultBhv.insert(result);
-
+		//おみくじ結果コードを取得
+		Integer resultCode = result.getResultCode();
+		return resultCode;
 	}
 
 	/**
@@ -253,10 +265,10 @@ public class OmikujiService {
 
 		//listからmapに変換
 		Map<String, Long> resultPastSixMonths = new HashMap<String, Long>();
-		for (UnseiPastSixMonths unsei: list) {
+		for (UnseiPastSixMonths unsei : list) {
 			resultPastSixMonths.put(unsei.getFortuneName(), unsei.getCount());
 		}
-		
+
 		return resultPastSixMonths;
 
 	}
@@ -274,10 +286,10 @@ public class OmikujiService {
 
 		//listからmapに変換
 		Map<String, Long> resultToday = new HashMap<String, Long>();
-		for (UnseiToday unsei: list) {
+		for (UnseiToday unsei : list) {
 			resultToday.put(unsei.getFortuneName(), unsei.getCount());
 		}
-		
+
 		return resultToday;
 
 	}
@@ -308,13 +320,69 @@ public class OmikujiService {
 		pmb.setSixMonthsAgo(sixMonthsDate);
 
 		//外だしSQLを実行
-		List<OmikujiResult> list = 
-				resultBhv.outsideSql()
+		List<OmikujiResult> list = resultBhv.outsideSql()
 				.traditionalStyle()
 				.selectList("sql/omikuji/getResultPastSixMonths.sql", pmb, OmikujiResult.class);
 
 		return list;
 
+	}
+
+	/**
+	 * 郵便番号から住所を取得
+	 * @param postCode　郵便番号
+	 * @return 郵便番号に紐づく住所
+	 */
+	public OptionalEntity<PostCodeData> getByPostCode(String postCode) {
+		//入力された郵便番号が一致する県、市、地名を取得
+		OptionalEntity<PostCodeData> optAddress = postCodeDataBhv.selectEntity(cb -> {
+			cb.specify().columnPrefecture();
+			cb.specify().columnCity();
+			cb.specify().columnTown();
+			cb.query().setPostCode_Equal(postCode);
+		});
+		//住所を返す
+		return optAddress;
+	}
+
+	/**
+	 * 住所から郵便番号を取得
+	 * @param prefecture　県
+	 * @param city　市
+	 * @param town　地名
+	 * @return　住所に紐づく郵便番号
+	 */
+	public OptionalEntity<PostCodeData> getByAddress(String address) {
+		//pmbを設定
+		ByAddressPmb pmb = new ByAddressPmb();
+		pmb.setAddress(address);
+
+		//外だしSQLを実行
+		OptionalEntity<PostCodeData> optPostCode = postCodeDataBhv.outsideSql().traditionalStyle()
+				.selectEntity("sql/omikuji/getByAddress.sql", pmb, PostCodeData.class);
+
+		//郵便番号を返す
+		return optPostCode;
+
+	}
+
+	/**
+	 * 郵送先情報をshippingテーブルに登録
+	 * @param resultCode　おみくじ結果コード
+	 * @param form　郵送先登録画面で入力された情報
+	 */
+	public void recordShipping(Integer resultCode, List<String> list) {
+		Shipping shipping = new Shipping();
+		//値をセット
+		shipping.setResultCode(resultCode);
+		shipping.setPostCode(list.get(0));
+		shipping.setAddress(list.get(1));
+		shipping.setName(list.get(2));
+		shipping.setPhone(list.get(3));
+		shipping.setMail(list.get(4));
+
+		//shippingテーブルに登録
+		shippingBhv.insert(shipping);
 	}
 
 }

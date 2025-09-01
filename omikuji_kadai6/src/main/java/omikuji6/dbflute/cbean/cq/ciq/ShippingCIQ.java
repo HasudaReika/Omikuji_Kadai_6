@@ -68,6 +68,7 @@ public class ShippingCIQ extends AbstractBsShippingCQ {
     protected ConditionValue xgetCValueName() { return _myCQ.xdfgetName(); }
     protected ConditionValue xgetCValuePhone() { return _myCQ.xdfgetPhone(); }
     protected ConditionValue xgetCValueMail() { return _myCQ.xdfgetMail(); }
+    protected ConditionValue xgetCValueUpdatedDate() { return _myCQ.xdfgetUpdatedDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(ShippingCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

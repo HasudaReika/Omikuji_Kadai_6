@@ -50,6 +50,7 @@ public class ShippingDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((Shipping)et).getName(), (et, vl) -> ((Shipping)et).setName((String)vl), "name");
         setupEpg(_epgMap, et -> ((Shipping)et).getPhone(), (et, vl) -> ((Shipping)et).setPhone((String)vl), "phone");
         setupEpg(_epgMap, et -> ((Shipping)et).getMail(), (et, vl) -> ((Shipping)et).setMail((String)vl), "mail");
+        setupEpg(_epgMap, et -> ((Shipping)et).getUpdatedDate(), (et, vl) -> ((Shipping)et).setUpdatedDate(ctld(vl)), "updatedDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -89,6 +90,7 @@ public class ShippingDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnName = cci("name", "name", null, null, String.class, "name", null, false, false, false, "varchar", 30, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnPhone = cci("phone", "phone", null, null, String.class, "phone", null, false, false, false, "varchar", 11, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnMail = cci("mail", "mail", null, null, String.class, "mail", null, false, false, false, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdatedDate = cci("updated_date", "updated_date", null, null, java.time.LocalDate.class, "updatedDate", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * id: {PK, ID, NotNull, serial(10)}
@@ -125,6 +127,11 @@ public class ShippingDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnMail() { return _columnMail; }
+    /**
+     * updated_date: {date(13)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnUpdatedDate() { return _columnUpdatedDate; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
@@ -135,6 +142,7 @@ public class ShippingDbm extends AbstractDBMeta {
         ls.add(columnName());
         ls.add(columnPhone());
         ls.add(columnMail());
+        ls.add(columnUpdatedDate());
         return ls;
     }
 
@@ -175,7 +183,7 @@ public class ShippingDbm extends AbstractDBMeta {
     //                                                                        Various Info
     //                                                                        ============
     public boolean hasSequence() { return true; }
-    public String getSequenceName() { return "shipping_id_seq"; }
+    public String getSequenceName() { return "SEQ_ID"; }
     public Integer getSequenceIncrementSize() { return 1; }
     public Integer getSequenceCacheSize() { return null; }
 

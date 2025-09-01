@@ -599,7 +599,7 @@ pre.spolicyviodisp {
 	</tr>
 	<tr>
 		<td class="rownumcell">6</td>
-		<td class="namecell" data-name="shipping"><a href="#shipping" title="type=TABLE, primaryKey={id}, nameLength=8, columnCount=7">shipping</a></td>
+		<td class="namecell" data-name="shipping"><a href="#shipping" title="type=TABLE, primaryKey={id}, nameLength=8, columnCount=8">shipping</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#result" title="fk_result_shipping">result</a></td>
 		<td class="relcell">&nbsp;</td>
@@ -1346,7 +1346,7 @@ result
 	</tr>
 	<tr>
 		<td class="rownumcell">8</td>
-		<td class="flgcell" title="result_pkey :: sequence=result_result_code_seq:minimum(1),maximum(2147483647),increment(1)">o</td>
+		<td class="flgcell" title="result_pkey :: sequence=SEQ_RESULT_CODE:minimum(1),maximum(2147483647),increment(1)">o</td>
 		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1365,7 +1365,7 @@ result
 	</tbody>
 </table>
 
-<h2 id="shipping" title="type=TABLE, primaryKey={id}, nameLength=8, columnCount=7">
+<h2 id="shipping" title="type=TABLE, primaryKey={id}, nameLength=8, columnCount=8">
 shipping
 &nbsp;<span class="tablefirstdatetitle">since 2025/08/29</span>
 </h2>
@@ -1395,7 +1395,7 @@ shipping
 	<tbody id="shipping-body">
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="shipping_pkey :: sequence=shipping_id_seq:minimum(1),maximum(2147483647),increment(1)">o</td>
+		<td class="flgcell" title="shipping_pkey :: sequence=SEQ_ID:minimum(1),maximum(2147483647),increment(1)">o</td>
 		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1518,6 +1518,24 @@ shipping
 		<td class="subcell">mail</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="shipping_updated_date">updated_date</td>
+		<td class="typecell">date</td>
+		<td class="sizecell"> 13 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updatedDate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">2025/09/01</td>
 	</tr>
 	</tbody>
 </table>
@@ -2220,6 +2238,9 @@ function StoreClient() {
 					'databaseComment': ''
 				}
 				, 'mail': {
+					'databaseComment': ''
+				}
+				, 'updated_date': {
 					'databaseComment': ''
 				}
 			}
