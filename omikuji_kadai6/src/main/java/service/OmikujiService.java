@@ -380,6 +380,7 @@ public class OmikujiService {
 		shipping.setName(list.get(2));
 		shipping.setPhone(list.get(3));
 		shipping.setMail(list.get(4));
+		shipping.setUpdatedDate(LocalDate.now());
 
 		//shippingテーブルに登録
 		shippingBhv.insert(shipping);

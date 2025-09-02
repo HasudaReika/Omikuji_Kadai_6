@@ -8,5 +8,7 @@
 </head>
 <body>
 	<p>登録しました</p>
+	<s:link action="omikuji.do">トップに戻る
+	</s:link>
 </body>
 </html>
