@@ -63,6 +63,9 @@ public class PostCodeDataCIQ extends AbstractBsPostCodeDataCQ {
     //                                                                ====================
     protected ConditionValue xgetCValueId() { return _myCQ.xdfgetId(); }
     protected ConditionValue xgetCValuePostCode() { return _myCQ.xdfgetPostCode(); }
+    protected ConditionValue xgetCValuePrefectureKatakana() { return _myCQ.xdfgetPrefectureKatakana(); }
+    protected ConditionValue xgetCValueCityKatakana() { return _myCQ.xdfgetCityKatakana(); }
+    protected ConditionValue xgetCValueTownKatakana() { return _myCQ.xdfgetTownKatakana(); }
     protected ConditionValue xgetCValuePrefecture() { return _myCQ.xdfgetPrefecture(); }
     protected ConditionValue xgetCValueCity() { return _myCQ.xdfgetCity(); }
     protected ConditionValue xgetCValueTown() { return _myCQ.xdfgetTown(); }

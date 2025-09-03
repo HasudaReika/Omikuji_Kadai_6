@@ -297,6 +297,21 @@ public class BsPostCodeDataCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnPostCode() { return doColumn("post_code"); }
         /**
+         * prefecture_katakana: {varchar(30)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnPrefectureKatakana() { return doColumn("prefecture_katakana"); }
+        /**
+         * city_katakana: {varchar(40)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnCityKatakana() { return doColumn("city_katakana"); }
+        /**
+         * town_katakana: {varchar(60)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTownKatakana() { return doColumn("town_katakana"); }
+        /**
          * prefecture: {varchar(20)}
          * @return The information object of specified column. (NotNull)
          */

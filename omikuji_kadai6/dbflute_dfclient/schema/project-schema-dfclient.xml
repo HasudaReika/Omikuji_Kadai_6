@@ -61,6 +61,12 @@
             pkPosition="1" primaryKey="true" required="true" size="10" type="INTEGER"/>
         <column dbType="varchar" javaType="String" name="post_code"
             size="7" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String"
+            name="prefecture_katakana" size="30" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="city_katakana"
+            size="40" type="VARCHAR"/>
+        <column dbType="varchar" javaType="String" name="town_katakana"
+            size="60" type="VARCHAR"/>
         <column dbType="varchar" javaType="String" name="prefecture"
             size="20" type="VARCHAR"/>
         <column dbType="varchar" javaType="String" name="city" size="20" type="VARCHAR"/>
@@ -112,6 +118,8 @@
         </foreign-key>
     </table>
     <sequenceGroup>
+        <sequence incrementSize="1" maximumValue="2147483647"
+            minimumValue="1" name="post_code_data_id_seq" schema="test.test"/>
         <sequence incrementSize="1" maximumValue="9223372036854775807"
             minimumValue="1" name="seq_omikuji_code" schema="test.test"/>
         <sequence incrementSize="1" maximumValue="2147483647"
@@ -120,8 +128,6 @@
             minimumValue="1" name="seq_fortune_code" schema="test.test"/>
         <sequence incrementSize="1" maximumValue="2147483647"
             minimumValue="1" name="omikuji_csv_number_seq" schema="test.test"/>
-        <sequence incrementSize="1" maximumValue="2147483647"
-            minimumValue="1" name="post_code_data_id_seq" schema="test.test"/>
         <sequence incrementSize="1" maximumValue="2147483647"
             minimumValue="1" name="result_result_code_seq" schema="test.test"/>
     </sequenceGroup>

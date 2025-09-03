@@ -113,6 +113,66 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
      */
     public BsPostCodeDataCQ addOrderBy_PostCode_Desc() { regOBD("post_code"); return this; }
 
+    protected ConditionValue _prefectureKatakana;
+    public ConditionValue xdfgetPrefectureKatakana()
+    { if (_prefectureKatakana == null) { _prefectureKatakana = nCV(); }
+      return _prefectureKatakana; }
+    protected ConditionValue xgetCValuePrefectureKatakana() { return xdfgetPrefectureKatakana(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @return this. (NotNull)
+     */
+    public BsPostCodeDataCQ addOrderBy_PrefectureKatakana_Asc() { regOBA("prefecture_katakana"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @return this. (NotNull)
+     */
+    public BsPostCodeDataCQ addOrderBy_PrefectureKatakana_Desc() { regOBD("prefecture_katakana"); return this; }
+
+    protected ConditionValue _cityKatakana;
+    public ConditionValue xdfgetCityKatakana()
+    { if (_cityKatakana == null) { _cityKatakana = nCV(); }
+      return _cityKatakana; }
+    protected ConditionValue xgetCValueCityKatakana() { return xdfgetCityKatakana(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * city_katakana: {varchar(40)}
+     * @return this. (NotNull)
+     */
+    public BsPostCodeDataCQ addOrderBy_CityKatakana_Asc() { regOBA("city_katakana"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * city_katakana: {varchar(40)}
+     * @return this. (NotNull)
+     */
+    public BsPostCodeDataCQ addOrderBy_CityKatakana_Desc() { regOBD("city_katakana"); return this; }
+
+    protected ConditionValue _townKatakana;
+    public ConditionValue xdfgetTownKatakana()
+    { if (_townKatakana == null) { _townKatakana = nCV(); }
+      return _townKatakana; }
+    protected ConditionValue xgetCValueTownKatakana() { return xdfgetTownKatakana(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * town_katakana: {varchar(60)}
+     * @return this. (NotNull)
+     */
+    public BsPostCodeDataCQ addOrderBy_TownKatakana_Asc() { regOBA("town_katakana"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * town_katakana: {varchar(60)}
+     * @return this. (NotNull)
+     */
+    public BsPostCodeDataCQ addOrderBy_TownKatakana_Desc() { regOBD("town_katakana"); return this; }
+
     protected ConditionValue _prefecture;
     public ConditionValue xdfgetPrefecture()
     { if (_prefecture == null) { _prefecture = nCV(); }

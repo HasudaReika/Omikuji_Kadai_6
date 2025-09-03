@@ -14,6 +14,7 @@ import omikuji6.dbflute.bsbhv.pmbean.BsByAddressPmb;
  */
 public class ByAddressPmb extends BsByAddressPmb {
 	protected String address;
+	protected String katakanaAddress;
 
 	public String getAddress() {
 		return address;
@@ -22,4 +23,13 @@ public class ByAddressPmb extends BsByAddressPmb {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public String getKatakanaAddress() {
+		return katakanaAddress;
+	}
+
+	public void setKatakanaAddress(String katakanaAddress) {
+		this.katakanaAddress = katakanaAddress;
+	}
+
 }

@@ -30,6 +30,15 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     /** post_code: {varchar(7)} */
     protected String _postCode;
 
+    /** prefecture_katakana: {varchar(30)} */
+    protected String _prefectureKatakana;
+
+    /** city_katakana: {varchar(40)} */
+    protected String _cityKatakana;
+
+    /** town_katakana: {varchar(60)} */
+    protected String _townKatakana;
+
     /** prefecture: {varchar(20)} */
     protected String _prefecture;
 
@@ -103,6 +112,9 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_id));
         sb.append(dm).append(xfND(_postCode));
+        sb.append(dm).append(xfND(_prefectureKatakana));
+        sb.append(dm).append(xfND(_cityKatakana));
+        sb.append(dm).append(xfND(_townKatakana));
         sb.append(dm).append(xfND(_prefecture));
         sb.append(dm).append(xfND(_city));
         sb.append(dm).append(xfND(_town));
@@ -160,6 +172,60 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     public void setPostCode(String postCode) {
         registerModifiedProperty("postCode");
         _postCode = postCode;
+    }
+
+    /**
+     * [get] prefecture_katakana: {varchar(30)} <br>
+     * @return The value of the column 'prefecture_katakana'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getPrefectureKatakana() {
+        checkSpecifiedProperty("prefectureKatakana");
+        return _prefectureKatakana;
+    }
+
+    /**
+     * [set] prefecture_katakana: {varchar(30)} <br>
+     * @param prefectureKatakana The value of the column 'prefecture_katakana'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setPrefectureKatakana(String prefectureKatakana) {
+        registerModifiedProperty("prefectureKatakana");
+        _prefectureKatakana = prefectureKatakana;
+    }
+
+    /**
+     * [get] city_katakana: {varchar(40)} <br>
+     * @return The value of the column 'city_katakana'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getCityKatakana() {
+        checkSpecifiedProperty("cityKatakana");
+        return _cityKatakana;
+    }
+
+    /**
+     * [set] city_katakana: {varchar(40)} <br>
+     * @param cityKatakana The value of the column 'city_katakana'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setCityKatakana(String cityKatakana) {
+        registerModifiedProperty("cityKatakana");
+        _cityKatakana = cityKatakana;
+    }
+
+    /**
+     * [get] town_katakana: {varchar(60)} <br>
+     * @return The value of the column 'town_katakana'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getTownKatakana() {
+        checkSpecifiedProperty("townKatakana");
+        return _townKatakana;
+    }
+
+    /**
+     * [set] town_katakana: {varchar(60)} <br>
+     * @param townKatakana The value of the column 'town_katakana'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTownKatakana(String townKatakana) {
+        registerModifiedProperty("townKatakana");
+        _townKatakana = townKatakana;
     }
 
     /**

@@ -327,6 +327,465 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_Equal(String prefectureKatakana) {
+        doSetPrefectureKatakana_Equal(fRES(prefectureKatakana));
+    }
+
+    protected void doSetPrefectureKatakana_Equal(String prefectureKatakana) {
+        regPrefectureKatakana(CK_EQ, prefectureKatakana);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_NotEqual(String prefectureKatakana) {
+        doSetPrefectureKatakana_NotEqual(fRES(prefectureKatakana));
+    }
+
+    protected void doSetPrefectureKatakana_NotEqual(String prefectureKatakana) {
+        regPrefectureKatakana(CK_NES, prefectureKatakana);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_GreaterThan(String prefectureKatakana) {
+        regPrefectureKatakana(CK_GT, fRES(prefectureKatakana));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_LessThan(String prefectureKatakana) {
+        regPrefectureKatakana(CK_LT, fRES(prefectureKatakana));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_GreaterEqual(String prefectureKatakana) {
+        regPrefectureKatakana(CK_GE, fRES(prefectureKatakana));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_LessEqual(String prefectureKatakana) {
+        regPrefectureKatakana(CK_LE, fRES(prefectureKatakana));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakanaList The collection of prefectureKatakana as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_InScope(Collection<String> prefectureKatakanaList) {
+        doSetPrefectureKatakana_InScope(prefectureKatakanaList);
+    }
+
+    protected void doSetPrefectureKatakana_InScope(Collection<String> prefectureKatakanaList) {
+        regINS(CK_INS, cTL(prefectureKatakanaList), xgetCValuePrefectureKatakana(), "prefecture_katakana");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakanaList The collection of prefectureKatakana as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPrefectureKatakana_NotInScope(Collection<String> prefectureKatakanaList) {
+        doSetPrefectureKatakana_NotInScope(prefectureKatakanaList);
+    }
+
+    protected void doSetPrefectureKatakana_NotInScope(Collection<String> prefectureKatakanaList) {
+        regINS(CK_NINS, cTL(prefectureKatakanaList), xgetCValuePrefectureKatakana(), "prefecture_katakana");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * prefecture_katakana: {varchar(30)} <br>
+     * <pre>e.g. setPrefectureKatakana_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param prefectureKatakana The value of prefectureKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setPrefectureKatakana_LikeSearch(String prefectureKatakana, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setPrefectureKatakana_LikeSearch(prefectureKatakana, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * prefecture_katakana: {varchar(30)} <br>
+     * <pre>e.g. setPrefectureKatakana_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param prefectureKatakana The value of prefectureKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setPrefectureKatakana_LikeSearch(String prefectureKatakana, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(prefectureKatakana), xgetCValuePrefectureKatakana(), "prefecture_katakana", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setPrefectureKatakana_NotLikeSearch(String prefectureKatakana, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setPrefectureKatakana_NotLikeSearch(prefectureKatakana, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     * @param prefectureKatakana The value of prefectureKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setPrefectureKatakana_NotLikeSearch(String prefectureKatakana, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(prefectureKatakana), xgetCValuePrefectureKatakana(), "prefecture_katakana", likeSearchOption);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     */
+    public void setPrefectureKatakana_IsNull() { regPrefectureKatakana(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     */
+    public void setPrefectureKatakana_IsNullOrEmpty() { regPrefectureKatakana(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * prefecture_katakana: {varchar(30)}
+     */
+    public void setPrefectureKatakana_IsNotNull() { regPrefectureKatakana(CK_ISNN, DOBJ); }
+
+    protected void regPrefectureKatakana(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePrefectureKatakana(), "prefecture_katakana"); }
+    protected abstract ConditionValue xgetCValuePrefectureKatakana();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_Equal(String cityKatakana) {
+        doSetCityKatakana_Equal(fRES(cityKatakana));
+    }
+
+    protected void doSetCityKatakana_Equal(String cityKatakana) {
+        regCityKatakana(CK_EQ, cityKatakana);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_NotEqual(String cityKatakana) {
+        doSetCityKatakana_NotEqual(fRES(cityKatakana));
+    }
+
+    protected void doSetCityKatakana_NotEqual(String cityKatakana) {
+        regCityKatakana(CK_NES, cityKatakana);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_GreaterThan(String cityKatakana) {
+        regCityKatakana(CK_GT, fRES(cityKatakana));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_LessThan(String cityKatakana) {
+        regCityKatakana(CK_LT, fRES(cityKatakana));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_GreaterEqual(String cityKatakana) {
+        regCityKatakana(CK_GE, fRES(cityKatakana));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_LessEqual(String cityKatakana) {
+        regCityKatakana(CK_LE, fRES(cityKatakana));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakanaList The collection of cityKatakana as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_InScope(Collection<String> cityKatakanaList) {
+        doSetCityKatakana_InScope(cityKatakanaList);
+    }
+
+    protected void doSetCityKatakana_InScope(Collection<String> cityKatakanaList) {
+        regINS(CK_INS, cTL(cityKatakanaList), xgetCValueCityKatakana(), "city_katakana");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakanaList The collection of cityKatakana as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setCityKatakana_NotInScope(Collection<String> cityKatakanaList) {
+        doSetCityKatakana_NotInScope(cityKatakanaList);
+    }
+
+    protected void doSetCityKatakana_NotInScope(Collection<String> cityKatakanaList) {
+        regINS(CK_NINS, cTL(cityKatakanaList), xgetCValueCityKatakana(), "city_katakana");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * city_katakana: {varchar(40)} <br>
+     * <pre>e.g. setCityKatakana_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param cityKatakana The value of cityKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setCityKatakana_LikeSearch(String cityKatakana, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setCityKatakana_LikeSearch(cityKatakana, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * city_katakana: {varchar(40)} <br>
+     * <pre>e.g. setCityKatakana_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param cityKatakana The value of cityKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setCityKatakana_LikeSearch(String cityKatakana, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(cityKatakana), xgetCValueCityKatakana(), "city_katakana", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setCityKatakana_NotLikeSearch(String cityKatakana, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setCityKatakana_NotLikeSearch(cityKatakana, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * city_katakana: {varchar(40)}
+     * @param cityKatakana The value of cityKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setCityKatakana_NotLikeSearch(String cityKatakana, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(cityKatakana), xgetCValueCityKatakana(), "city_katakana", likeSearchOption);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     */
+    public void setCityKatakana_IsNull() { regCityKatakana(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     */
+    public void setCityKatakana_IsNullOrEmpty() { regCityKatakana(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * city_katakana: {varchar(40)}
+     */
+    public void setCityKatakana_IsNotNull() { regCityKatakana(CK_ISNN, DOBJ); }
+
+    protected void regCityKatakana(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCityKatakana(), "city_katakana"); }
+    protected abstract ConditionValue xgetCValueCityKatakana();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_Equal(String townKatakana) {
+        doSetTownKatakana_Equal(fRES(townKatakana));
+    }
+
+    protected void doSetTownKatakana_Equal(String townKatakana) {
+        regTownKatakana(CK_EQ, townKatakana);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_NotEqual(String townKatakana) {
+        doSetTownKatakana_NotEqual(fRES(townKatakana));
+    }
+
+    protected void doSetTownKatakana_NotEqual(String townKatakana) {
+        regTownKatakana(CK_NES, townKatakana);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_GreaterThan(String townKatakana) {
+        regTownKatakana(CK_GT, fRES(townKatakana));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_LessThan(String townKatakana) {
+        regTownKatakana(CK_LT, fRES(townKatakana));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_GreaterEqual(String townKatakana) {
+        regTownKatakana(CK_GE, fRES(townKatakana));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_LessEqual(String townKatakana) {
+        regTownKatakana(CK_LE, fRES(townKatakana));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakanaList The collection of townKatakana as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_InScope(Collection<String> townKatakanaList) {
+        doSetTownKatakana_InScope(townKatakanaList);
+    }
+
+    protected void doSetTownKatakana_InScope(Collection<String> townKatakanaList) {
+        regINS(CK_INS, cTL(townKatakanaList), xgetCValueTownKatakana(), "town_katakana");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakanaList The collection of townKatakana as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTownKatakana_NotInScope(Collection<String> townKatakanaList) {
+        doSetTownKatakana_NotInScope(townKatakanaList);
+    }
+
+    protected void doSetTownKatakana_NotInScope(Collection<String> townKatakanaList) {
+        regINS(CK_NINS, cTL(townKatakanaList), xgetCValueTownKatakana(), "town_katakana");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * town_katakana: {varchar(60)} <br>
+     * <pre>e.g. setTownKatakana_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param townKatakana The value of townKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setTownKatakana_LikeSearch(String townKatakana, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setTownKatakana_LikeSearch(townKatakana, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * town_katakana: {varchar(60)} <br>
+     * <pre>e.g. setTownKatakana_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param townKatakana The value of townKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setTownKatakana_LikeSearch(String townKatakana, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(townKatakana), xgetCValueTownKatakana(), "town_katakana", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setTownKatakana_NotLikeSearch(String townKatakana, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setTownKatakana_NotLikeSearch(townKatakana, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * town_katakana: {varchar(60)}
+     * @param townKatakana The value of townKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setTownKatakana_NotLikeSearch(String townKatakana, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(townKatakana), xgetCValueTownKatakana(), "town_katakana", likeSearchOption);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     */
+    public void setTownKatakana_IsNull() { regTownKatakana(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     */
+    public void setTownKatakana_IsNullOrEmpty() { regTownKatakana(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * town_katakana: {varchar(60)}
+     */
+    public void setTownKatakana_IsNotNull() { regTownKatakana(CK_ISNN, DOBJ); }
+
+    protected void regTownKatakana(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTownKatakana(), "town_katakana"); }
+    protected abstract ConditionValue xgetCValueTownKatakana();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * prefecture: {varchar(20)}
      * @param prefecture The value of prefecture as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */

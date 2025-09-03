@@ -579,7 +579,7 @@ pre.spolicyviodisp {
 	</tr>
 	<tr>
 		<td class="rownumcell">4</td>
-		<td class="namecell" data-name="post_code_data"><a href="#post_code_data" title="type=TABLE, primaryKey={id}, nameLength=14, columnCount=5">post_code_data</a></td>
+		<td class="namecell" data-name="post_code_data"><a href="#post_code_data" title="type=TABLE, primaryKey={id}, nameLength=14, columnCount=8">post_code_data</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
@@ -1069,7 +1069,7 @@ omikuji_csv
 	</tbody>
 </table>
 
-<h2 id="post_code_data" title="type=TABLE, primaryKey={id}, nameLength=14, columnCount=5">
+<h2 id="post_code_data" title="type=TABLE, primaryKey={id}, nameLength=14, columnCount=8">
 post_code_data
 &nbsp;<span class="tablefirstdatetitle">since 2025/08/29</span>
 </h2>
@@ -1140,6 +1140,60 @@ post_code_data
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="post_code_data_prefecture_katakana">prefecture_katakana</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 30 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">prefectureKatakana</td>
+		<td class="subcell">String</td>
+		<td class="subcell">2025/09/03</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="post_code_data_city_katakana">city_katakana</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 40 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">cityKatakana</td>
+		<td class="subcell">String</td>
+		<td class="subcell">2025/09/03</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class=" columnnamecell" id="post_code_data_town_katakana">town_katakana</td>
+		<td class="typecell">varchar</td>
+		<td class="sizecell"> 60 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">townKatakana</td>
+		<td class="subcell">String</td>
+		<td class="subcell">2025/09/03</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
 		<td class=" columnnamecell" id="post_code_data_prefecture">prefecture</td>
 		<td class="typecell">varchar</td>
 		<td class="sizecell"> 20 </td>
@@ -1152,7 +1206,7 @@ post_code_data
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">4</td>
+		<td class="rownumcell">7</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1170,7 +1224,7 @@ post_code_data
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">5</td>
+		<td class="rownumcell">8</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -2174,6 +2228,15 @@ function StoreClient() {
 					'databaseComment': ''
 				}
 				, 'post_code': {
+					'databaseComment': ''
+				}
+				, 'prefecture_katakana': {
+					'databaseComment': ''
+				}
+				, 'city_katakana': {
+					'databaseComment': ''
+				}
+				, 'town_katakana': {
 					'databaseComment': ''
 				}
 				, 'prefecture': {

@@ -5,5 +5,6 @@
 select post_code from test.post_code_data
 where /*pmb.address*/ 
 like '%' || prefecture || city || town || '%'
-order by length(town) desc
-limit 1;
+or /*pmb.katakanaAddress*/ 
+like '%' || prefecture_katakana || city_katakana || town_katakana || '%'
+order by length(town) desc;

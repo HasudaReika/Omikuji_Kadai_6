@@ -44,6 +44,9 @@ public class PostCodeDataDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((PostCodeData)et).getId(), (et, vl) -> ((PostCodeData)et).setId(cti(vl)), "id");
         setupEpg(_epgMap, et -> ((PostCodeData)et).getPostCode(), (et, vl) -> ((PostCodeData)et).setPostCode((String)vl), "postCode");
+        setupEpg(_epgMap, et -> ((PostCodeData)et).getPrefectureKatakana(), (et, vl) -> ((PostCodeData)et).setPrefectureKatakana((String)vl), "prefectureKatakana");
+        setupEpg(_epgMap, et -> ((PostCodeData)et).getCityKatakana(), (et, vl) -> ((PostCodeData)et).setCityKatakana((String)vl), "cityKatakana");
+        setupEpg(_epgMap, et -> ((PostCodeData)et).getTownKatakana(), (et, vl) -> ((PostCodeData)et).setTownKatakana((String)vl), "townKatakana");
         setupEpg(_epgMap, et -> ((PostCodeData)et).getPrefecture(), (et, vl) -> ((PostCodeData)et).setPrefecture((String)vl), "prefecture");
         setupEpg(_epgMap, et -> ((PostCodeData)et).getCity(), (et, vl) -> ((PostCodeData)et).setCity((String)vl), "city");
         setupEpg(_epgMap, et -> ((PostCodeData)et).getTown(), (et, vl) -> ((PostCodeData)et).setTown((String)vl), "town");
@@ -69,6 +72,9 @@ public class PostCodeDataDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnId = cci("id", "id", null, null, Integer.class, "id", null, true, true, true, "serial", 10, 0, null, "nextval('post_code_data_id_seq'::regclass)", false, null, null, null, null, null, false);
     protected final ColumnInfo _columnPostCode = cci("post_code", "post_code", null, null, String.class, "postCode", null, false, false, false, "varchar", 7, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPrefectureKatakana = cci("prefecture_katakana", "prefecture_katakana", null, null, String.class, "prefectureKatakana", null, false, false, false, "varchar", 30, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCityKatakana = cci("city_katakana", "city_katakana", null, null, String.class, "cityKatakana", null, false, false, false, "varchar", 40, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTownKatakana = cci("town_katakana", "town_katakana", null, null, String.class, "townKatakana", null, false, false, false, "varchar", 60, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnPrefecture = cci("prefecture", "prefecture", null, null, String.class, "prefecture", null, false, false, false, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnCity = cci("city", "city", null, null, String.class, "city", null, false, false, false, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTown = cci("town", "town", null, null, String.class, "town", null, false, false, false, "varchar", 50, 0, null, null, false, null, null, null, null, null, false);
@@ -83,6 +89,21 @@ public class PostCodeDataDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnPostCode() { return _columnPostCode; }
+    /**
+     * prefecture_katakana: {varchar(30)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnPrefectureKatakana() { return _columnPrefectureKatakana; }
+    /**
+     * city_katakana: {varchar(40)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnCityKatakana() { return _columnCityKatakana; }
+    /**
+     * town_katakana: {varchar(60)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTownKatakana() { return _columnTownKatakana; }
     /**
      * prefecture: {varchar(20)}
      * @return The information object of specified column. (NotNull)
@@ -103,6 +124,9 @@ public class PostCodeDataDbm extends AbstractDBMeta {
         List<ColumnInfo> ls = newArrayList();
         ls.add(columnId());
         ls.add(columnPostCode());
+        ls.add(columnPrefectureKatakana());
+        ls.add(columnCityKatakana());
+        ls.add(columnTownKatakana());
         ls.add(columnPrefecture());
         ls.add(columnCity());
         ls.add(columnTown());

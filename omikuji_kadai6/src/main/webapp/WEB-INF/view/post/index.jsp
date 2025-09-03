@@ -18,8 +18,9 @@
 		<label> 郵便番号 <html:text property="postCode" id="postCode" /><br>
 		</label>
 
-		<label> 住所 <html:text property="address" /> 
-		<input type="button" value="〒↔︎住所" class="btn" id="address"><br>
+		<label> 住所 <html:text property="address" id="address"/> 
+		<div id="dropdown"></div>
+		<input type="button" value="〒↔︎住所" class="btn" id="addressBtn"><br>
 		</label>
 
 		<label> 宛名 <html:text property="name" /><br>

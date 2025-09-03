@@ -123,6 +123,9 @@ where t1.omikuji_code = t2.number;
 create table post_code_data(
 id serial primary key,
 post_code varchar(7),
+prefecture_katakana varchar(30),
+city_katakana varchar(40),
+town_katakana varchar(60),
 prefecture varchar(20),
 city varchar(20),
 town varchar(50)

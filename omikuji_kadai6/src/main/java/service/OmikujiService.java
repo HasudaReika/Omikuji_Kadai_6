@@ -21,6 +21,9 @@ import javax.annotation.Resource;
 
 import org.dbflute.optional.OptionalEntity;
 
+import com.atilika.kuromoji.ipadic.Token;
+import com.atilika.kuromoji.ipadic.Tokenizer;
+
 import omikuji6.dbflute.exbhv.FortuneMasterBhv;
 import omikuji6.dbflute.exbhv.OmikujiBhv;
 import omikuji6.dbflute.exbhv.PostCodeDataBhv;
@@ -333,16 +336,16 @@ public class OmikujiService {
 	 * @param postCode　郵便番号
 	 * @return 郵便番号に紐づく住所
 	 */
-	public OptionalEntity<PostCodeData> getByPostCode(String postCode) {
+	public List<PostCodeData> getByPostCode(String postCode) {
 		//入力された郵便番号が一致する県、市、地名を取得
-		OptionalEntity<PostCodeData> optAddress = postCodeDataBhv.selectEntity(cb -> {
+		List<PostCodeData> addressList = postCodeDataBhv.selectList(cb -> {
 			cb.specify().columnPrefecture();
 			cb.specify().columnCity();
 			cb.specify().columnTown();
 			cb.query().setPostCode_Equal(postCode);
 		});
 		//住所を返す
-		return optAddress;
+		return addressList;
 	}
 
 	/**
@@ -353,9 +356,17 @@ public class OmikujiService {
 	 * @return　住所に紐づく郵便番号
 	 */
 	public OptionalEntity<PostCodeData> getByAddress(String address) {
+		//入力された住所をカタカナに変換
+		Tokenizer tokenizer = new Tokenizer();
+		List<Token> tokens = tokenizer.tokenize(address);
+		StringBuilder katakanaAddress = new StringBuilder();
+		for (Token token : tokens) {
+			katakanaAddress.append(token.getReading());
+		}
 		//pmbを設定
 		ByAddressPmb pmb = new ByAddressPmb();
 		pmb.setAddress(address);
+		pmb.setKatakanaAddress(katakanaAddress.toString());
 
 		//外だしSQLを実行
 		OptionalEntity<PostCodeData> optPostCode = postCodeDataBhv.outsideSql().traditionalStyle()

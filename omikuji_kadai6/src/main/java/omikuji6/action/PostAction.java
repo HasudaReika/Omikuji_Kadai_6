@@ -61,22 +61,26 @@ public class PostAction {
 
 	/**
 	 * 郵便番号から住所を取得
-	 * @return 住所
+	 * @return 住所のリスト
 	 */
 	@Execute(validator = false)
-	public String searchAddress() {
+	public List<String> searchAddress() {
 		//入力された郵便番号を取得
 		String postCode = postForm.postCode;
 		//郵便番号から住所を取得
-		OptionalEntity<PostCodeData> optAddress = omikujiService.getByPostCode(postCode);
-		//住所をString型に変換
-		String address = optAddress.get().getPrefecture()
-				+ optAddress.get().getCity() + optAddress.get().getTown();
-		
-		return address;
+		List<PostCodeData> GetAddress = omikujiService.getByPostCode(postCode);
+		//住所をListに格納
+		String address;
+		List<String> addressList = new ArrayList<String>();
+		for (PostCodeData data : GetAddress) {
+			address = data.getPrefecture() + data.getCity() + data.getTown();
+			addressList.add(address);
+		}
+
+		return addressList;
 
 	}
-	
+
 	/**
 	 * 住所から郵便番号を取得
 	 * @return 郵便番号
@@ -89,9 +93,9 @@ public class PostAction {
 		OptionalEntity<PostCodeData> optPostCode = omikujiService.getByAddress(address);
 		//郵便番号をStringに変換
 		String postCode = optPostCode.get().getPostCode();
-		
+
 		return postCode;
-		
+
 	}
 
 }

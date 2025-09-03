@@ -1,0 +1,27 @@
+map:{
+    ; 2025/09/03 13:08:11.183 = map:{
+        ; diffDate = 2025/09/03 13:08:11.183
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; post_code_data = map:{
+                ; tableName = post_code_data
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; prefecture_katakana = map:{
+                        ; columnName = prefecture_katakana
+                        ; diffType = ADD
+                    }
+                    ; city_katakana = map:{
+                        ; columnName = city_katakana
+                        ; diffType = ADD
+                    }
+                    ; town_katakana = map:{
+                        ; columnName = town_katakana
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}
