@@ -1,7 +1,6 @@
 /**
  * Ajaxを使用して郵便番号と住所の相互補完
  */
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 
 /**
@@ -17,16 +16,16 @@ $(function() {
 			var postCode = $("#postCode").val();
 			//AjaxでPostAcionのsearchAddress()を呼び出す
 			$.ajax({
-				url: '/omikuji6/action/PostAction/searchAddress',
+				url: '/omikuji6/post/searchAddress',
 				dataType: 'json',
 				data: { postCode: postCode },
-				type: 'Get',
+				type: 'GET',
 				success: function(response) {
 					//ドロップダウン
 					var $dropdown = $('#dropdown');
 					//既存の項目をクリア
-					$dropdown.empty(); 
-					
+					$dropdown.empty();
+
 					//取得した住所が空や存在しない場合
 					if (response === null || response === undefined || response === "") {
 						//住所がなかった場合の処理
@@ -41,21 +40,56 @@ $(function() {
 					} else if (response.length >= 2) {
 						//住所が複数ヒットした場合ドロップダウンに候補を追加
 						response.forEach(function(address) {
-						$dropdown.append('<div>' + address + '</div>')
+							var $item = $('<div class="dropdown-item"></div>').text(address);
+							$dropdown.append($item);
+							//クリックされた候補を住所欄に補完
+							$item.on('click', function() {
+								$('#address').val(address);
+								//補完したらドロップダウンを非表示
+								$dropdown.hide();
+							});
+
 						});
 						//ドロップダウンを表示
 						$dropdown.show();
-						//クリックされた候補を住所欄に補完
-						$('#address').val(address);
-						//補完したらドロップダウンを非表示
-						$dropdown.hide();
 					}
 				},
-				error:function(){
-					alert('住所の取得に失敗しました。')
+				error: function() {
+					alert('住所の取得に失敗しました。');
 				}
 			});
 
 		}
+		
+	});
+});
+
+/**
+ * 住所を入力しボタンを押したら郵便番号を補完
+ */
+$(function(){
+	//ボタンを押されたら実行
+	$('#addressBtn').on('click', function(){
+		//入力された住所を取得
+		var address = $('#address').val();
+		//ajaxでsearchPostCode()を呼び出す
+		$.ajax({
+			url: '/omikuji6/post/searchPostCode',
+			dataType: 'json',
+			data: {address: address},
+			type: 'GET',
+			success: function(response){
+				//取得した郵便番号が空や存在しない場合
+				if(response === null || response === undefined || response === ""){
+					alert('該当する郵便番号がありません。');
+				} else{
+				//郵便番号を補完
+				$('#postCode').val(response);
+				}
+			},
+			error: function(){
+				alert('郵便番号の取得に失敗しました。');
+			}
+		});
 	});
 });

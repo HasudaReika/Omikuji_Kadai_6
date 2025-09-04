@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>入力完了</title>
+<title>郵送先登録完了</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style3.css">
 </head>
 <body>
-	<p>登録しました</p>
+	<p>登録しました</p><br>
 	<s:link action="omikuji.do">トップに戻る
 	</s:link>
 </body>
