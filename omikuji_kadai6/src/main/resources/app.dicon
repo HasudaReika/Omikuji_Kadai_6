@@ -18,4 +18,5 @@
 	<component class="omikuji6.action.Init">
 	<initMethod name="initialize"/></component>
 	
+	
 </components>

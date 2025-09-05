@@ -7,4 +7,5 @@ where /*pmb.address*/
 like '%' || prefecture || city || town || '%'
 or /*pmb.katakanaAddress*/ 
 like '%' || prefecture_katakana || city_katakana || town_katakana || '%'
-order by length(town) desc;
+order by length(town) desc
+limit 1;

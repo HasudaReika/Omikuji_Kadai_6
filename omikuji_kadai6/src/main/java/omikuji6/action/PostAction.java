@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.struts.util.TokenProcessor;
 import org.dbflute.optional.OptionalEntity;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
@@ -30,6 +32,7 @@ public class PostAction {
 
 	public HttpSession session;
 	public HttpServletResponse response;
+	public HttpServletRequest request;
 
 	/**
 	 * 郵送先登録画面の表示
@@ -37,6 +40,8 @@ public class PostAction {
 	 */
 	@Execute(validator = false)
 	public String index() {
+		//トークン作成
+		TokenProcessor.getInstance().saveToken(request);
 		return "index.jsp";
 
 	}
@@ -47,6 +52,12 @@ public class PostAction {
 	 */
 	@Execute(validator = true, input = "index.jsp")
 	public String submit() {
+		//トークンをチェック
+		if (!TokenProcessor.getInstance().isTokenValid(request, true)) {
+			//既に登録済みの場合
+			return "already_submitted.jsp";
+		}
+
 		//住所、名前、電話番号、メールアドレスをリストに格納
 		List<String> list = new ArrayList<String>();
 		list.add(postForm.getPostCode());
@@ -76,6 +87,16 @@ public class PostAction {
 		String postCode = postForm.postCode;
 		//郵便番号から住所を取得
 		List<PostCodeData> GetAddress = omikujiService.getByPostCode(postCode);
+
+		//該当する住所がなかった場合
+		if (GetAddress.isEmpty()) {
+			// nullを返す
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			ResponseUtil.write("null");
+			return null;
+		}
+
 		//住所をListに格納
 		String address;
 		List<String> addressList = new ArrayList<String>();
@@ -113,6 +134,16 @@ public class PostAction {
 		String address = postForm.address;
 		//住所から郵便番号を検索
 		OptionalEntity<PostCodeData> optPostCode = omikujiService.getByAddress(address);
+
+		// 該当する郵便番号がなかった場合
+		if (!optPostCode.isPresent()) {
+			// nullを返す
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			ResponseUtil.write("null");
+			return null;
+		}
+
 		//郵便番号をStringに変換
 		String postCode = optPostCode.get().getPostCode();
 		//ObjectMapperインスタンス作成

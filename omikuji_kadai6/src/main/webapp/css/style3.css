@@ -40,3 +40,46 @@ input[type="submit"] {
 h1 {
 	font-size: medium;
 }
+
+#dropdown{
+	width: 100%;
+	max-height: 150px;
+	display: none;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 4px 8px saddlebrown;
+	padding: 5px;
+	border-radius: 5px;
+	overflow-y: auto;
+}
+
+#dropdown .dropdown-item {
+	font-size: 15px;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0; 
+    transition: background-color 0.3s ease;
+}
+
+#dropdown .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+#dropdown .dropdown-item:hover {
+	font-size: 13px;
+    background-color: #e0f7fa;
+    color: black;
+    padding-left: 15px;
+}
+
+.box{
+	display: inline-block;
+	    padding: 20px;
+	    background-color: rgb(253, 246, 235);
+	    border: 1px solid #ccc;
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	    width: 300px;
+}
+p{
+	text-align: center;
+}

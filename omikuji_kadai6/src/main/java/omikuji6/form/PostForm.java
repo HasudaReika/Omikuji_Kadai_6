@@ -4,14 +4,14 @@ import java.text.Normalizer;
 import java.text.Normalizer.Form;
 
 import org.seasar.struts.annotation.EmailType;
-import org.seasar.struts.annotation.IntegerType;
 import org.seasar.struts.annotation.Mask;
+import org.seasar.struts.annotation.Msg;
 import org.seasar.struts.annotation.Required;
 
 public class PostForm {
 
 	@Required
-	@Mask(mask = "^[0-9]{7}$")
+	@Mask(mask = "^[0-9]{7}$", msg = @Msg(key = "errors.invalid"))
 	public String postCode;
 
 	@Required
@@ -21,7 +21,7 @@ public class PostForm {
 	public String name;
 
 	@Required
-	@IntegerType
+	@Mask(mask = "^[0-9]{10,11}$", msg = @Msg(key = "errors.phone"))
 	public String phone;
 
 	@Required

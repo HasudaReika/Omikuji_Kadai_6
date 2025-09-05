@@ -16,7 +16,7 @@ $(function() {
 			var postCode = $("#postCode").val();
 			//AjaxでPostAcionのsearchAddress()を呼び出す
 			$.ajax({
-				url: '/omikuji6/post/searchAddress',
+				url: '/omikuji_kadai6/post/searchAddress',
 				dataType: 'json',
 				data: { postCode: postCode },
 				type: 'GET',
@@ -27,9 +27,9 @@ $(function() {
 					$dropdown.empty();
 
 					//取得した住所が空や存在しない場合
-					if (response === null || response === undefined || response === "") {
+					if (response == null || response == undefined || response == "" || response.length == 0) {
 						//住所がなかった場合の処理
-						alert('該当する住所がありません。')
+						alert('該当する住所がありません。');
 						//ドロップダウンを非表示
 						$('#dropdown').hide();
 					} else if (response.length === 1) {
@@ -74,13 +74,13 @@ $(function(){
 		var address = $('#address').val();
 		//ajaxでsearchPostCode()を呼び出す
 		$.ajax({
-			url: '/omikuji6/post/searchPostCode',
+			url: '/omikuji_kadai6/post/searchPostCode',
 			dataType: 'json',
 			data: {address: address},
 			type: 'GET',
 			success: function(response){
 				//取得した郵便番号が空や存在しない場合
-				if(response === null || response === undefined || response === ""){
+				if(response == null || response == undefined || response == "" || response.length == 0){
 					alert('該当する郵便番号がありません。');
 				} else{
 				//郵便番号を補完
@@ -93,3 +93,7 @@ $(function(){
 		});
 	});
 });
+
+
+
+
