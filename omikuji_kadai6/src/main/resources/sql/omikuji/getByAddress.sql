@@ -2,10 +2,11 @@
 -- !df:pmb!
 -- #df:entity#
 
-select post_code from test.post_code_data
-where /*pmb.address*/ 
-like '%' || prefecture || city || town || '%'
-or /*pmb.katakanaAddress*/ 
-like '%' || prefecture_katakana || city_katakana || town_katakana || '%'
+select post_code 
+from test.post_code_data
+where translate(/*pmb.address*/, 'がガヶケ', 'ガガガガ') 
+like '%' || translate(prefecture || city || town, 'がガヶケ', 'ガガガガ') || '%'
+or translate(/*pmb.address*/, 'のノ乃之', 'ノノノノ') 
+like '%' || translate(prefecture || city || town, 'のノ乃之', 'ノノノノ') || '%'
 order by length(town) desc
 limit 1;
