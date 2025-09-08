@@ -40094,3 +40094,599 @@ _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
     repsEnvType      = ut
     refreshProject   = $$AutoDetect$$
 _/_/_/_/_/_/_/_/_/_/ {Sql2Entity}
+2025-09-08 09:26:30,121 [main] INFO  (TorqueJDBCTransformTask#begin():104) - +------------------------------------------+
+2025-09-08 09:26:30,125 [main] INFO  (TorqueJDBCTransformTask#begin():105) - |                                          |
+2025-09-08 09:26:30,128 [main] INFO  (TorqueJDBCTransformTask#begin():106) - |                   JDBC                   |
+2025-09-08 09:26:30,129 [main] INFO  (TorqueJDBCTransformTask#begin():107) - |                                          |
+2025-09-08 09:26:30,129 [main] INFO  (TorqueJDBCTransformTask#begin():108) - +------------------------------------------+
+2025-09-08 09:26:30,149 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2025-09-08 09:26:30,150 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = org.postgresql.Driver
+2025-09-08 09:26:30,150 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:postgresql://localhost/test?currentSchema=test
+2025-09-08 09:26:30,151 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = test
+2025-09-08 09:26:30,179 [main] INFO  (DfSchemaXmlSerializer#serialize():348) - 
+2025-09-08 09:26:30,180 [main] INFO  (DfSchemaXmlSerializer#serialize():349) - ...Starting to process JDBC to SchemaXML
+2025-09-08 09:26:30,180 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1602) - ...Loading previous schema (schema diff process)
+2025-09-08 09:26:30,192 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2025-09-08 09:26:30,297 [main] INFO  (DfSchemaXmlSerializer#generateXML():422) - ...Getting DB connection
+2025-09-08 09:26:30,320 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2025-09-08 09:26:30,540 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = PostgreSQL 17.0 (Homebrew)
+2025-09-08 09:26:30,541 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2
+2025-09-08 09:26:30,546 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():77) - ...Connecting to the schema
+2025-09-08 09:26:30,546 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():78) - set search_path to test
+2025-09-08 09:26:30,548 [main] INFO  (DfSchemaXmlSerializer#generateXML():425) - ...Getting DB meta data
+2025-09-08 09:26:30,550 [main] INFO  (DfTableExtractor#doGetTableList():78) - ...Getting tables:
+2025-09-08 09:26:30,550 [main] INFO  (DfTableExtractor#doGetTableList():79) -   schema = {test.test as main}
+2025-09-08 09:26:30,551 [main] INFO  (DfTableExtractor#doGetTableList():80) -   types  = [TABLE, VIEW]
+2025-09-08 09:26:30,662 [main] INFO  (DfSchemaXmlSerializer#processTable():481) - 
+2025-09-08 09:26:30,663 [main] INFO  (DfSchemaXmlSerializer#processTable():482) - $ /= = = = = = = = = = = = = = = = = = = = = = = = = =
+2025-09-08 09:26:30,663 [main] INFO  (DfSchemaXmlSerializer#processTable():483) - $ [Table List]
+2025-09-08 09:26:30,663 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():563) - $ test.test.fortune_master(TABLE)
+2025-09-08 09:26:30,840 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():563) - $ test.test.omikuji(TABLE)
+2025-09-08 09:26:30,884 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():563) - $ test.test.omikuji_csv(TABLE)
+2025-09-08 09:26:30,919 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():563) - $ test.test.post_code_data(TABLE)
+2025-09-08 09:26:30,955 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():563) - $ test.test.result(TABLE)
+2025-09-08 09:26:30,985 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():563) - $ test.test.shipping(TABLE)
+2025-09-08 09:26:31,007 [main] WARN  (DfForeignKeyExtractor#filterSameStructureForeignKey():287) - *The same-structural foreign key was found: skipped=shipping_result_code_fkey:{test.result=java.lang.Object@7a93b263, columnNameMap:{result_code=result_code}=java.lang.Object@7a93b263}
+2025-09-08 09:26:31,015 [main] INFO  (DfSchemaXmlSerializer#processTable():495) - $ 
+2025-09-08 09:26:31,015 [main] INFO  (DfSchemaXmlSerializer#processTable():496) - $ [Table Count]
+2025-09-08 09:26:31,015 [main] INFO  (DfSchemaXmlSerializer#processTable():497) - $ 6
+2025-09-08 09:26:31,015 [main] INFO  (DfSchemaXmlSerializer#processTable():498) - $ = = = = = = = = = =/
+2025-09-08 09:26:31,015 [main] INFO  (DfSchemaXmlSerializer#processTable():499) - 
+2025-09-08 09:26:31,016 [main] INFO  (DfSchemaXmlSerializer#processSequence():866) - ...Getting sequences
+2025-09-08 09:26:31,023 [main] INFO  (DfSequenceExtractorPostgreSQL#doGetSequenceMap():53) - ...Loading sequence informations
+2025-09-08 09:26:31,024 [main] INFO  (DfSequenceExtractorBase#selectStringList():75) - select * from information_schema.sequences where sequence_schema in ('test')
+2025-09-08 09:26:31,037 [main] INFO  (DfSequenceExtractorPostgreSQL#doGetSequenceMap():99) - 
+[SEQUENCE]
+ test.test.post_code_data_id_seq = test.test.post_code_data_id_seq:{1 to 2147483647, increment 1}
+ test.test.seq_omikuji_code = test.test.seq_omikuji_code:{1 to 9223372036854775807, increment 1}
+ test.test.shipping_id_seq = test.test.shipping_id_seq:{1 to 2147483647, increment 1}
+ test.test.seq_fortune_code = test.test.seq_fortune_code:{1 to 9223372036854775807, increment 1}
+ test.test.omikuji_csv_number_seq = test.test.omikuji_csv_number_seq:{1 to 2147483647, increment 1}
+ test.test.result_result_code_seq = test.test.result_result_code_seq:{1 to 2147483647, increment 1}
+2025-09-08 09:26:31,038 [main] INFO  (DfSchemaXmlSerializer#processSequence():871) - ...Processing sequences: 6
+2025-09-08 09:26:31,040 [main] INFO  (DfSchemaXmlSerializer#serialize():363) - ...Serializing XML:
+2025-09-08 09:26:31,040 [main] INFO  (DfSchemaXmlSerializer#serialize():364) -   filePath = ./schema/project-schema-dfclient.xml
+2025-09-08 09:26:31,040 [main] INFO  (DfSchemaXmlSerializer#serialize():365) -   encoding = UTF-8
+2025-09-08 09:26:31,059 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1613) - ...Loading next schema (schema diff process)
+2025-09-08 09:26:31,069 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2025-09-08 09:26:31,308 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1628) -  -> same as previous (schema diff)
+2025-09-08 09:26:31,308 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2025-09-08 09:26:31,322 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s213ms
+
+  DBFLUTE_CLIENT: {dfclient}
+    database  = postgresql (PostgreSQL 17.0 (Homebrew))
+    language  = java
+    container = seasar
+    package   = omikuji6.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = org.postgresql.Driver (PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2)
+    url    = jdbc:postgresql://localhost/test?currentSchema=test
+    schema = {test.test as main}
+    user   = test
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {JDBC}
+2025-09-08 09:26:31,859 [main] INFO  (TorqueDocumentationTask#begin():193) - +------------------------------------------+
+2025-09-08 09:26:31,863 [main] INFO  (TorqueDocumentationTask#begin():194) - |                                          |
+2025-09-08 09:26:31,863 [main] INFO  (TorqueDocumentationTask#begin():195) - |                   Doc                    |
+2025-09-08 09:26:31,864 [main] INFO  (TorqueDocumentationTask#begin():203) - |                                          |
+2025-09-08 09:26:31,864 [main] INFO  (TorqueDocumentationTask#begin():204) - +------------------------------------------+
+2025-09-08 09:26:31,879 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2025-09-08 09:26:31,879 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = org.postgresql.Driver
+2025-09-08 09:26:31,879 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:postgresql://localhost/test?currentSchema=test
+2025-09-08 09:26:31,880 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = test
+2025-09-08 09:26:31,881 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():265) - 
+2025-09-08 09:26:31,881 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():266) - * * * * * * * * * * *
+2025-09-08 09:26:31,882 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():267) - *                   *
+2025-09-08 09:26:31,882 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():268) - *    Schema HTML    *
+2025-09-08 09:26:31,882 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():269) - *                   *
+2025-09-08 09:26:31,882 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():270) - * * * * * * * * * * *
+2025-09-08 09:26:31,912 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2025-09-08 09:26:31,955 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2025-09-08 09:26:31,957 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2025-09-08 09:26:31,959 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2025-09-08 09:26:31,960 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2025-09-08 09:26:31,960 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2025-09-08 09:26:31,960 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2025-09-08 09:26:31,961 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2025-09-08 09:26:31,961 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2025-09-08 09:26:31,964 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2025-09-08 09:26:31,980 [main] INFO  (DfClsDeploymentInitializer#initializeClassificationDeployment():67) - ...Initializing ClassificationDeployment: project=dfclient
+2025-09-08 09:26:32,020 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("doc/ControlDocument.vm", ctx);
+2025-09-08 09:26:32,032 [main] INFO  (DfFlutistLog4JLogSystem#init():45) - ...Suppressing velocity.log, which is unneeded for also debug
+2025-09-08 09:26:32,106 [main] INFO  (Database#doEnableDocumentOutputDirectory():1236) - ...Setting up documentOutputDirectory: ./output/doc
+2025-09-08 09:26:32,117 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():242) - ...Loading schema history
+2025-09-08 09:26:32,170 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():246) -  -> found history: count=8
+2025-09-08 09:26:32,304 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():50) -  
+2025-09-08 09:26:32,308 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():51) - ...Setting up arrange queries for documents (ArrangeQueryDoc)
+2025-09-08 09:26:32,343 [main] INFO  (DfArrangeQueryDocSetupper#doExtractArrangeQuery():106) -  -> no arrange query
+2025-09-08 09:26:32,491 [main] INFO  (DfSequenceExtractorPostgreSQL#doGetSequenceMap():53) - ...Loading sequence informations
+2025-09-08 09:26:32,494 [main] INFO  (DfSequenceExtractorBase#selectStringList():75) - select * from information_schema.sequences where sequence_schema in ('test')
+2025-09-08 09:26:32,496 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2025-09-08 09:26:32,608 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = PostgreSQL 17.0 (Homebrew)
+2025-09-08 09:26:32,609 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2
+2025-09-08 09:26:32,613 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():77) - ...Connecting to the schema
+2025-09-08 09:26:32,613 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():78) - set search_path to test
+2025-09-08 09:26:32,647 [main] INFO  (DfSequenceExtractorPostgreSQL#doGetSequenceMap():99) - 
+[SEQUENCE]
+ test.test.post_code_data_id_seq = test.test.post_code_data_id_seq:{1 to 2147483647, increment 1}
+ test.test.seq_omikuji_code = test.test.seq_omikuji_code:{1 to 9223372036854775807, increment 1}
+ test.test.shipping_id_seq = test.test.shipping_id_seq:{1 to 2147483647, increment 1}
+ test.test.seq_fortune_code = test.test.seq_fortune_code:{1 to 9223372036854775807, increment 1}
+ test.test.omikuji_csv_number_seq = test.test.omikuji_csv_number_seq:{1 to 2147483647, increment 1}
+ test.test.result_result_code_seq = test.test.result_result_code_seq:{1 to 2147483647, increment 1}
+2025-09-08 09:26:32,866 [main] INFO  (DfRefreshResourceProcess#show():295) - /===========================================================================
+2025-09-08 09:26:32,868 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Refreshing [omikuji_kadai6] by http://localhost:8386/
+2025-09-08 09:26:33,011 [main] INFO  (DfRefreshResourceProcess#show():295) - ==========/
+2025-09-08 09:26:33,012 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2025-09-08 09:26:33,021 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s162ms
+
+  DBFLUTE_CLIENT: {dfclient}
+    database  = postgresql (PostgreSQL 17.0 (Homebrew))
+    language  = java
+    container = seasar
+    package   = omikuji6.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = org.postgresql.Driver (PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2)
+    url    = jdbc:postgresql://localhost/test?currentSchema=test
+    schema = {test.test as main}
+    user   = test
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Doc}
+2025-09-08 09:26:35,044 [main] INFO  (TorqueDataModelTask#begin():110) - +------------------------------------------+
+2025-09-08 09:26:35,045 [main] INFO  (TorqueDataModelTask#begin():111) - |                                          |
+2025-09-08 09:26:35,045 [main] INFO  (TorqueDataModelTask#begin():112) - |                 Generate                 |
+2025-09-08 09:26:35,046 [main] INFO  (TorqueDataModelTask#begin():113) - |                                          |
+2025-09-08 09:26:35,047 [main] INFO  (TorqueDataModelTask#begin():114) - +------------------------------------------+
+2025-09-08 09:26:35,068 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2025-09-08 09:26:35,069 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = org.postgresql.Driver
+2025-09-08 09:26:35,069 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:postgresql://localhost/test?currentSchema=test
+2025-09-08 09:26:35,069 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = test
+2025-09-08 09:26:35,077 [main] INFO  (TorqueDataModelTask#setupControlTemplate():166) - 
+2025-09-08 09:26:35,077 [main] INFO  (TorqueDataModelTask#setupControlTemplate():167) - ...Using Java control: om/ControlGenerateJava.vm
+2025-09-08 09:26:35,098 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2025-09-08 09:26:35,149 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlGenerateJava.vm", ctx);
+2025-09-08 09:26:35,155 [main] INFO  (DfFlutistLog4JLogSystem#init():45) - ...Suppressing velocity.log, which is unneeded for also debug
+2025-09-08 09:26:35,300 [main] INFO  (Database#doEnableGenerateOutputDirectory():1204) - ...Setting up generateOutputDirectory: ../src/main/java
+2025-09-08 09:26:35,302 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2025-09-08 09:26:35,303 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2025-09-08 09:26:35,303 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2025-09-08 09:26:35,304 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2025-09-08 09:26:35,305 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2025-09-08 09:26:35,305 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2025-09-08 09:26:35,306 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2025-09-08 09:26:35,306 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2025-09-08 09:26:35,307 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2025-09-08 09:26:35,319 [main] INFO  (DfClsDeploymentInitializer#initializeClassificationDeployment():67) - ...Initializing ClassificationDeployment: project=dfclient
+2025-09-08 09:26:35,325 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():58) - /=============================
+2025-09-08 09:26:35,326 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():59) - ...Initializing include query.
+2025-09-08 09:26:35,326 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - String
+2025-09-08 09:26:35,326 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Number
+2025-09-08 09:26:35,329 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Date
+2025-09-08 09:26:35,329 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotEqual -> []
+2025-09-08 09:26:35,330 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   InScope -> []
+2025-09-08 09:26:35,330 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotInScope -> []
+2025-09-08 09:26:35,330 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - OrderBy
+2025-09-08 09:26:35,330 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():61) - ========/
+2025-09-08 09:26:35,347 [main] INFO  (Database#info():2895) - public void parseAllCommon() {
+2025-09-08 09:26:35,354 [main] INFO  (Database#info():2895) -     parse('DBCurrent');
+2025-09-08 09:26:35,432 [main] INFO  (Database#info():2895) -     parse('DBFluteConfig');
+2025-09-08 09:26:35,460 [main] INFO  (Database#info():2895) -     parse('DBFluteInitializer');
+2025-09-08 09:26:35,466 [main] INFO  (Database#info():2895) -     parse('DBMetaInstanceHandler');
+2025-09-08 09:26:35,508 [main] INFO  (Database#info():2895) -     parse('EntityDefinedCommonColumn');
+2025-09-08 09:26:35,516 [main] INFO  (Database#info():2895) -     parse('ImplementedBehaviorSelector');
+2025-09-08 09:26:35,534 [main] INFO  (Database#info():2895) -     parse('ImplementedCommonColumnAutoSetupper');
+2025-09-08 09:26:35,552 [main] INFO  (Database#info():2895) -     parse('ImplementedInvokerAssistant');
+2025-09-08 09:26:35,564 [main] INFO  (Database#info():2895) -     parse('ImplementedSqlClauseCreator');
+2025-09-08 09:26:35,568 [main] INFO  (Database#info():2895) - }
+2025-09-08 09:26:35,568 [main] INFO  (Database#info():2895) - public void parseContainerConfig() {
+2025-09-08 09:26:35,569 [main] INFO  (Database#info():2895) -     parse('../resources/dbflute.dicon')
+2025-09-08 09:26:35,586 [main] INFO  (Database#info():2895) - }
+2025-09-08 09:26:35,589 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldTableClass() {
+2025-09-08 09:26:35,610 [main] INFO  (DfOldClassHandler#info():1045) - }
+2025-09-08 09:26:35,610 [main] INFO  (Database#info():2895) - public void parseTableClass() {
+2025-09-08 09:26:35,611 [main] INFO  (Database#info():2895) -     parse('fortune_master');
+2025-09-08 09:26:36,065 [main] INFO  (Database#info():2895) -     parse('omikuji');
+2025-09-08 09:26:36,159 [main] INFO  (DfSequenceExtractorPostgreSQL#doGetSequenceMap():53) - ...Loading sequence informations
+2025-09-08 09:26:36,161 [main] INFO  (DfSequenceExtractorBase#selectStringList():75) - select * from information_schema.sequences where sequence_schema in ('test')
+2025-09-08 09:26:36,167 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2025-09-08 09:26:36,276 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = PostgreSQL 17.0 (Homebrew)
+2025-09-08 09:26:36,281 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2
+2025-09-08 09:26:36,286 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():77) - ...Connecting to the schema
+2025-09-08 09:26:36,286 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():78) - set search_path to test
+2025-09-08 09:26:36,320 [main] INFO  (DfSequenceExtractorPostgreSQL#doGetSequenceMap():99) - 
+[SEQUENCE]
+ test.test.post_code_data_id_seq = test.test.post_code_data_id_seq:{1 to 2147483647, increment 1}
+ test.test.seq_omikuji_code = test.test.seq_omikuji_code:{1 to 9223372036854775807, increment 1}
+ test.test.shipping_id_seq = test.test.shipping_id_seq:{1 to 2147483647, increment 1}
+ test.test.seq_fortune_code = test.test.seq_fortune_code:{1 to 9223372036854775807, increment 1}
+ test.test.omikuji_csv_number_seq = test.test.omikuji_csv_number_seq:{1 to 2147483647, increment 1}
+ test.test.result_result_code_seq = test.test.result_result_code_seq:{1 to 2147483647, increment 1}
+2025-09-08 09:26:36,464 [main] INFO  (Database#info():2895) -     parse('omikuji_csv');
+2025-09-08 09:26:36,604 [main] INFO  (Database#info():2895) -     parse('post_code_data');
+2025-09-08 09:26:36,707 [main] INFO  (Database#info():2895) -     parse('result');
+2025-09-08 09:26:36,846 [main] INFO  (Database#info():2895) -     parse('shipping');
+2025-09-08 09:26:36,949 [main] INFO  (Database#info():2895) - }
+2025-09-08 09:26:36,950 [main] INFO  (Database#info():2895) -  
+2025-09-08 09:26:37,005 [main] INFO  (DfRefreshResourceProcess#show():295) - /===========================================================================
+2025-09-08 09:26:37,005 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Refreshing [omikuji_kadai6] by http://localhost:8386/
+2025-09-08 09:26:37,013 [main] INFO  (DfRefreshResourceProcess#show():295) - ==========/
+2025-09-08 09:26:37,014 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2025-09-08 09:26:37,018 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s980ms
+
+  DBFLUTE_CLIENT: {dfclient}
+    database  = postgresql (PostgreSQL 17.0 (Homebrew))
+    language  = java
+    container = seasar
+    package   = omikuji6.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = org.postgresql.Driver (PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2)
+    url    = jdbc:postgresql://localhost/test?currentSchema=test
+    schema = {test.test as main}
+    user   = test
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Generate}
+2025-09-08 09:26:37,466 [main] INFO  (DfOutsideSqlTestTask#begin():77) - +------------------------------------------+
+2025-09-08 09:26:37,468 [main] INFO  (DfOutsideSqlTestTask#begin():78) - |                                          |
+2025-09-08 09:26:37,468 [main] INFO  (DfOutsideSqlTestTask#begin():79) - |              OutsideSqlTest              |
+2025-09-08 09:26:37,471 [main] INFO  (DfOutsideSqlTestTask#begin():80) - |                                          |
+2025-09-08 09:26:37,472 [main] INFO  (DfOutsideSqlTestTask#begin():81) - +------------------------------------------+
+2025-09-08 09:26:37,490 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2025-09-08 09:26:37,490 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = org.postgresql.Driver
+2025-09-08 09:26:37,491 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:postgresql://localhost/test?currentSchema=test
+2025-09-08 09:26:37,491 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = test
+2025-09-08 09:26:37,511 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: demo.sql
+2025-09-08 09:26:37,515 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2025-09-08 09:26:37,571 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = PostgreSQL 17.0 (Homebrew)
+2025-09-08 09:26:37,572 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2
+2025-09-08 09:26:37,575 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():77) - ...Connecting to the schema
+2025-09-08 09:26:37,576 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():78) - set search_path to test
+2025-09-08 09:26:37,585 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+/*
+   [Simple test table]   
+   this sql is for test.
+  */
+-- #df:entity#
+-- !df:pmb!
+-- !!AutoDetect!!
+
+
+select count (*) from test.omikuji
+2025-09-08 09:26:37,601 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2025-09-08 09:26:37,602 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getByAddress.sql
+2025-09-08 09:26:37,609 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+--住所による郵便番号検索
+-- !df:pmb!
+-- #df:entity#
+
+select post_code from test.post_code_data
+where /*pmb.address*/ 'あああ'
+like '%' || prefecture || city || town || '%'
+or /*pmb.katakanaAddress*/ 'アアア'
+like '%' || prefecture_katakana || city_katakana || town_katakana || '%'
+order by length(town) desc
+limit 1
+2025-09-08 09:26:37,765 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2025-09-08 09:26:37,766 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getByPostCode.sql
+2025-09-08 09:26:37,769 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+--郵便番号による住所検索
+-- !df:pmb!
+-- #df:entity#
+
+select distinct prefecture, city, town 
+from test.post_code_data
+where post_code = /*pmb.postCode*/ '7440061'
+2025-09-08 09:26:37,785 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2025-09-08 09:26:37,791 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getResultPastSixMonths.sql
+2025-09-08 09:26:37,800 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+--過去半年のおみくじの結果を抽出
+-- !df:pmb!
+-- !!AutoDetect!!
+-- !!LocalDate birthday!!
+-- !!LocalDate sixMonthsAgo!!
+-- #df:entity#
+select fortune_telling_date, fortune_name, negaigoto, akinai, gakumon
+from result r inner join omikuji o
+on r.omikuji_code = o.omikuji_code
+inner join fortune_master f
+on o.fortune_code = f.fortune_code
+where r.fortune_telling_date >= /*pmb.sixMonthsAgo*/ '2000-01-01'
+and birthday = /*pmb.birthday*/ '2000-01-01'
+2025-09-08 09:26:37,821 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2025-09-08 09:26:37,826 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getUnseiPastSixMonths.sql
+2025-09-08 09:26:37,829 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+--過去半年のおみくじの結果を抽出
+-- !df:pmb!
+-- #df:entity#
+-- !!LocalDate sixMonthsAgo!!
+select f.fortune_name, count(r.omikuji_code) as count
+from fortune_master f
+left join omikuji o 
+on f.fortune_code = o.fortune_code
+left join result r 
+on o.omikuji_code = r.omikuji_code 
+and r.fortune_telling_date >= /*pmb.sixMonthsAgo*/ '2000-01-01'
+group by f.fortune_code 
+order by f.fortune_code
+2025-09-08 09:26:37,835 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2025-09-08 09:26:37,837 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getUnseiToday.sql
+2025-09-08 09:26:37,840 [main] INFO  (DfOutsideSqlTestTask$1#traceSql():194) - SQL:
+--本日の運勢の割合を抽出
+-- !df:pmb!
+-- !!AutoDetect!!
+-- #df:entity#
+select f.fortune_name, count(r.omikuji_code) as count
+from fortune_master f
+left join omikuji o 
+on f.fortune_code = o.fortune_code
+left join result r 
+on o.omikuji_code = r.omikuji_code 
+and r.fortune_telling_date = current_date
+group by f.fortune_code 
+order by f.fortune_code
+2025-09-08 09:26:37,844 [main] INFO  (DfOutsideSqlTestTask$1#traceResult():199) -  -> success=1 failure=0
+
+2025-09-08 09:26:37,845 [main] INFO  (DfSqlFileFireMan#fire():93) - Fired SQL: success=6, failure=0 (in 6 files)
+2025-09-08 09:26:37,845 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2025-09-08 09:26:37,860 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s387ms
+
+  DBFLUTE_CLIENT: {dfclient}
+    database  = postgresql (PostgreSQL 17.0 (Homebrew))
+    language  = java
+    container = seasar
+    package   = omikuji6.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = org.postgresql.Driver (PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2)
+    url    = jdbc:postgresql://localhost/test?currentSchema=test
+    schema = {test.test as main}
+    user   = test
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Checked SQL}
+  o demo.sql
+  o getByAddress.sql
+  o getByPostCode.sql
+  o getResultPastSixMonths.sql
+  o getUnseiPastSixMonths.sql
+  o getUnseiToday.sql
+
+   o: OK (6)
+_/_/_/_/_/_/_/_/_/_/ {OutsideSqlTest}
+2025-09-08 09:26:38,496 [main] INFO  (DfSql2EntityTask#begin():106) - +------------------------------------------+
+2025-09-08 09:26:38,500 [main] INFO  (DfSql2EntityTask#begin():107) - |                                          |
+2025-09-08 09:26:38,500 [main] INFO  (DfSql2EntityTask#begin():108) - |                Sql2Entity                |
+2025-09-08 09:26:38,500 [main] INFO  (DfSql2EntityTask#begin():109) - |                                          |
+2025-09-08 09:26:38,500 [main] INFO  (DfSql2EntityTask#begin():110) - +------------------------------------------+
+2025-09-08 09:26:38,521 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2025-09-08 09:26:38,521 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = org.postgresql.Driver
+2025-09-08 09:26:38,521 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:postgresql://localhost/test?currentSchema=test
+2025-09-08 09:26:38,521 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = test
+2025-09-08 09:26:38,528 [main] INFO  (DfSql2EntityTask#setupControlTemplate():177) - 
+2025-09-08 09:26:38,528 [main] INFO  (DfSql2EntityTask#setupControlTemplate():178) - ...Using Java control: om/ControlSql2EntityJava.vm
+2025-09-08 09:26:38,536 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2025-09-08 09:26:38,598 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: demo.sql
+2025-09-08 09:26:38,602 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2025-09-08 09:26:38,660 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = PostgreSQL 17.0 (Homebrew)
+2025-09-08 09:26:38,660 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2
+2025-09-08 09:26:38,663 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():77) - ...Connecting to the schema
+2025-09-08 09:26:38,663 [main] INFO  (DfCurrentSchemaConnector#executeCurrentSchemaSql():78) - set search_path to test
+2025-09-08 09:26:38,664 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():331) - SQL:
+/*
+   [Simple test table]   
+   this sql is for test.
+  */
+-- #df:entity#
+-- !df:pmb!
+-- !!AutoDetect!!
+
+
+select count (*) from test.omikuji
+2025-09-08 09:26:38,729 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():337) -  -> success=1 failure=0
+2025-09-08 09:26:38,739 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getByAddress.sql
+2025-09-08 09:26:38,747 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():331) - SQL:
+--住所による郵便番号検索
+-- !df:pmb!
+-- #df:entity#
+
+select post_code from test.post_code_data
+where /*pmb.address*/ 'あああ'
+like '%' || prefecture || city || town || '%'
+or /*pmb.katakanaAddress*/ 'アアア'
+like '%' || prefecture_katakana || city_katakana || town_katakana || '%'
+order by length(town) desc
+limit 1
+2025-09-08 09:26:38,874 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():337) -  -> success=1 failure=0
+2025-09-08 09:26:38,874 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getByPostCode.sql
+2025-09-08 09:26:38,875 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():331) - SQL:
+--郵便番号による住所検索
+-- !df:pmb!
+-- #df:entity#
+
+select distinct prefecture, city, town 
+from test.post_code_data
+where post_code = /*pmb.postCode*/ '7440061'
+2025-09-08 09:26:38,937 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():337) -  -> success=1 failure=0
+2025-09-08 09:26:38,937 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getResultPastSixMonths.sql
+2025-09-08 09:26:38,939 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():331) - SQL:
+--過去半年のおみくじの結果を抽出
+-- !df:pmb!
+-- !!AutoDetect!!
+-- !!LocalDate birthday!!
+-- !!LocalDate sixMonthsAgo!!
+-- #df:entity#
+select fortune_telling_date, fortune_name, negaigoto, akinai, gakumon
+from result r inner join omikuji o
+on r.omikuji_code = o.omikuji_code
+inner join fortune_master f
+on o.fortune_code = f.fortune_code
+where r.fortune_telling_date >= /*pmb.sixMonthsAgo*/ '2000-01-01'
+and birthday = /*pmb.birthday*/ '2000-01-01'
+2025-09-08 09:26:38,958 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():337) -  -> success=1 failure=0
+2025-09-08 09:26:38,958 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getUnseiPastSixMonths.sql
+2025-09-08 09:26:38,959 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():331) - SQL:
+--過去半年のおみくじの結果を抽出
+-- !df:pmb!
+-- #df:entity#
+-- !!LocalDate sixMonthsAgo!!
+select f.fortune_name, count(r.omikuji_code) as count
+from fortune_master f
+left join omikuji o 
+on f.fortune_code = o.fortune_code
+left join result r 
+on o.omikuji_code = r.omikuji_code 
+and r.fortune_telling_date >= /*pmb.sixMonthsAgo*/ '2000-01-01'
+group by f.fortune_code 
+order by f.fortune_code
+2025-09-08 09:26:38,963 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():337) -  -> success=1 failure=0
+2025-09-08 09:26:38,963 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: getUnseiToday.sql
+2025-09-08 09:26:38,963 [main] INFO  (DfOutsideSqlAnalyzer#traceSql():331) - SQL:
+--本日の運勢の割合を抽出
+-- !df:pmb!
+-- !!AutoDetect!!
+-- #df:entity#
+select f.fortune_name, count(r.omikuji_code) as count
+from fortune_master f
+left join omikuji o 
+on f.fortune_code = o.fortune_code
+left join result r 
+on o.omikuji_code = r.omikuji_code 
+and r.fortune_telling_date = current_date
+group by f.fortune_code 
+order by f.fortune_code
+2025-09-08 09:26:38,966 [main] INFO  (DfOutsideSqlAnalyzer#traceResult():337) -  -> success=1 failure=0
+2025-09-08 09:26:38,967 [main] INFO  (DfSqlFileFireMan#fire():93) - Fired SQL: success=6, failure=0 (in 6 files)
+2025-09-08 09:26:38,986 [main] INFO  (DfSql2EntityTask#initControlContext():311) - 
+2025-09-08 09:26:38,986 [main] INFO  (DfSql2EntityTask#initControlContext():312) - ...Preparing generation of customize-entities and parameter-beans
+2025-09-08 09:26:38,986 [main] INFO  (DfSql2EntityTask#initControlContext():313) - * * * * * * * * * *
+2025-09-08 09:26:38,986 [main] INFO  (DfSql2EntityTask#initControlContext():314) - * CustomizeEntity *
+2025-09-08 09:26:38,986 [main] INFO  (DfSql2EntityTask#initControlContext():315) - * * * * * * * * * *
+2025-09-08 09:26:39,019 [main] INFO  (DfSql2EntityTask#showCustomizeEntity():932) - 
+Demo
+  count int8(19)
+
+ByAddress
+  post_code varchar(7) related to post_code_data.post_code
+
+ByPostCode
+  prefecture varchar(20) related to post_code_data.prefecture
+  city varchar(20) related to post_code_data.city
+  town varchar(50) related to post_code_data.town
+
+ResultPastSixMonths
+  fortune_telling_date date(13) related to result.fortune_telling_date
+  fortune_name varchar(10) related to fortune_master.fortune_name
+  negaigoto varchar(30) related to omikuji.negaigoto
+  akinai varchar(30) related to omikuji.akinai
+  gakumon varchar(30) related to omikuji.gakumon
+
+UnseiPastSixMonths
+  fortune_name varchar(10) related to fortune_master.fortune_name
+  count int8(19)
+
+UnseiToday
+  fortune_name varchar(10) related to fortune_master.fortune_name
+  count int8(19)
+2025-09-08 09:26:39,021 [main] INFO  (DfSql2EntityTask#showParameterBean():937) - * * * * * * * * *
+2025-09-08 09:26:39,021 [main] INFO  (DfSql2EntityTask#showParameterBean():938) - * ParameterBean *
+2025-09-08 09:26:39,021 [main] INFO  (DfSql2EntityTask#showParameterBean():939) - * * * * * * * * *
+2025-09-08 09:26:39,022 [main] INFO  (DfSql2EntityTask#showParameterBean():981) - 
+DemoPmb
+
+ByAddressPmb
+
+ByPostCodePmb
+
+ResultPastSixMonthsPmb
+  java.time.LocalDate birthday
+  java.time.LocalDate sixMonthsAgo
+
+UnseiPastSixMonthsPmb
+  java.time.LocalDate sixMonthsAgo
+
+UnseiTodayPmb
+2025-09-08 09:26:39,025 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlSql2EntityJava.vm", ctx);
+2025-09-08 09:26:39,034 [main] INFO  (DfFlutistLog4JLogSystem#init():45) - ...Suppressing velocity.log, which is unneeded for also debug
+2025-09-08 09:26:39,190 [main] INFO  (DfClsDeploymentInitializer#initializeClassificationDeployment():67) - ...Initializing ClassificationDeployment: project=dfclient
+2025-09-08 09:26:39,191 [main] INFO  (DfClsDeploymentInitializer#initializeClassificationDeployment():67) - ...Initializing ClassificationDeployment: project=dfclient
+2025-09-08 09:26:39,194 [main] INFO  (Database#doEnableSql2EntityOutputDirectory():1220) - ...Setting up sql2EntityOutputDirectory: ../src/main/java
+2025-09-08 09:26:39,196 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldCustomizeClass() {
+2025-09-08 09:26:39,220 [main] INFO  (DfOldClassHandler#info():1045) - }
+2025-09-08 09:26:39,222 [main] INFO  (Database#info():2895) - public void parseCustomizeEntity() {
+2025-09-08 09:26:39,360 [main] INFO  (Database#info():2895) -     parse('Demo')
+2025-09-08 09:26:39,401 [main] INFO  (Database#info():2895) -     parse('ByAddress')
+2025-09-08 09:26:39,472 [main] INFO  (Database#info():2895) -     parse('ByPostCode')
+2025-09-08 09:26:39,518 [main] INFO  (Database#info():2895) -     parse('ResultPastSixMonths')
+2025-09-08 09:26:39,638 [main] INFO  (Database#info():2895) -     parse('UnseiPastSixMonths')
+2025-09-08 09:26:39,687 [main] INFO  (Database#info():2895) -     parse('UnseiToday')
+2025-09-08 09:26:39,688 [main] INFO  (Database#info():2895) - }
+2025-09-08 09:26:39,688 [main] INFO  (Database#info():2895) - public void parseParameterBean() {
+2025-09-08 09:26:39,696 [main] INFO  (Database#info():2895) -     parse('DemoPmb');
+2025-09-08 09:26:39,713 [main] INFO  (Database#info():2895) -     parse('ByAddressPmb');
+2025-09-08 09:26:39,723 [main] INFO  (Database#info():2895) -     parse('ByPostCodePmb');
+2025-09-08 09:26:39,747 [main] INFO  (Database#info():2895) -     parse('ResultPastSixMonthsPmb');
+2025-09-08 09:26:39,754 [main] INFO  (Database#info():2895) -     parse('UnseiPastSixMonthsPmb');
+2025-09-08 09:26:39,773 [main] INFO  (Database#info():2895) -     parse('UnseiTodayPmb');
+2025-09-08 09:26:39,791 [main] INFO  (Database#info():2895) - }
+2025-09-08 09:26:39,838 [main] INFO  (DfSql2EntityTask#showTargetSqlFileInformation():303) - 
+/- - - - - - - - - - - - - - - - - - - - - - - -
+Target SQL files: 6
+
+  demo.sql
+  getByAddress.sql
+  getByPostCode.sql
+  getResultPastSixMonths.sql
+  getUnseiPastSixMonths.sql
+  getUnseiToday.sql
+- - - - - - - - - -/
+2025-09-08 09:26:39,845 [main] INFO  (DfRefreshResourceProcess#show():295) - /===========================================================================
+2025-09-08 09:26:39,845 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Refreshing [omikuji_kadai6] by http://localhost:8386/
+2025-09-08 09:26:39,853 [main] INFO  (DfRefreshResourceProcess#show():295) - ==========/
+2025-09-08 09:26:39,853 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2025-09-08 09:26:39,858 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s368ms
+
+  DBFLUTE_CLIENT: {dfclient}
+    database  = postgresql (PostgreSQL 17.0 (Homebrew))
+    language  = java
+    container = seasar
+    package   = omikuji6.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = org.postgresql.Driver (PostgreSQL JDBC Driver 42.2.10 for JDBC 4.2)
+    url    = jdbc:postgresql://localhost/test?currentSchema=test
+    schema = {test.test as main}
+    user   = test
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Sql2Entity}

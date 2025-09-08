@@ -30,6 +30,7 @@ import omikuji6.dbflute.exbhv.PostCodeDataBhv;
 import omikuji6.dbflute.exbhv.ResultBhv;
 import omikuji6.dbflute.exbhv.ShippingBhv;
 import omikuji6.dbflute.exbhv.pmbean.ByAddressPmb;
+import omikuji6.dbflute.exbhv.pmbean.ByPostCodePmb;
 import omikuji6.dbflute.exbhv.pmbean.ResultPastSixMonthsPmb;
 import omikuji6.dbflute.exbhv.pmbean.UnseiPastSixMonthsPmb;
 import omikuji6.dbflute.exbhv.pmbean.UnseiTodayPmb;
@@ -338,12 +339,22 @@ public class OmikujiService {
 	 */
 	public List<PostCodeData> getByPostCode(String postCode) {
 		//入力された郵便番号が一致する県、市、地名を取得
-		List<PostCodeData> addressList = postCodeDataBhv.selectList(cb -> {
-			cb.specify().columnPrefecture();
-			cb.specify().columnCity();
-			cb.specify().columnTown();
-			cb.query().setPostCode_Equal(postCode);
-		});
+//		List<PostCodeData> 7addressList = postCodeDataBhv.selectList(cb -> {
+//			cb.specify().columnPrefecture();
+//			cb.specify().columnCity();
+//			cb.specify().columnTown();
+//			cb.query().setPostCode_Equal(postCode);
+//			
+//		});
+		
+		//pmbに値を設定
+		ByPostCodePmb pmb = new ByPostCodePmb();
+		pmb.setPostCode(postCode);
+		//外だしSQLを実行
+		List<PostCodeData> addressList = (List<PostCodeData>) postCodeDataBhv.outsideSql().traditionalStyle()
+				.selectList("sql/omikuji/getByPostCode.sql", pmb, PostCodeData.class);
+		
+		
 		//住所を返す
 		return addressList;
 	}
