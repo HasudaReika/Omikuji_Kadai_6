@@ -303,7 +303,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_Equal(String postCode) {
@@ -316,7 +316,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_NotEqual(String postCode) {
@@ -329,7 +329,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_GreaterThan(String postCode) {
@@ -338,7 +338,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_LessThan(String postCode) {
@@ -347,7 +347,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_GreaterEqual(String postCode) {
@@ -356,7 +356,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_LessEqual(String postCode) {
@@ -365,7 +365,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCodeList The collection of postCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_InScope(Collection<String> postCodeList) {
@@ -378,7 +378,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCodeList The collection of postCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_NotInScope(Collection<String> postCodeList) {
@@ -391,7 +391,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)} <br>
+     * post_code: {NotNull, varchar(7)} <br>
      * <pre>e.g. setPostCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param postCode The value of postCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -402,7 +402,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)} <br>
+     * post_code: {NotNull, varchar(7)} <br>
      * <pre>e.g. setPostCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param postCode The value of postCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -414,7 +414,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -425,7 +425,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -433,30 +433,12 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(postCode), xgetCValuePostCode(), "post_code", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
-     */
-    public void setPostCode_IsNull() { regPostCode(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
-     */
-    public void setPostCode_IsNullOrEmpty() { regPostCode(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
-     */
-    public void setPostCode_IsNotNull() { regPostCode(CK_ISNN, DOBJ); }
-
     protected void regPostCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePostCode(), "post_code"); }
     protected abstract ConditionValue xgetCValuePostCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_Equal(String address) {
@@ -469,7 +451,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_NotEqual(String address) {
@@ -482,7 +464,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_GreaterThan(String address) {
@@ -491,7 +473,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_LessThan(String address) {
@@ -500,7 +482,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_GreaterEqual(String address) {
@@ -509,7 +491,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_LessEqual(String address) {
@@ -518,7 +500,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param addressList The collection of address as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_InScope(Collection<String> addressList) {
@@ -531,7 +513,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param addressList The collection of address as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAddress_NotInScope(Collection<String> addressList) {
@@ -544,7 +526,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * address: {varchar(200)} <br>
+     * address: {NotNull, varchar(200)} <br>
      * <pre>e.g. setAddress_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param address The value of address as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -555,7 +537,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * address: {varchar(200)} <br>
+     * address: {NotNull, varchar(200)} <br>
      * <pre>e.g. setAddress_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param address The value of address as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -567,7 +549,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -578,7 +560,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @param address The value of address as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -586,30 +568,12 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(address), xgetCValueAddress(), "address", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
-     */
-    public void setAddress_IsNull() { regAddress(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
-     */
-    public void setAddress_IsNullOrEmpty() { regAddress(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * address: {varchar(200)}
-     */
-    public void setAddress_IsNotNull() { regAddress(CK_ISNN, DOBJ); }
-
     protected void regAddress(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAddress(), "address"); }
     protected abstract ConditionValue xgetCValueAddress();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_Equal(String name) {
@@ -622,7 +586,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_NotEqual(String name) {
@@ -635,7 +599,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_GreaterThan(String name) {
@@ -644,7 +608,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_LessThan(String name) {
@@ -653,7 +617,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_GreaterEqual(String name) {
@@ -662,7 +626,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_LessEqual(String name) {
@@ -671,7 +635,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param nameList The collection of name as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_InScope(Collection<String> nameList) {
@@ -684,7 +648,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param nameList The collection of name as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setName_NotInScope(Collection<String> nameList) {
@@ -697,7 +661,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {varchar(30)} <br>
+     * name: {NotNull, varchar(30)} <br>
      * <pre>e.g. setName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param name The value of name as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -708,7 +672,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {varchar(30)} <br>
+     * name: {NotNull, varchar(30)} <br>
      * <pre>e.g. setName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param name The value of name as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -720,7 +684,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -731,7 +695,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @param name The value of name as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -739,30 +703,12 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(name), xgetCValueName(), "name", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
-     */
-    public void setName_IsNull() { regName(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
-     */
-    public void setName_IsNullOrEmpty() { regName(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * name: {varchar(30)}
-     */
-    public void setName_IsNotNull() { regName(CK_ISNN, DOBJ); }
-
     protected void regName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueName(), "name"); }
     protected abstract ConditionValue xgetCValueName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_Equal(String phone) {
@@ -775,7 +721,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_NotEqual(String phone) {
@@ -788,7 +734,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_GreaterThan(String phone) {
@@ -797,7 +743,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_LessThan(String phone) {
@@ -806,7 +752,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_GreaterEqual(String phone) {
@@ -815,7 +761,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_LessEqual(String phone) {
@@ -824,7 +770,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phoneList The collection of phone as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_InScope(Collection<String> phoneList) {
@@ -837,7 +783,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phoneList The collection of phone as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPhone_NotInScope(Collection<String> phoneList) {
@@ -850,7 +796,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * phone: {varchar(11)} <br>
+     * phone: {NotNull, varchar(11)} <br>
      * <pre>e.g. setPhone_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param phone The value of phone as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -861,7 +807,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * phone: {varchar(11)} <br>
+     * phone: {NotNull, varchar(11)} <br>
      * <pre>e.g. setPhone_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param phone The value of phone as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -873,7 +819,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -884,7 +830,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @param phone The value of phone as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -892,30 +838,12 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(phone), xgetCValuePhone(), "phone", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
-     */
-    public void setPhone_IsNull() { regPhone(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
-     */
-    public void setPhone_IsNullOrEmpty() { regPhone(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * phone: {varchar(11)}
-     */
-    public void setPhone_IsNotNull() { regPhone(CK_ISNN, DOBJ); }
-
     protected void regPhone(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePhone(), "phone"); }
     protected abstract ConditionValue xgetCValuePhone();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_Equal(String mail) {
@@ -928,7 +856,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_NotEqual(String mail) {
@@ -941,7 +869,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_GreaterThan(String mail) {
@@ -950,7 +878,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_LessThan(String mail) {
@@ -959,7 +887,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_GreaterEqual(String mail) {
@@ -968,7 +896,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_LessEqual(String mail) {
@@ -977,7 +905,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mailList The collection of mail as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_InScope(Collection<String> mailList) {
@@ -990,7 +918,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mailList The collection of mail as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMail_NotInScope(Collection<String> mailList) {
@@ -1003,7 +931,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * mail: {varchar(200)} <br>
+     * mail: {NotNull, varchar(200)} <br>
      * <pre>e.g. setMail_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param mail The value of mail as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -1014,7 +942,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * mail: {varchar(200)} <br>
+     * mail: {NotNull, varchar(200)} <br>
      * <pre>e.g. setMail_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param mail The value of mail as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -1026,7 +954,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1037,7 +965,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @param mail The value of mail as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -1045,30 +973,12 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(mail), xgetCValueMail(), "mail", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
-     */
-    public void setMail_IsNull() { regMail(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
-     */
-    public void setMail_IsNullOrEmpty() { regMail(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * mail: {varchar(200)}
-     */
-    public void setMail_IsNotNull() { regMail(CK_ISNN, DOBJ); }
-
     protected void regMail(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMail(), "mail"); }
     protected abstract ConditionValue xgetCValueMail();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @param updatedDate The value of updatedDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdatedDate_Equal(java.time.LocalDate updatedDate) {
@@ -1077,7 +987,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @param updatedDate The value of updatedDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdatedDate_GreaterThan(java.time.LocalDate updatedDate) {
@@ -1086,7 +996,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @param updatedDate The value of updatedDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdatedDate_LessThan(java.time.LocalDate updatedDate) {
@@ -1095,7 +1005,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @param updatedDate The value of updatedDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdatedDate_GreaterEqual(java.time.LocalDate updatedDate) {
@@ -1104,7 +1014,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @param updatedDate The value of updatedDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdatedDate_LessEqual(java.time.LocalDate updatedDate) {
@@ -1114,7 +1024,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * <pre>e.g. setUpdatedDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -1127,7 +1037,7 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * <pre>e.g. setUpdatedDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updatedDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -1137,18 +1047,6 @@ public abstract class AbstractBsShippingCQ extends AbstractConditionQuery {
         String nm = "updated_date"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueUpdatedDate(), nm, op);
     }
-
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
-     */
-    public void setUpdatedDate_IsNull() { regUpdatedDate(CK_ISN, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * updated_date: {date(13)}
-     */
-    public void setUpdatedDate_IsNotNull() { regUpdatedDate(CK_ISNN, DOBJ); }
 
     protected void regUpdatedDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdatedDate(), "updated_date"); }
     protected abstract ConditionValue xgetCValueUpdatedDate();

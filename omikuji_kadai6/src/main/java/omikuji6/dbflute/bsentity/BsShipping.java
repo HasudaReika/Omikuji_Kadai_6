@@ -32,22 +32,22 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     /** result_code: {int4(10), FK to result} */
     protected Integer _resultCode;
 
-    /** post_code: {varchar(7)} */
+    /** post_code: {NotNull, varchar(7)} */
     protected String _postCode;
 
-    /** address: {varchar(200)} */
+    /** address: {NotNull, varchar(200)} */
     protected String _address;
 
-    /** name: {varchar(30)} */
+    /** name: {NotNull, varchar(30)} */
     protected String _name;
 
-    /** phone: {varchar(11)} */
+    /** phone: {NotNull, varchar(11)} */
     protected String _phone;
 
-    /** mail: {varchar(200)} */
+    /** mail: {NotNull, varchar(200)} */
     protected String _mail;
 
-    /** updated_date: {date(13)} */
+    /** updated_date: {NotNull, date(13)} */
     protected java.time.LocalDate _updatedDate;
 
     // ===================================================================================
@@ -210,8 +210,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [get] post_code: {varchar(7)} <br>
-     * @return The value of the column 'post_code'. (NullAllowed even if selected: for no constraint)
+     * [get] post_code: {NotNull, varchar(7)} <br>
+     * @return The value of the column 'post_code'. (basically NotNull if selected: for the constraint)
      */
     public String getPostCode() {
         checkSpecifiedProperty("postCode");
@@ -219,8 +219,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [set] post_code: {varchar(7)} <br>
-     * @param postCode The value of the column 'post_code'. (NullAllowed: null update allowed for no constraint)
+     * [set] post_code: {NotNull, varchar(7)} <br>
+     * @param postCode The value of the column 'post_code'. (basically NotNull if update: for the constraint)
      */
     public void setPostCode(String postCode) {
         registerModifiedProperty("postCode");
@@ -228,8 +228,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [get] address: {varchar(200)} <br>
-     * @return The value of the column 'address'. (NullAllowed even if selected: for no constraint)
+     * [get] address: {NotNull, varchar(200)} <br>
+     * @return The value of the column 'address'. (basically NotNull if selected: for the constraint)
      */
     public String getAddress() {
         checkSpecifiedProperty("address");
@@ -237,8 +237,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [set] address: {varchar(200)} <br>
-     * @param address The value of the column 'address'. (NullAllowed: null update allowed for no constraint)
+     * [set] address: {NotNull, varchar(200)} <br>
+     * @param address The value of the column 'address'. (basically NotNull if update: for the constraint)
      */
     public void setAddress(String address) {
         registerModifiedProperty("address");
@@ -246,8 +246,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [get] name: {varchar(30)} <br>
-     * @return The value of the column 'name'. (NullAllowed even if selected: for no constraint)
+     * [get] name: {NotNull, varchar(30)} <br>
+     * @return The value of the column 'name'. (basically NotNull if selected: for the constraint)
      */
     public String getName() {
         checkSpecifiedProperty("name");
@@ -255,8 +255,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [set] name: {varchar(30)} <br>
-     * @param name The value of the column 'name'. (NullAllowed: null update allowed for no constraint)
+     * [set] name: {NotNull, varchar(30)} <br>
+     * @param name The value of the column 'name'. (basically NotNull if update: for the constraint)
      */
     public void setName(String name) {
         registerModifiedProperty("name");
@@ -264,8 +264,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [get] phone: {varchar(11)} <br>
-     * @return The value of the column 'phone'. (NullAllowed even if selected: for no constraint)
+     * [get] phone: {NotNull, varchar(11)} <br>
+     * @return The value of the column 'phone'. (basically NotNull if selected: for the constraint)
      */
     public String getPhone() {
         checkSpecifiedProperty("phone");
@@ -273,8 +273,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [set] phone: {varchar(11)} <br>
-     * @param phone The value of the column 'phone'. (NullAllowed: null update allowed for no constraint)
+     * [set] phone: {NotNull, varchar(11)} <br>
+     * @param phone The value of the column 'phone'. (basically NotNull if update: for the constraint)
      */
     public void setPhone(String phone) {
         registerModifiedProperty("phone");
@@ -282,8 +282,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [get] mail: {varchar(200)} <br>
-     * @return The value of the column 'mail'. (NullAllowed even if selected: for no constraint)
+     * [get] mail: {NotNull, varchar(200)} <br>
+     * @return The value of the column 'mail'. (basically NotNull if selected: for the constraint)
      */
     public String getMail() {
         checkSpecifiedProperty("mail");
@@ -291,8 +291,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [set] mail: {varchar(200)} <br>
-     * @param mail The value of the column 'mail'. (NullAllowed: null update allowed for no constraint)
+     * [set] mail: {NotNull, varchar(200)} <br>
+     * @param mail The value of the column 'mail'. (basically NotNull if update: for the constraint)
      */
     public void setMail(String mail) {
         registerModifiedProperty("mail");
@@ -300,8 +300,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [get] updated_date: {date(13)} <br>
-     * @return The value of the column 'updated_date'. (NullAllowed even if selected: for no constraint)
+     * [get] updated_date: {NotNull, date(13)} <br>
+     * @return The value of the column 'updated_date'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDate getUpdatedDate() {
         checkSpecifiedProperty("updatedDate");
@@ -309,8 +309,8 @@ public abstract class BsShipping extends AbstractEntity implements DomainEntity 
     }
 
     /**
-     * [set] updated_date: {date(13)} <br>
-     * @param updatedDate The value of the column 'updated_date'. (NullAllowed: null update allowed for no constraint)
+     * [set] updated_date: {NotNull, date(13)} <br>
+     * @param updatedDate The value of the column 'updated_date'. (basically NotNull if update: for the constraint)
      */
     public void setUpdatedDate(java.time.LocalDate updatedDate) {
         registerModifiedProperty("updatedDate");

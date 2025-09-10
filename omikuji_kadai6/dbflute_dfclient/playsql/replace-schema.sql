@@ -122,24 +122,24 @@ where t1.omikuji_code = t2.number;
 --郵便番号テーブルを作成--
 create table post_code_data(
 id serial primary key,
-post_code varchar(7),
-prefecture_katakana varchar(30),
-city_katakana varchar(40),
-town_katakana varchar(60),
-prefecture varchar(20),
-city varchar(20),
-town varchar(50)
+post_code varchar(7) not null,
+prefecture_katakana varchar(30) not null,
+city_katakana varchar(40) not null,
+town_katakana varchar(60) not null,
+prefecture varchar(20) not null,
+city varchar(20) not null,
+town varchar(50) not null
 );
 
 --送付先テーブル--
 create table test.shipping(
 id serial primary key,
-result_code integer references test.result(result_code),
-post_code varchar(7),
-address varchar(200),
-name varchar(30),
-phone varchar(11),
-mail varchar(200),
-updated_date date
+result_code integer references test.result(result_code) not null,
+post_code varchar(7) not null,
+address varchar(200) not null,
+name varchar(30) not null,
+phone varchar(11) not null,
+mail varchar(200) not null,
+updated_date date not null
 );
 

@@ -41,7 +41,7 @@
 
 		<input type="submit" value="送信" id="submitBtn"/>
 		<div style="text-align: right">
-			<s:link href="javascript:history.back()">おみくじの結果に戻る</s:link>
+			<s:link href="/omikuji/showResult">おみくじの結果に戻る</s:link>
 		</div>
 	</s:form>
 

@@ -101,14 +101,14 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_PostCode_Asc() { regOBA("post_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_PostCode_Desc() { regOBD("post_code"); return this; }
@@ -121,14 +121,14 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_PrefectureKatakana_Asc() { regOBA("prefecture_katakana"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_PrefectureKatakana_Desc() { regOBD("prefecture_katakana"); return this; }
@@ -141,14 +141,14 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_CityKatakana_Asc() { regOBA("city_katakana"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_CityKatakana_Desc() { regOBD("city_katakana"); return this; }
@@ -161,14 +161,14 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_TownKatakana_Asc() { regOBA("town_katakana"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_TownKatakana_Desc() { regOBD("town_katakana"); return this; }
@@ -181,14 +181,14 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_Prefecture_Asc() { regOBA("prefecture"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_Prefecture_Desc() { regOBD("prefecture"); return this; }
@@ -201,14 +201,14 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_City_Asc() { regOBA("city"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_City_Desc() { regOBD("city"); return this; }
@@ -221,14 +221,14 @@ public class BsPostCodeDataCQ extends AbstractBsPostCodeDataCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_Town_Asc() { regOBA("town"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
     public BsPostCodeDataCQ addOrderBy_Town_Desc() { regOBD("town"); return this; }

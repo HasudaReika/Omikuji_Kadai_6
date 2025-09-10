@@ -292,37 +292,37 @@ public class BsPostCodeDataCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnId() { return doColumn("id"); }
         /**
-         * post_code: {varchar(7)}
+         * post_code: {NotNull, varchar(7)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPostCode() { return doColumn("post_code"); }
         /**
-         * prefecture_katakana: {varchar(30)}
+         * prefecture_katakana: {NotNull, varchar(30)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPrefectureKatakana() { return doColumn("prefecture_katakana"); }
         /**
-         * city_katakana: {varchar(40)}
+         * city_katakana: {NotNull, varchar(40)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnCityKatakana() { return doColumn("city_katakana"); }
         /**
-         * town_katakana: {varchar(60)}
+         * town_katakana: {NotNull, varchar(60)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTownKatakana() { return doColumn("town_katakana"); }
         /**
-         * prefecture: {varchar(20)}
+         * prefecture: {NotNull, varchar(20)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPrefecture() { return doColumn("prefecture"); }
         /**
-         * city: {varchar(20)}
+         * city: {NotNull, varchar(20)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnCity() { return doColumn("city"); }
         /**
-         * town: {varchar(50)}
+         * town: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTown() { return doColumn("town"); }

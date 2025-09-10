@@ -26,6 +26,7 @@ import omikuji6.dbflute.exbhv.OmikujiBhv;
 import omikuji6.dbflute.exbhv.PostCodeDataBhv;
 import omikuji6.dbflute.exbhv.ResultBhv;
 import omikuji6.dbflute.exbhv.ShippingBhv;
+import omikuji6.dbflute.exbhv.pmbean.AddressPmb;
 import omikuji6.dbflute.exbhv.pmbean.ByAddressPmb;
 import omikuji6.dbflute.exbhv.pmbean.ByPostCodePmb;
 import omikuji6.dbflute.exbhv.pmbean.ResultPastSixMonthsPmb;
@@ -336,22 +337,14 @@ public class OmikujiService {
 	 */
 	public List<PostCodeData> getByPostCode(String postCode) {
 		//入力された郵便番号が一致する県、市、地名を取得
-//		List<PostCodeData> 7addressList = postCodeDataBhv.selectList(cb -> {
-//			cb.specify().columnPrefecture();
-//			cb.specify().columnCity();
-//			cb.specify().columnTown();
-//			cb.query().setPostCode_Equal(postCode);
-//			
-//		});
-		
+
 		//pmbに値を設定
 		ByPostCodePmb pmb = new ByPostCodePmb();
 		pmb.setPostCode(postCode);
 		//外だしSQLを実行
 		List<PostCodeData> addressList = (List<PostCodeData>) postCodeDataBhv.outsideSql().traditionalStyle()
 				.selectList("sql/omikuji/getByPostCode.sql", pmb, PostCodeData.class);
-		
-		
+
 		//住所を返す
 		return addressList;
 	}
@@ -364,17 +357,9 @@ public class OmikujiService {
 	 * @return　住所に紐づく郵便番号
 	 */
 	public OptionalEntity<PostCodeData> getByAddress(String address) {
-//		//入力された住所をカタカナに変換
-//		Tokenizer tokenizer = new Tokenizer();
-//		List<Token> tokens = tokenizer.tokenize(address);
-//		StringBuilder katakanaAddress = new StringBuilder();
-//		for (Token token : tokens) {
-//			katakanaAddress.append(token.getReading());
-//		}
-		//pmbを設定
+		//pmbに値を設定
 		ByAddressPmb pmb = new ByAddressPmb();
 		pmb.setAddress(address);
-//		pmb.setKatakanaAddress(katakanaAddress.toString());
 
 		//外だしSQLを実行
 		OptionalEntity<PostCodeData> optPostCode = postCodeDataBhv.outsideSql().traditionalStyle()
@@ -382,6 +367,23 @@ public class OmikujiService {
 
 		//郵便番号を返す
 		return optPostCode;
+
+	}
+
+	/**
+	 * 途中入力の住所の補完
+	 * @param address
+	 * @return 住所のリスト
+	 */
+	public List<PostCodeData> addressComplete(String address) {
+		AddressPmb pmb = new AddressPmb();
+		//pmbに値を設定
+		pmb.setAddress(address);
+		//外だしSQLを実行
+		List<PostCodeData> fullAddressList = (List<PostCodeData>) postCodeDataBhv.outsideSql().traditionalStyle()
+				.selectList("sql/omikuji/getAddress.sql", pmb, PostCodeData.class);
+
+		return fullAddressList;
 
 	}
 

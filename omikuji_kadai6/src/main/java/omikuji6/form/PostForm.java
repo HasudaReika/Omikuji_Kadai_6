@@ -5,6 +5,8 @@ import java.text.Normalizer.Form;
 
 import org.seasar.struts.annotation.EmailType;
 import org.seasar.struts.annotation.Mask;
+import org.seasar.struts.annotation.Maxlength;
+import org.seasar.struts.annotation.Minlength;
 import org.seasar.struts.annotation.Msg;
 import org.seasar.struts.annotation.Required;
 
@@ -15,9 +17,13 @@ public class PostForm {
 	public String postCode;
 
 	@Required
+	@Minlength(minlength = 3)
+	@Maxlength(maxlength = 100)
 	public String address;
 
 	@Required
+	@Minlength(minlength = 2)
+	@Maxlength(maxlength = 20)
 	public String name;
 
 	@Required
@@ -26,6 +32,7 @@ public class PostForm {
 
 	@Required
 	@EmailType
+	@Maxlength(maxlength = 250)
 	public String mail;
 
 	public String getPostCode() {

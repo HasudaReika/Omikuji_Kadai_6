@@ -27,25 +27,25 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     /** id: {PK, ID, NotNull, serial(10)} */
     protected Integer _id;
 
-    /** post_code: {varchar(7)} */
+    /** post_code: {NotNull, varchar(7)} */
     protected String _postCode;
 
-    /** prefecture_katakana: {varchar(30)} */
+    /** prefecture_katakana: {NotNull, varchar(30)} */
     protected String _prefectureKatakana;
 
-    /** city_katakana: {varchar(40)} */
+    /** city_katakana: {NotNull, varchar(40)} */
     protected String _cityKatakana;
 
-    /** town_katakana: {varchar(60)} */
+    /** town_katakana: {NotNull, varchar(60)} */
     protected String _townKatakana;
 
-    /** prefecture: {varchar(20)} */
+    /** prefecture: {NotNull, varchar(20)} */
     protected String _prefecture;
 
-    /** city: {varchar(20)} */
+    /** city: {NotNull, varchar(20)} */
     protected String _city;
 
-    /** town: {varchar(50)} */
+    /** town: {NotNull, varchar(50)} */
     protected String _town;
 
     // ===================================================================================
@@ -157,8 +157,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] post_code: {varchar(7)} <br>
-     * @return The value of the column 'post_code'. (NullAllowed even if selected: for no constraint)
+     * [get] post_code: {NotNull, varchar(7)} <br>
+     * @return The value of the column 'post_code'. (basically NotNull if selected: for the constraint)
      */
     public String getPostCode() {
         checkSpecifiedProperty("postCode");
@@ -166,8 +166,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] post_code: {varchar(7)} <br>
-     * @param postCode The value of the column 'post_code'. (NullAllowed: null update allowed for no constraint)
+     * [set] post_code: {NotNull, varchar(7)} <br>
+     * @param postCode The value of the column 'post_code'. (basically NotNull if update: for the constraint)
      */
     public void setPostCode(String postCode) {
         registerModifiedProperty("postCode");
@@ -175,8 +175,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] prefecture_katakana: {varchar(30)} <br>
-     * @return The value of the column 'prefecture_katakana'. (NullAllowed even if selected: for no constraint)
+     * [get] prefecture_katakana: {NotNull, varchar(30)} <br>
+     * @return The value of the column 'prefecture_katakana'. (basically NotNull if selected: for the constraint)
      */
     public String getPrefectureKatakana() {
         checkSpecifiedProperty("prefectureKatakana");
@@ -184,8 +184,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] prefecture_katakana: {varchar(30)} <br>
-     * @param prefectureKatakana The value of the column 'prefecture_katakana'. (NullAllowed: null update allowed for no constraint)
+     * [set] prefecture_katakana: {NotNull, varchar(30)} <br>
+     * @param prefectureKatakana The value of the column 'prefecture_katakana'. (basically NotNull if update: for the constraint)
      */
     public void setPrefectureKatakana(String prefectureKatakana) {
         registerModifiedProperty("prefectureKatakana");
@@ -193,8 +193,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] city_katakana: {varchar(40)} <br>
-     * @return The value of the column 'city_katakana'. (NullAllowed even if selected: for no constraint)
+     * [get] city_katakana: {NotNull, varchar(40)} <br>
+     * @return The value of the column 'city_katakana'. (basically NotNull if selected: for the constraint)
      */
     public String getCityKatakana() {
         checkSpecifiedProperty("cityKatakana");
@@ -202,8 +202,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] city_katakana: {varchar(40)} <br>
-     * @param cityKatakana The value of the column 'city_katakana'. (NullAllowed: null update allowed for no constraint)
+     * [set] city_katakana: {NotNull, varchar(40)} <br>
+     * @param cityKatakana The value of the column 'city_katakana'. (basically NotNull if update: for the constraint)
      */
     public void setCityKatakana(String cityKatakana) {
         registerModifiedProperty("cityKatakana");
@@ -211,8 +211,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] town_katakana: {varchar(60)} <br>
-     * @return The value of the column 'town_katakana'. (NullAllowed even if selected: for no constraint)
+     * [get] town_katakana: {NotNull, varchar(60)} <br>
+     * @return The value of the column 'town_katakana'. (basically NotNull if selected: for the constraint)
      */
     public String getTownKatakana() {
         checkSpecifiedProperty("townKatakana");
@@ -220,8 +220,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] town_katakana: {varchar(60)} <br>
-     * @param townKatakana The value of the column 'town_katakana'. (NullAllowed: null update allowed for no constraint)
+     * [set] town_katakana: {NotNull, varchar(60)} <br>
+     * @param townKatakana The value of the column 'town_katakana'. (basically NotNull if update: for the constraint)
      */
     public void setTownKatakana(String townKatakana) {
         registerModifiedProperty("townKatakana");
@@ -229,8 +229,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] prefecture: {varchar(20)} <br>
-     * @return The value of the column 'prefecture'. (NullAllowed even if selected: for no constraint)
+     * [get] prefecture: {NotNull, varchar(20)} <br>
+     * @return The value of the column 'prefecture'. (basically NotNull if selected: for the constraint)
      */
     public String getPrefecture() {
         checkSpecifiedProperty("prefecture");
@@ -238,8 +238,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] prefecture: {varchar(20)} <br>
-     * @param prefecture The value of the column 'prefecture'. (NullAllowed: null update allowed for no constraint)
+     * [set] prefecture: {NotNull, varchar(20)} <br>
+     * @param prefecture The value of the column 'prefecture'. (basically NotNull if update: for the constraint)
      */
     public void setPrefecture(String prefecture) {
         registerModifiedProperty("prefecture");
@@ -247,8 +247,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] city: {varchar(20)} <br>
-     * @return The value of the column 'city'. (NullAllowed even if selected: for no constraint)
+     * [get] city: {NotNull, varchar(20)} <br>
+     * @return The value of the column 'city'. (basically NotNull if selected: for the constraint)
      */
     public String getCity() {
         checkSpecifiedProperty("city");
@@ -256,8 +256,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] city: {varchar(20)} <br>
-     * @param city The value of the column 'city'. (NullAllowed: null update allowed for no constraint)
+     * [set] city: {NotNull, varchar(20)} <br>
+     * @param city The value of the column 'city'. (basically NotNull if update: for the constraint)
      */
     public void setCity(String city) {
         registerModifiedProperty("city");
@@ -265,8 +265,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] town: {varchar(50)} <br>
-     * @return The value of the column 'town'. (NullAllowed even if selected: for no constraint)
+     * [get] town: {NotNull, varchar(50)} <br>
+     * @return The value of the column 'town'. (basically NotNull if selected: for the constraint)
      */
     public String getTown() {
         checkSpecifiedProperty("town");
@@ -274,8 +274,8 @@ public abstract class BsPostCodeData extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] town: {varchar(50)} <br>
-     * @param town The value of the column 'town'. (NullAllowed: null update allowed for no constraint)
+     * [set] town: {NotNull, varchar(50)} <br>
+     * @param town The value of the column 'town'. (basically NotNull if update: for the constraint)
      */
     public void setTown(String town) {
         registerModifiedProperty("town");

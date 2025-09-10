@@ -74,9 +74,9 @@ public class OmikujiAction {
 //			omikujiService.setResult(today, birthday, newOmikuji);
 			
 			//おみくじ結果コードを取得
-			Integer result_code = omikujiService.setResult(today, birthday, newOmikuji);
+			Integer resultCode = omikujiService.setResult(today, birthday, newOmikuji);
 			//セッションに保存
-			session.setAttribute("resultCode", result_code);
+			session.setAttribute("resultCode", resultCode);
 			
 			//おみくじオブジェクトに値を代入
 			omikujiEntity = newOmikuji.get();

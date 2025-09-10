@@ -85,12 +85,12 @@ public class ShippingDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnId = cci("id", "id", null, null, Integer.class, "id", null, true, true, true, "serial", 10, 0, null, "nextval('shipping_id_seq'::regclass)", false, null, null, null, null, null, false);
     protected final ColumnInfo _columnResultCode = cci("result_code", "result_code", null, null, Integer.class, "resultCode", null, false, false, false, "int4", 10, 0, null, null, false, null, null, "result", null, null, false);
-    protected final ColumnInfo _columnPostCode = cci("post_code", "post_code", null, null, String.class, "postCode", null, false, false, false, "varchar", 7, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnAddress = cci("address", "address", null, null, String.class, "address", null, false, false, false, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnName = cci("name", "name", null, null, String.class, "name", null, false, false, false, "varchar", 30, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPhone = cci("phone", "phone", null, null, String.class, "phone", null, false, false, false, "varchar", 11, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMail = cci("mail", "mail", null, null, String.class, "mail", null, false, false, false, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnUpdatedDate = cci("updated_date", "updated_date", null, null, java.time.LocalDate.class, "updatedDate", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPostCode = cci("post_code", "post_code", null, null, String.class, "postCode", null, false, false, true, "varchar", 7, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAddress = cci("address", "address", null, null, String.class, "address", null, false, false, true, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnName = cci("name", "name", null, null, String.class, "name", null, false, false, true, "varchar", 30, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPhone = cci("phone", "phone", null, null, String.class, "phone", null, false, false, true, "varchar", 11, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMail = cci("mail", "mail", null, null, String.class, "mail", null, false, false, true, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdatedDate = cci("updated_date", "updated_date", null, null, java.time.LocalDate.class, "updatedDate", null, false, false, true, "date", 13, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * id: {PK, ID, NotNull, serial(10)}
@@ -103,32 +103,32 @@ public class ShippingDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnResultCode() { return _columnResultCode; }
     /**
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnPostCode() { return _columnPostCode; }
     /**
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnAddress() { return _columnAddress; }
     /**
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnName() { return _columnName; }
     /**
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnPhone() { return _columnPhone; }
     /**
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnMail() { return _columnMail; }
     /**
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnUpdatedDate() { return _columnUpdatedDate; }

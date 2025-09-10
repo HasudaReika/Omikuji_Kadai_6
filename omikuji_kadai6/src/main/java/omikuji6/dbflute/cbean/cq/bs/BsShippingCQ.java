@@ -121,14 +121,14 @@ public class BsShippingCQ extends AbstractBsShippingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_PostCode_Asc() { regOBA("post_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_PostCode_Desc() { regOBD("post_code"); return this; }
@@ -141,14 +141,14 @@ public class BsShippingCQ extends AbstractBsShippingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Address_Asc() { regOBA("address"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * address: {varchar(200)}
+     * address: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Address_Desc() { regOBD("address"); return this; }
@@ -161,14 +161,14 @@ public class BsShippingCQ extends AbstractBsShippingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Name_Asc() { regOBA("name"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * name: {varchar(30)}
+     * name: {NotNull, varchar(30)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Name_Desc() { regOBD("name"); return this; }
@@ -181,14 +181,14 @@ public class BsShippingCQ extends AbstractBsShippingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Phone_Asc() { regOBA("phone"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * phone: {varchar(11)}
+     * phone: {NotNull, varchar(11)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Phone_Desc() { regOBD("phone"); return this; }
@@ -201,14 +201,14 @@ public class BsShippingCQ extends AbstractBsShippingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Mail_Asc() { regOBA("mail"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * mail: {varchar(200)}
+     * mail: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_Mail_Desc() { regOBD("mail"); return this; }
@@ -221,14 +221,14 @@ public class BsShippingCQ extends AbstractBsShippingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_UpdatedDate_Asc() { regOBA("updated_date"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * updated_date: {date(13)}
+     * updated_date: {NotNull, date(13)}
      * @return this. (NotNull)
      */
     public BsShippingCQ addOrderBy_UpdatedDate_Desc() { regOBD("updated_date"); return this; }

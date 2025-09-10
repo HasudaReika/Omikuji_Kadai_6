@@ -60,34 +60,34 @@ $(function() {
 			});
 
 		}
-		
+
 	});
 });
 
 /**
  * 住所を入力しボタンを押したら郵便番号を補完
  */
-$(function(){
+$(function() {
 	//ボタンを押されたら実行
-	$('#addressBtn').on('click', function(){
+	$('#addressBtn').on('click', function() {
 		//入力された住所を取得
 		var address = $('#address').val();
 		//ajaxでsearchPostCode()を呼び出す
 		$.ajax({
 			url: '/omikuji_kadai6/post/searchPostCode',
 			dataType: 'json',
-			data: {address: address},
+			data: { address: address },
 			type: 'GET',
-			success: function(response){
+			success: function(response) {
 				//取得した郵便番号が空や存在しない場合
-				if(response == null || response == undefined || response == "" || response.length == 0){
+				if (response == null || response == undefined || response == "" || response.length == 0) {
 					alert('該当する郵便番号がありません。');
-				} else{
-				//郵便番号を補完
-				$('#postCode').val(response);
+				} else {
+					//郵便番号を補完
+					$('#postCode').val(response);
 				}
 			},
-			error: function(){
+			error: function() {
 				alert('郵便番号の取得に失敗しました。');
 			}
 		});
@@ -95,5 +95,54 @@ $(function(){
 });
 
 
+/** 
+ * 住所が4文字以上入力されたら住所の候補を表示・補完
+*/
 
+$(function() {
+	//文書が読み込まれたタイミングで実行
+	$('#address').on('keydown', function(event) {
+		var addressInput = $(this).val();
+		//Enterキーを押下かつ、4文字以上入力されたら実行
+		if (event.key === 'Enter' && addressInput.length >= 4) {
+			//入力された住所を取得
+			var address = $('#address').val();
+			//ajaxでaddressCompletement()を呼び出す
+			$.ajax({
+				url: '/omikuji_kadai6/post/addressCompletement',
+				dataType: 'json',
+				data: { address: address },
+				type: 'GET',
+				success: function(response) {
+					//ドロップダウン
+					var $dropdown = $('#dropdown');
+					//既存の項目をクリア
+					$dropdown.empty();
 
+					//取得した住所が空や存在しない場合
+					if (response == null || response == undefined || response == "" || response.length == 0) {
+						//ドロップダウンを非表示
+						$('#dropdown').hide();
+					} else if (response.length >= 1) {
+						//1件以上ある場合
+						response.forEach(function(address) {
+							var $item = $('<div class="dropdown-item"></div>').text(address);
+							$dropdown.append($item);
+							//クリックされた候補を住所欄に補完
+							$item.on('click', function() {
+								$('#address').val(address);
+								//補完したらドロップダウンを非表示
+								$dropdown.hide();
+							});
+						});
+						//ドロップダウンを表示
+						$dropdown.show();
+					}
+				},
+				error: function() {
+					alert('入力エラー');
+				}
+			});
+		}
+	});
+});

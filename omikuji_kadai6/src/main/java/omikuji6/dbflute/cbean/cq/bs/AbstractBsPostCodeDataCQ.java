@@ -174,7 +174,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_Equal(String postCode) {
@@ -187,7 +187,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_NotEqual(String postCode) {
@@ -200,7 +200,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_GreaterThan(String postCode) {
@@ -209,7 +209,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_LessThan(String postCode) {
@@ -218,7 +218,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_GreaterEqual(String postCode) {
@@ -227,7 +227,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_LessEqual(String postCode) {
@@ -236,7 +236,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCodeList The collection of postCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_InScope(Collection<String> postCodeList) {
@@ -249,7 +249,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCodeList The collection of postCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPostCode_NotInScope(Collection<String> postCodeList) {
@@ -262,7 +262,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)} <br>
+     * post_code: {NotNull, varchar(7)} <br>
      * <pre>e.g. setPostCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param postCode The value of postCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -273,7 +273,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)} <br>
+     * post_code: {NotNull, varchar(7)} <br>
      * <pre>e.g. setPostCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param postCode The value of postCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -285,7 +285,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -296,7 +296,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * post_code: {varchar(7)}
+     * post_code: {NotNull, varchar(7)}
      * @param postCode The value of postCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -304,30 +304,12 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(postCode), xgetCValuePostCode(), "post_code", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
-     */
-    public void setPostCode_IsNull() { regPostCode(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
-     */
-    public void setPostCode_IsNullOrEmpty() { regPostCode(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * post_code: {varchar(7)}
-     */
-    public void setPostCode_IsNotNull() { regPostCode(CK_ISNN, DOBJ); }
-
     protected void regPostCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePostCode(), "post_code"); }
     protected abstract ConditionValue xgetCValuePostCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_Equal(String prefectureKatakana) {
@@ -340,7 +322,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_NotEqual(String prefectureKatakana) {
@@ -353,7 +335,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_GreaterThan(String prefectureKatakana) {
@@ -362,7 +344,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_LessThan(String prefectureKatakana) {
@@ -371,7 +353,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_GreaterEqual(String prefectureKatakana) {
@@ -380,7 +362,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_LessEqual(String prefectureKatakana) {
@@ -389,7 +371,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakanaList The collection of prefectureKatakana as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_InScope(Collection<String> prefectureKatakanaList) {
@@ -402,7 +384,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakanaList The collection of prefectureKatakana as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefectureKatakana_NotInScope(Collection<String> prefectureKatakanaList) {
@@ -415,7 +397,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture_katakana: {varchar(30)} <br>
+     * prefecture_katakana: {NotNull, varchar(30)} <br>
      * <pre>e.g. setPrefectureKatakana_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param prefectureKatakana The value of prefectureKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -426,7 +408,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture_katakana: {varchar(30)} <br>
+     * prefecture_katakana: {NotNull, varchar(30)} <br>
      * <pre>e.g. setPrefectureKatakana_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param prefectureKatakana The value of prefectureKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -438,7 +420,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -449,7 +431,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
+     * prefecture_katakana: {NotNull, varchar(30)}
      * @param prefectureKatakana The value of prefectureKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -457,30 +439,12 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(prefectureKatakana), xgetCValuePrefectureKatakana(), "prefecture_katakana", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
-     */
-    public void setPrefectureKatakana_IsNull() { regPrefectureKatakana(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
-     */
-    public void setPrefectureKatakana_IsNullOrEmpty() { regPrefectureKatakana(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * prefecture_katakana: {varchar(30)}
-     */
-    public void setPrefectureKatakana_IsNotNull() { regPrefectureKatakana(CK_ISNN, DOBJ); }
-
     protected void regPrefectureKatakana(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePrefectureKatakana(), "prefecture_katakana"); }
     protected abstract ConditionValue xgetCValuePrefectureKatakana();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_Equal(String cityKatakana) {
@@ -493,7 +457,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_NotEqual(String cityKatakana) {
@@ -506,7 +470,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_GreaterThan(String cityKatakana) {
@@ -515,7 +479,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_LessThan(String cityKatakana) {
@@ -524,7 +488,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_GreaterEqual(String cityKatakana) {
@@ -533,7 +497,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_LessEqual(String cityKatakana) {
@@ -542,7 +506,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakanaList The collection of cityKatakana as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_InScope(Collection<String> cityKatakanaList) {
@@ -555,7 +519,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakanaList The collection of cityKatakana as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCityKatakana_NotInScope(Collection<String> cityKatakanaList) {
@@ -568,7 +532,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city_katakana: {varchar(40)} <br>
+     * city_katakana: {NotNull, varchar(40)} <br>
      * <pre>e.g. setCityKatakana_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param cityKatakana The value of cityKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -579,7 +543,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city_katakana: {varchar(40)} <br>
+     * city_katakana: {NotNull, varchar(40)} <br>
      * <pre>e.g. setCityKatakana_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param cityKatakana The value of cityKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -591,7 +555,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -602,7 +566,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city_katakana: {varchar(40)}
+     * city_katakana: {NotNull, varchar(40)}
      * @param cityKatakana The value of cityKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -610,30 +574,12 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(cityKatakana), xgetCValueCityKatakana(), "city_katakana", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
-     */
-    public void setCityKatakana_IsNull() { regCityKatakana(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
-     */
-    public void setCityKatakana_IsNullOrEmpty() { regCityKatakana(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * city_katakana: {varchar(40)}
-     */
-    public void setCityKatakana_IsNotNull() { regCityKatakana(CK_ISNN, DOBJ); }
-
     protected void regCityKatakana(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCityKatakana(), "city_katakana"); }
     protected abstract ConditionValue xgetCValueCityKatakana();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_Equal(String townKatakana) {
@@ -646,7 +592,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_NotEqual(String townKatakana) {
@@ -659,7 +605,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_GreaterThan(String townKatakana) {
@@ -668,7 +614,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_LessThan(String townKatakana) {
@@ -677,7 +623,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_GreaterEqual(String townKatakana) {
@@ -686,7 +632,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_LessEqual(String townKatakana) {
@@ -695,7 +641,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakanaList The collection of townKatakana as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_InScope(Collection<String> townKatakanaList) {
@@ -708,7 +654,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakanaList The collection of townKatakana as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTownKatakana_NotInScope(Collection<String> townKatakanaList) {
@@ -721,7 +667,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town_katakana: {varchar(60)} <br>
+     * town_katakana: {NotNull, varchar(60)} <br>
      * <pre>e.g. setTownKatakana_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param townKatakana The value of townKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -732,7 +678,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town_katakana: {varchar(60)} <br>
+     * town_katakana: {NotNull, varchar(60)} <br>
      * <pre>e.g. setTownKatakana_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param townKatakana The value of townKatakana as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -744,7 +690,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -755,7 +701,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town_katakana: {varchar(60)}
+     * town_katakana: {NotNull, varchar(60)}
      * @param townKatakana The value of townKatakana as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -763,30 +709,12 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(townKatakana), xgetCValueTownKatakana(), "town_katakana", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
-     */
-    public void setTownKatakana_IsNull() { regTownKatakana(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
-     */
-    public void setTownKatakana_IsNullOrEmpty() { regTownKatakana(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * town_katakana: {varchar(60)}
-     */
-    public void setTownKatakana_IsNotNull() { regTownKatakana(CK_ISNN, DOBJ); }
-
     protected void regTownKatakana(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTownKatakana(), "town_katakana"); }
     protected abstract ConditionValue xgetCValueTownKatakana();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_Equal(String prefecture) {
@@ -799,7 +727,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_NotEqual(String prefecture) {
@@ -812,7 +740,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_GreaterThan(String prefecture) {
@@ -821,7 +749,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_LessThan(String prefecture) {
@@ -830,7 +758,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_GreaterEqual(String prefecture) {
@@ -839,7 +767,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_LessEqual(String prefecture) {
@@ -848,7 +776,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefectureList The collection of prefecture as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_InScope(Collection<String> prefectureList) {
@@ -861,7 +789,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefectureList The collection of prefecture as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrefecture_NotInScope(Collection<String> prefectureList) {
@@ -874,7 +802,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture: {varchar(20)} <br>
+     * prefecture: {NotNull, varchar(20)} <br>
      * <pre>e.g. setPrefecture_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param prefecture The value of prefecture as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -885,7 +813,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture: {varchar(20)} <br>
+     * prefecture: {NotNull, varchar(20)} <br>
      * <pre>e.g. setPrefecture_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param prefecture The value of prefecture as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -897,7 +825,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -908,7 +836,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * prefecture: {varchar(20)}
+     * prefecture: {NotNull, varchar(20)}
      * @param prefecture The value of prefecture as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -916,30 +844,12 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(prefecture), xgetCValuePrefecture(), "prefecture", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
-     */
-    public void setPrefecture_IsNull() { regPrefecture(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
-     */
-    public void setPrefecture_IsNullOrEmpty() { regPrefecture(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * prefecture: {varchar(20)}
-     */
-    public void setPrefecture_IsNotNull() { regPrefecture(CK_ISNN, DOBJ); }
-
     protected void regPrefecture(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePrefecture(), "prefecture"); }
     protected abstract ConditionValue xgetCValuePrefecture();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_Equal(String city) {
@@ -952,7 +862,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_NotEqual(String city) {
@@ -965,7 +875,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_GreaterThan(String city) {
@@ -974,7 +884,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_LessThan(String city) {
@@ -983,7 +893,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_GreaterEqual(String city) {
@@ -992,7 +902,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_LessEqual(String city) {
@@ -1001,7 +911,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param cityList The collection of city as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_InScope(Collection<String> cityList) {
@@ -1014,7 +924,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param cityList The collection of city as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCity_NotInScope(Collection<String> cityList) {
@@ -1027,7 +937,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city: {varchar(20)} <br>
+     * city: {NotNull, varchar(20)} <br>
      * <pre>e.g. setCity_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param city The value of city as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -1038,7 +948,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city: {varchar(20)} <br>
+     * city: {NotNull, varchar(20)} <br>
      * <pre>e.g. setCity_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param city The value of city as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -1050,7 +960,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1061,7 +971,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * city: {varchar(20)}
+     * city: {NotNull, varchar(20)}
      * @param city The value of city as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -1069,30 +979,12 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
         regLSQ(CK_NLS, fRES(city), xgetCValueCity(), "city", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
-     */
-    public void setCity_IsNull() { regCity(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
-     */
-    public void setCity_IsNullOrEmpty() { regCity(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * city: {varchar(20)}
-     */
-    public void setCity_IsNotNull() { regCity(CK_ISNN, DOBJ); }
-
     protected void regCity(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCity(), "city"); }
     protected abstract ConditionValue xgetCValueCity();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_Equal(String town) {
@@ -1105,7 +997,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_NotEqual(String town) {
@@ -1118,7 +1010,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_GreaterThan(String town) {
@@ -1127,7 +1019,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_LessThan(String town) {
@@ -1136,7 +1028,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_GreaterEqual(String town) {
@@ -1145,7 +1037,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_LessEqual(String town) {
@@ -1154,7 +1046,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param townList The collection of town as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_InScope(Collection<String> townList) {
@@ -1167,7 +1059,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param townList The collection of town as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTown_NotInScope(Collection<String> townList) {
@@ -1180,7 +1072,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town: {varchar(50)} <br>
+     * town: {NotNull, varchar(50)} <br>
      * <pre>e.g. setTown_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param town The value of town as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -1191,7 +1083,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town: {varchar(50)} <br>
+     * town: {NotNull, varchar(50)} <br>
      * <pre>e.g. setTown_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param town The value of town as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -1203,7 +1095,7 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1214,31 +1106,13 @@ public abstract class AbstractBsPostCodeDataCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * town: {varchar(50)}
+     * town: {NotNull, varchar(50)}
      * @param town The value of town as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setTown_NotLikeSearch(String town, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(town), xgetCValueTown(), "town", likeSearchOption);
     }
-
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
-     */
-    public void setTown_IsNull() { regTown(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
-     */
-    public void setTown_IsNullOrEmpty() { regTown(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * town: {varchar(50)}
-     */
-    public void setTown_IsNotNull() { regTown(CK_ISNN, DOBJ); }
 
     protected void regTown(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTown(), "town"); }
     protected abstract ConditionValue xgetCValueTown();

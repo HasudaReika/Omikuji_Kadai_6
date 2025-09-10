@@ -1,4 +1,4 @@
-package omikuji6.dbflute.bsentity.dbmeta;
+package omikuji6.dbflute.bsentity.customize.dbmeta;
 
 import java.util.List;
 import java.util.Map;
@@ -10,20 +10,20 @@ import org.dbflute.dbmeta.name.*;
 import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import omikuji6.dbflute.allcommon.*;
-import omikuji6.dbflute.exentity.*;
+import omikuji6.dbflute.exentity.customize.*;
 
 /**
- * The DB meta of post_code_data. (Singleton)
+ * The DB meta of Address. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class PostCodeDataDbm extends AbstractDBMeta {
+public class AddressDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final PostCodeDataDbm _instance = new PostCodeDataDbm();
-    private PostCodeDataDbm() {}
-    public static PostCodeDataDbm getInstance() { return _instance; }
+    private static final AddressDbm _instance = new AddressDbm();
+    private AddressDbm() {}
+    public static AddressDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -42,14 +42,9 @@ public class PostCodeDataDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getId(), (et, vl) -> ((PostCodeData)et).setId(cti(vl)), "id");
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getPostCode(), (et, vl) -> ((PostCodeData)et).setPostCode((String)vl), "postCode");
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getPrefectureKatakana(), (et, vl) -> ((PostCodeData)et).setPrefectureKatakana((String)vl), "prefectureKatakana");
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getCityKatakana(), (et, vl) -> ((PostCodeData)et).setCityKatakana((String)vl), "cityKatakana");
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getTownKatakana(), (et, vl) -> ((PostCodeData)et).setTownKatakana((String)vl), "townKatakana");
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getPrefecture(), (et, vl) -> ((PostCodeData)et).setPrefecture((String)vl), "prefecture");
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getCity(), (et, vl) -> ((PostCodeData)et).setCity((String)vl), "city");
-        setupEpg(_epgMap, et -> ((PostCodeData)et).getTown(), (et, vl) -> ((PostCodeData)et).setTown((String)vl), "town");
+        setupEpg(_epgMap, et -> ((Address)et).getPrefecture(), (et, vl) -> ((Address)et).setPrefecture((String)vl), "prefecture");
+        setupEpg(_epgMap, et -> ((Address)et).getCity(), (et, vl) -> ((Address)et).setCity((String)vl), "city");
+        setupEpg(_epgMap, et -> ((Address)et).getTown(), (et, vl) -> ((Address)et).setTown((String)vl), "town");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -57,10 +52,10 @@ public class PostCodeDataDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "post_code_data";
-    protected final String _tableDispName = "post_code_data";
-    protected final String _tablePropertyName = "postCodeData";
-    protected final TableSqlName _tableSqlName = new TableSqlName("post_code_data", _tableDbName);
+    protected final String _tableDbName = "Address";
+    protected final String _tableDispName = "Address";
+    protected final String _tablePropertyName = "address";
+    protected final TableSqlName _tableSqlName = new TableSqlName("Address", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -70,63 +65,28 @@ public class PostCodeDataDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnId = cci("id", "id", null, null, Integer.class, "id", null, true, true, true, "serial", 10, 0, null, "nextval('post_code_data_id_seq'::regclass)", false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPostCode = cci("post_code", "post_code", null, null, String.class, "postCode", null, false, false, true, "varchar", 7, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPrefectureKatakana = cci("prefecture_katakana", "prefecture_katakana", null, null, String.class, "prefectureKatakana", null, false, false, true, "varchar", 30, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnCityKatakana = cci("city_katakana", "city_katakana", null, null, String.class, "cityKatakana", null, false, false, true, "varchar", 40, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTownKatakana = cci("town_katakana", "town_katakana", null, null, String.class, "townKatakana", null, false, false, true, "varchar", 60, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPrefecture = cci("prefecture", "prefecture", null, null, String.class, "prefecture", null, false, false, true, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnCity = cci("city", "city", null, null, String.class, "city", null, false, false, true, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTown = cci("town", "town", null, null, String.class, "town", null, false, false, true, "varchar", 50, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPrefecture = cci("prefecture", "prefecture", null, null, String.class, "prefecture", null, false, false, false, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCity = cci("city", "city", null, null, String.class, "city", null, false, false, false, "varchar", 20, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTown = cci("town", "town", null, null, String.class, "town", null, false, false, false, "varchar", 50, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * id: {PK, ID, NotNull, serial(10)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnId() { return _columnId; }
-    /**
-     * post_code: {NotNull, varchar(7)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnPostCode() { return _columnPostCode; }
-    /**
-     * prefecture_katakana: {NotNull, varchar(30)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnPrefectureKatakana() { return _columnPrefectureKatakana; }
-    /**
-     * city_katakana: {NotNull, varchar(40)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnCityKatakana() { return _columnCityKatakana; }
-    /**
-     * town_katakana: {NotNull, varchar(60)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnTownKatakana() { return _columnTownKatakana; }
-    /**
-     * prefecture: {NotNull, varchar(20)}
+     * prefecture: {varchar(20), refers to post_code_data.prefecture}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnPrefecture() { return _columnPrefecture; }
     /**
-     * city: {NotNull, varchar(20)}
+     * city: {varchar(20), refers to post_code_data.city}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnCity() { return _columnCity; }
     /**
-     * town: {NotNull, varchar(50)}
+     * town: {varchar(50), refers to post_code_data.town}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTown() { return _columnTown; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnId());
-        ls.add(columnPostCode());
-        ls.add(columnPrefectureKatakana());
-        ls.add(columnCityKatakana());
-        ls.add(columnTownKatakana());
         ls.add(columnPrefecture());
         ls.add(columnCity());
         ls.add(columnTown());
@@ -141,8 +101,10 @@ public class PostCodeDataDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnId()); }
-    public boolean hasPrimaryKey() { return true; }
+    protected UniqueInfo cpui() {
+        throw new UnsupportedOperationException("The table does not have primary key: " + getTableDbName());
+    }
+    public boolean hasPrimaryKey() { return false; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
     // ===================================================================================
@@ -161,35 +123,31 @@ public class PostCodeDataDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
-    public boolean hasSequence() { return true; }
-    public String getSequenceName() { return "post_code_data_id_seq"; }
-    public Integer getSequenceIncrementSize() { return 1; }
-    public Integer getSequenceCacheSize() { return null; }
 
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "omikuji6.dbflute.exentity.PostCodeData"; }
-    public String getConditionBeanTypeName() { return "omikuji6.dbflute.cbean.PostCodeDataCB"; }
-    public String getBehaviorTypeName() { return "omikuji6.dbflute.exbhv.PostCodeDataBhv"; }
+    public String getEntityTypeName() { return "omikuji6.dbflute.exentity.customize.Address"; }
+    public String getConditionBeanTypeName() { return null; }
+    public String getBehaviorTypeName() { return null; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<PostCodeData> getEntityType() { return PostCodeData.class; }
+    public Class<Address> getEntityType() { return Address.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public PostCodeData newEntity() { return new PostCodeData(); }
+    public Address newEntity() { return new Address(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((PostCodeData)et, mp); }
+    { doAcceptPrimaryKeyMap((Address)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((PostCodeData)et, mp); }
+    { doAcceptAllColumnMap((Address)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

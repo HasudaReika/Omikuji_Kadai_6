@@ -164,4 +164,48 @@ public class PostAction {
 
 	}
 
+	/**
+	 * 途中まで入力された住所文字列から住所を取得
+	 * @return
+	 */
+	@Execute(validator = false)
+	public String addressCompletement() {
+		//途中まで入力された住所を取得
+		String address = postForm.address;
+		//途中まで入力された住所文字列を含む住所を検索
+		List<PostCodeData> fullAddressList = omikujiService.addressComplete(address);
+		// 該当する郵便番号がなかった場合
+		if (fullAddressList.isEmpty()) {
+			// nullを返す
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			ResponseUtil.write("null");
+			return null;
+		}
+
+		//取得した住所リストをjson形式に変換
+		//住所をListに格納
+		String fullAddress;
+		List<String> addressList = new ArrayList<String>();
+		for (PostCodeData data : fullAddressList) {
+			fullAddress = data.getPrefecture() + data.getCity() + data.getTown();
+			addressList.add(fullAddress);
+		}
+		//ObjectMapperインスタンス作成
+		ObjectMapper objectMapper = new ObjectMapper();
+		String fullAddressJson = null;
+		//json形式に変換
+		try {
+			fullAddressJson = objectMapper.writeValueAsString(addressList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		//jsonを返す
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		ResponseUtil.write(fullAddressJson);
+
+		return null;
+	}
 }

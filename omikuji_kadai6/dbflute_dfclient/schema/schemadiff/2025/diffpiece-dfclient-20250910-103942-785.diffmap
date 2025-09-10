@@ -1,0 +1,125 @@
+map:{
+    ; 2025/09/10 10:39:42.785 = map:{
+        ; diffDate = 2025/09/10 10:39:42.785
+        ; diffAuthor = r_hasuda
+        ; diffGitBranch = main
+        ; tableDiff = map:{
+            ; post_code_data = map:{
+                ; tableName = post_code_data
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; post_code = map:{
+                        ; columnName = post_code
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; prefecture_katakana = map:{
+                        ; columnName = prefecture_katakana
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; city_katakana = map:{
+                        ; columnName = city_katakana
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; town_katakana = map:{
+                        ; columnName = town_katakana
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; prefecture = map:{
+                        ; columnName = prefecture
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; city = map:{
+                        ; columnName = city
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; town = map:{
+                        ; columnName = town
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+            ; shipping = map:{
+                ; tableName = shipping
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; post_code = map:{
+                        ; columnName = post_code
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; address = map:{
+                        ; columnName = address
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; name = map:{
+                        ; columnName = name
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; phone = map:{
+                        ; columnName = phone
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; mail = map:{
+                        ; columnName = mail
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                    ; updated_date = map:{
+                        ; columnName = updated_date
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

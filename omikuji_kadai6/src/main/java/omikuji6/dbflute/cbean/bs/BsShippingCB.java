@@ -328,32 +328,32 @@ public class BsShippingCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnResultCode() { return doColumn("result_code"); }
         /**
-         * post_code: {varchar(7)}
+         * post_code: {NotNull, varchar(7)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPostCode() { return doColumn("post_code"); }
         /**
-         * address: {varchar(200)}
+         * address: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnAddress() { return doColumn("address"); }
         /**
-         * name: {varchar(30)}
+         * name: {NotNull, varchar(30)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnName() { return doColumn("name"); }
         /**
-         * phone: {varchar(11)}
+         * phone: {NotNull, varchar(11)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPhone() { return doColumn("phone"); }
         /**
-         * mail: {varchar(200)}
+         * mail: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMail() { return doColumn("mail"); }
         /**
-         * updated_date: {date(13)}
+         * updated_date: {NotNull, date(13)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdatedDate() { return doColumn("updated_date"); }
