@@ -52,8 +52,14 @@ public class PostAction {
 	 */
 	@Execute(validator = true, input = "index.jsp")
 	public String submit() {
-		//トークンをチェック
-		if (!TokenProcessor.getInstance().isTokenValid(request, true)) {
+		//セッションからおみくじ結果コードを取得
+		Integer resultCode = (Integer) session.getAttribute("resultCode");
+
+		if (resultCode == null) {
+			//セッションが切れた場合はその旨を表示するページに遷移
+			return "session_expired.jsp";
+		} else if (!TokenProcessor.getInstance().isTokenValid(request, true)) {
+			//トークンをチェック
 			//既に登録済みの場合
 			return "already_submitted.jsp";
 		}
@@ -65,8 +71,6 @@ public class PostAction {
 		list.add(postForm.getName());
 		list.add(postForm.getPhone());
 		list.add(postForm.getMail());
-		//セッションからおみくじ結果コードを取得
-		Integer resultCode = (Integer) session.getAttribute("resultCode");
 
 		//郵送テーブルに登録
 		omikujiService.recordShipping(resultCode, list);
